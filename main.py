@@ -4,6 +4,75 @@ import ply.lex as lex
 # Construir el analizador léxico
 lexer = lex.lex()
 
+tokens = (
+  'IDENTIFIER',
+  'NUMBER',
+  'PLUS',
+  'MINUS',
+  'TIMES',
+  'DIVIDE',
+  'LPAREN',
+  'RPAREN',
+  'LBRACE',
+  'RBRACE',
+  'SEMICOLON',
+  'STRING',
+  'BOOLEAN',
+  'NULL',
+  'KEYWORD',
+  'COMMENT',
+  'BLOCKCOMMENT'
+    
+    
+    )
+
+keywords = {
+  'var': 'VAR',
+  'int': 'INT',
+  'double': 'DOUBLE',
+  'String': 'STRING_TYPE',
+  'bool': 'BOOLEAN_TYPE',
+  'true': 'BOOLEAN',
+  'false': 'BOOLEAN',
+  'null': 'NULL',
+  'if': 'IF',
+  'else': 'ELSE',
+  'while': 'WHILE'
+  }
+
+tokens += tuple(keywords.values())
+
+
+t_PLUS = r'\+'
+t_MINUS = r'-'
+t_TIMES = r'\*'
+t_DIVIDE = r'/'
+t_LPAREN = r'\('
+t_RPAREN = r'\)'
+t_LBRACE = r'\{'
+
+
+def t_NUMBER(t):
+  r'\d+(\.\d+)?'
+  t.value = float(t.value) if '.' in t.value else int(t.value)
+  return t
+
+
+def t_STRING(t):
+  r'\"(\\.|[^"])*\"'
+  t.value = t.value[1:-1]  # Eliminar comillas
+  return t
+
+
+def t_COMMENT(t):
+  r'//.*'
+  pass
+
+
+def t_BLOCKCOMMENT(t):
+  r'/\*(.|\n)*?\*/'
+  pass
+
 # Ejemplo de entrada
 input_text = """
 void main() {
