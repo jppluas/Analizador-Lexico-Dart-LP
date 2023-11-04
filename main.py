@@ -107,7 +107,29 @@ void main() {
   print('Calculation: $calculation');
 }
 """
+# codigo de prueba Juan Gallo
+"""input_text = 
+int main() {
+    var x = 42;
+    double y = 3.14;
+    String hello = "Hello, World!";
+    bool isTrue = true;
+    if (isTrue) {
+        print(hello);
+    } else {
+        print("Not true");
+    }
+    return null;
 
+    // Operadores y literales de colección
+    var list = [1, 2, 3];
+    var set = {'apple', 'banana'};
+    var map = {'name': 'Alice', 'age': 30};
+
+    // Comentarios de bloque
+    /* Este es un comentario de bloque */
+}
+"""
 # Configurar el analizador léxico con la entrada
 lexer.input(input_text)
 
