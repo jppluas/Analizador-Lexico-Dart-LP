@@ -68,7 +68,37 @@ keywords = {
   'implements': 'IMPLEMENTS',
   'show': 'SHOW',
   'as': 'AS',
-
+  #Aporte de Juan Pablo Plúas
+  'import': 'IMPORT',
+  'static': 'STATIC',
+  'assert': 'ASSERT',
+  'enum': 'ENUM',
+  'in': 'IN',
+  'super': 'SUPER',
+  'async': 'ASYNC',
+  'export': 'EXPORT',
+  'interface': 'INTERFACE',
+  'await': 'AWAIT',
+  'extends': 'EXTENDS',
+  'is': 'IS',
+  'sync': 'SYNC',
+  'external': 'EXTERNAL',
+  'library': 'LIBRARY',
+  'on': 'ON',
+  'typedef': 'TYPEDEF',
+  'default': 'DEFAULT',
+  'get': 'GET',
+  'rethrow': 'RETHROW',
+  'deferred': 'DEFERRED',
+  'hide': 'HIDE',
+  'do': 'DO',
+  'set': 'SET',
+  'yield': 'YIELD',
+  'extension': 'EXTENSION',
+  'late': 'LATE',
+  'operator': 'OPERATOR',
+  'part': 'PART',
+  'with': 'WITH'
 }
 
 tokens += tuple(keywords.values())
