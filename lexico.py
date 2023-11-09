@@ -34,7 +34,8 @@ tokens = (
   'DOT',
   'LOGICAL_AND',
   'LOGICAL_OR', 
-  'LOGICAL_NOT'
+  'LOGICAL_NOT',
+  'QUESTION_MARK'
   )
 
 keywords = {
@@ -48,6 +49,8 @@ keywords = {
   'List': 'LIST_TYPE',
   'Map': 'MAP_TYPE',
   'Set': 'SET_TYPE',
+  'Queue' : 'QUEUE_TYPE',
+  'enmu' : 'ENUM_TYPE',
   'true': 'TRUE',
   'false': 'FALSE',
   'null': 'NULL',
@@ -70,6 +73,8 @@ keywords = {
   'as': 'AS',
   'print' : 'PRINT',
   #Aporte de Juan Pablo Plúas
+  'final' : 'FINAL',
+  'conts' : 'CONST',
   'import': 'IMPORT',
   'static': 'STATIC',
   'assert': 'ASSERT',
@@ -130,6 +135,7 @@ t_LESS_EQUAL = r'<='
 t_LOGICAL_AND = r'\&\&'
 t_LOGICAL_OR = r'\|\|'
 t_LOGICAL_NOT = r'\!'
+t_QUESTION_MARK = r'\?'
 
 #Aporte de Juan Pablo Plúas
 def t_DOUBLE(t):

@@ -1,0 +1,1246 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ABSTRACT
+    AS
+    ASSERT
+    ASYNC
+    AWAIT
+    BREAK
+    CASE
+    CATCH
+    COLON
+    CONTINUE
+    DEFAULT
+    DEFERRED
+    DO
+    DOT
+    ELSE
+    ENUM
+    EQUAL
+    EXPORT
+    EXTENDS
+    EXTENSION
+    EXTERNAL
+    FALSE
+    FINALLY
+    FOR
+    GET
+    GREATER
+    GREATER_EQUAL
+    HIDE
+    IF
+    IMPLEMENTS
+    IMPORT
+    IN
+    INTERFACE
+    IS
+    KEYWORD
+    LBRACE
+    LESS
+    LESS_EQUAL
+    LIBRARY
+    LOGICAL_AND
+    LOGICAL_NOT
+    LOGICAL_OR
+    NOT_EQUAL
+    NULL
+    ON
+    OPERATOR
+    PART
+    RBRACE
+    RETHROW
+    RETURN
+    SET
+    SHOW
+    STATIC
+    SUPER
+    SWITCH
+    SYNC
+    THROW
+    TRUE
+    TRY
+    TYPEDEF
+    WHILE
+    WITH
+    YIELD
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> assignment
+Rule 2     statement -> print
+Rule 3     statement -> comment
+Rule 4     expresion -> value
+Rule 5     expresion -> expresion op expresion
+Rule 6     expresion -> expresion op value
+Rule 7     expresion -> value op value
+Rule 8     expresion -> LPAREN expresion op expresion RPAREN
+Rule 9     expresion -> LPAREN expresion op value RPAREN
+Rule 10    expresion -> LPAREN value op value RPAREN
+Rule 11    op -> PLUS
+Rule 12    op -> MINUS
+Rule 13    op -> TIMES
+Rule 14    op -> DIVIDE
+Rule 15    assignment -> modifier type QUESTION_MARK IDENTIFIER ASSIGN expresion SEMICOLON
+Rule 16    print -> PRINT LPAREN expresion RPAREN SEMICOLON
+Rule 17    list -> LSQUARE RSQUARE
+Rule 18    list -> LSQUARE values RSQUARE
+Rule 19    comment -> COMMENT
+Rule 20    comment -> BLOCKCOMMENT
+Rule 21    type -> INTEGER_TYPE
+Rule 22    type -> DOUBLE_TYPE
+Rule 23    type -> BOOLEAN_TYPE
+Rule 24    type -> QUEUE_TYPE
+Rule 25    type -> STRING_TYPE
+Rule 26    type -> ENUM_TYPE
+Rule 27    type -> VAR
+Rule 28    type -> LIST_TYPE
+Rule 29    type -> MAP_TYPE
+Rule 30    type -> SET_TYPE
+Rule 31    type -> DYNAMIC_TYPE
+Rule 32    modifier -> LATE
+Rule 33    modifier -> FINAL
+Rule 34    modifier -> CONST
+Rule 35    value -> INTEGER
+Rule 36    value -> DOUBLE
+Rule 37    value -> STRING
+Rule 38    value -> BOOLEAN
+Rule 39    value -> list
+Rule 40    values -> value
+Rule 41    values -> value COMMA values
+
+Terminals, with rules where they appear
+
+ABSTRACT             : 
+AS                   : 
+ASSERT               : 
+ASSIGN               : 15
+ASYNC                : 
+AWAIT                : 
+BLOCKCOMMENT         : 20
+BOOLEAN              : 38
+BOOLEAN_TYPE         : 23
+BREAK                : 
+CASE                 : 
+CATCH                : 
+COLON                : 
+COMMA                : 41
+COMMENT              : 19
+CONST                : 34
+CONTINUE             : 
+DEFAULT              : 
+DEFERRED             : 
+DIVIDE               : 14
+DO                   : 
+DOT                  : 
+DOUBLE               : 36
+DOUBLE_TYPE          : 22
+DYNAMIC_TYPE         : 31
+ELSE                 : 
+ENUM                 : 
+ENUM_TYPE            : 26
+EQUAL                : 
+EXPORT               : 
+EXTENDS              : 
+EXTENSION            : 
+EXTERNAL             : 
+FALSE                : 
+FINAL                : 33
+FINALLY              : 
+FOR                  : 
+GET                  : 
+GREATER              : 
+GREATER_EQUAL        : 
+HIDE                 : 
+IDENTIFIER           : 15
+IF                   : 
+IMPLEMENTS           : 
+IMPORT               : 
+IN                   : 
+INTEGER              : 35
+INTEGER_TYPE         : 21
+INTERFACE            : 
+IS                   : 
+KEYWORD              : 
+LATE                 : 32
+LBRACE               : 
+LESS                 : 
+LESS_EQUAL           : 
+LIBRARY              : 
+LIST_TYPE            : 28
+LOGICAL_AND          : 
+LOGICAL_NOT          : 
+LOGICAL_OR           : 
+LPAREN               : 8 9 10 16
+LSQUARE              : 17 18
+MAP_TYPE             : 29
+MINUS                : 12
+NOT_EQUAL            : 
+NULL                 : 
+ON                   : 
+OPERATOR             : 
+PART                 : 
+PLUS                 : 11
+PRINT                : 16
+QUESTION_MARK        : 15
+QUEUE_TYPE           : 24
+RBRACE               : 
+RETHROW              : 
+RETURN               : 
+RPAREN               : 8 9 10 16
+RSQUARE              : 17 18
+SEMICOLON            : 15 16
+SET                  : 
+SET_TYPE             : 30
+SHOW                 : 
+STATIC               : 
+STRING               : 37
+STRING_TYPE          : 25
+SUPER                : 
+SWITCH               : 
+SYNC                 : 
+THROW                : 
+TIMES                : 13
+TRUE                 : 
+TRY                  : 
+TYPEDEF              : 
+VAR                  : 27
+WHILE                : 
+WITH                 : 
+YIELD                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+assignment           : 1
+comment              : 3
+expresion            : 5 5 6 8 8 9 15 16
+list                 : 39
+modifier             : 15
+op                   : 5 6 7 8 9 10
+print                : 2
+statement            : 0
+type                 : 15
+value                : 4 6 7 7 9 10 10 40 41
+values               : 18 41
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . assignment
+    (2) statement -> . print
+    (3) statement -> . comment
+    (15) assignment -> . modifier type QUESTION_MARK IDENTIFIER ASSIGN expresion SEMICOLON
+    (16) print -> . PRINT LPAREN expresion RPAREN SEMICOLON
+    (19) comment -> . COMMENT
+    (20) comment -> . BLOCKCOMMENT
+    (32) modifier -> . LATE
+    (33) modifier -> . FINAL
+    (34) modifier -> . CONST
+
+    PRINT           shift and go to state 6
+    COMMENT         shift and go to state 7
+    BLOCKCOMMENT    shift and go to state 8
+    LATE            shift and go to state 9
+    FINAL           shift and go to state 10
+    CONST           shift and go to state 11
+
+    statement                      shift and go to state 1
+    assignment                     shift and go to state 2
+    print                          shift and go to state 3
+    comment                        shift and go to state 4
+    modifier                       shift and go to state 5
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> assignment .
+
+    $end            reduce using rule 1 (statement -> assignment .)
+
+
+state 3
+
+    (2) statement -> print .
+
+    $end            reduce using rule 2 (statement -> print .)
+
+
+state 4
+
+    (3) statement -> comment .
+
+    $end            reduce using rule 3 (statement -> comment .)
+
+
+state 5
+
+    (15) assignment -> modifier . type QUESTION_MARK IDENTIFIER ASSIGN expresion SEMICOLON
+    (21) type -> . INTEGER_TYPE
+    (22) type -> . DOUBLE_TYPE
+    (23) type -> . BOOLEAN_TYPE
+    (24) type -> . QUEUE_TYPE
+    (25) type -> . STRING_TYPE
+    (26) type -> . ENUM_TYPE
+    (27) type -> . VAR
+    (28) type -> . LIST_TYPE
+    (29) type -> . MAP_TYPE
+    (30) type -> . SET_TYPE
+    (31) type -> . DYNAMIC_TYPE
+
+    INTEGER_TYPE    shift and go to state 13
+    DOUBLE_TYPE     shift and go to state 14
+    BOOLEAN_TYPE    shift and go to state 15
+    QUEUE_TYPE      shift and go to state 16
+    STRING_TYPE     shift and go to state 17
+    ENUM_TYPE       shift and go to state 18
+    VAR             shift and go to state 19
+    LIST_TYPE       shift and go to state 20
+    MAP_TYPE        shift and go to state 21
+    SET_TYPE        shift and go to state 22
+    DYNAMIC_TYPE    shift and go to state 23
+
+    type                           shift and go to state 12
+
+state 6
+
+    (16) print -> PRINT . LPAREN expresion RPAREN SEMICOLON
+
+    LPAREN          shift and go to state 24
+
+
+state 7
+
+    (19) comment -> COMMENT .
+
+    $end            reduce using rule 19 (comment -> COMMENT .)
+
+
+state 8
+
+    (20) comment -> BLOCKCOMMENT .
+
+    $end            reduce using rule 20 (comment -> BLOCKCOMMENT .)
+
+
+state 9
+
+    (32) modifier -> LATE .
+
+    INTEGER_TYPE    reduce using rule 32 (modifier -> LATE .)
+    DOUBLE_TYPE     reduce using rule 32 (modifier -> LATE .)
+    BOOLEAN_TYPE    reduce using rule 32 (modifier -> LATE .)
+    QUEUE_TYPE      reduce using rule 32 (modifier -> LATE .)
+    STRING_TYPE     reduce using rule 32 (modifier -> LATE .)
+    ENUM_TYPE       reduce using rule 32 (modifier -> LATE .)
+    VAR             reduce using rule 32 (modifier -> LATE .)
+    LIST_TYPE       reduce using rule 32 (modifier -> LATE .)
+    MAP_TYPE        reduce using rule 32 (modifier -> LATE .)
+    SET_TYPE        reduce using rule 32 (modifier -> LATE .)
+    DYNAMIC_TYPE    reduce using rule 32 (modifier -> LATE .)
+
+
+state 10
+
+    (33) modifier -> FINAL .
+
+    INTEGER_TYPE    reduce using rule 33 (modifier -> FINAL .)
+    DOUBLE_TYPE     reduce using rule 33 (modifier -> FINAL .)
+    BOOLEAN_TYPE    reduce using rule 33 (modifier -> FINAL .)
+    QUEUE_TYPE      reduce using rule 33 (modifier -> FINAL .)
+    STRING_TYPE     reduce using rule 33 (modifier -> FINAL .)
+    ENUM_TYPE       reduce using rule 33 (modifier -> FINAL .)
+    VAR             reduce using rule 33 (modifier -> FINAL .)
+    LIST_TYPE       reduce using rule 33 (modifier -> FINAL .)
+    MAP_TYPE        reduce using rule 33 (modifier -> FINAL .)
+    SET_TYPE        reduce using rule 33 (modifier -> FINAL .)
+    DYNAMIC_TYPE    reduce using rule 33 (modifier -> FINAL .)
+
+
+state 11
+
+    (34) modifier -> CONST .
+
+    INTEGER_TYPE    reduce using rule 34 (modifier -> CONST .)
+    DOUBLE_TYPE     reduce using rule 34 (modifier -> CONST .)
+    BOOLEAN_TYPE    reduce using rule 34 (modifier -> CONST .)
+    QUEUE_TYPE      reduce using rule 34 (modifier -> CONST .)
+    STRING_TYPE     reduce using rule 34 (modifier -> CONST .)
+    ENUM_TYPE       reduce using rule 34 (modifier -> CONST .)
+    VAR             reduce using rule 34 (modifier -> CONST .)
+    LIST_TYPE       reduce using rule 34 (modifier -> CONST .)
+    MAP_TYPE        reduce using rule 34 (modifier -> CONST .)
+    SET_TYPE        reduce using rule 34 (modifier -> CONST .)
+    DYNAMIC_TYPE    reduce using rule 34 (modifier -> CONST .)
+
+
+state 12
+
+    (15) assignment -> modifier type . QUESTION_MARK IDENTIFIER ASSIGN expresion SEMICOLON
+
+    QUESTION_MARK   shift and go to state 25
+
+
+state 13
+
+    (21) type -> INTEGER_TYPE .
+
+    QUESTION_MARK   reduce using rule 21 (type -> INTEGER_TYPE .)
+
+
+state 14
+
+    (22) type -> DOUBLE_TYPE .
+
+    QUESTION_MARK   reduce using rule 22 (type -> DOUBLE_TYPE .)
+
+
+state 15
+
+    (23) type -> BOOLEAN_TYPE .
+
+    QUESTION_MARK   reduce using rule 23 (type -> BOOLEAN_TYPE .)
+
+
+state 16
+
+    (24) type -> QUEUE_TYPE .
+
+    QUESTION_MARK   reduce using rule 24 (type -> QUEUE_TYPE .)
+
+
+state 17
+
+    (25) type -> STRING_TYPE .
+
+    QUESTION_MARK   reduce using rule 25 (type -> STRING_TYPE .)
+
+
+state 18
+
+    (26) type -> ENUM_TYPE .
+
+    QUESTION_MARK   reduce using rule 26 (type -> ENUM_TYPE .)
+
+
+state 19
+
+    (27) type -> VAR .
+
+    QUESTION_MARK   reduce using rule 27 (type -> VAR .)
+
+
+state 20
+
+    (28) type -> LIST_TYPE .
+
+    QUESTION_MARK   reduce using rule 28 (type -> LIST_TYPE .)
+
+
+state 21
+
+    (29) type -> MAP_TYPE .
+
+    QUESTION_MARK   reduce using rule 29 (type -> MAP_TYPE .)
+
+
+state 22
+
+    (30) type -> SET_TYPE .
+
+    QUESTION_MARK   reduce using rule 30 (type -> SET_TYPE .)
+
+
+state 23
+
+    (31) type -> DYNAMIC_TYPE .
+
+    QUESTION_MARK   reduce using rule 31 (type -> DYNAMIC_TYPE .)
+
+
+state 24
+
+    (16) print -> PRINT LPAREN . expresion RPAREN SEMICOLON
+    (4) expresion -> . value
+    (5) expresion -> . expresion op expresion
+    (6) expresion -> . expresion op value
+    (7) expresion -> . value op value
+    (8) expresion -> . LPAREN expresion op expresion RPAREN
+    (9) expresion -> . LPAREN expresion op value RPAREN
+    (10) expresion -> . LPAREN value op value RPAREN
+    (35) value -> . INTEGER
+    (36) value -> . DOUBLE
+    (37) value -> . STRING
+    (38) value -> . BOOLEAN
+    (39) value -> . list
+    (17) list -> . LSQUARE RSQUARE
+    (18) list -> . LSQUARE values RSQUARE
+
+    LPAREN          shift and go to state 26
+    INTEGER         shift and go to state 29
+    DOUBLE          shift and go to state 30
+    STRING          shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    LSQUARE         shift and go to state 34
+
+    expresion                      shift and go to state 27
+    value                          shift and go to state 28
+    list                           shift and go to state 33
+
+state 25
+
+    (15) assignment -> modifier type QUESTION_MARK . IDENTIFIER ASSIGN expresion SEMICOLON
+
+    IDENTIFIER      shift and go to state 35
+
+
+state 26
+
+    (8) expresion -> LPAREN . expresion op expresion RPAREN
+    (9) expresion -> LPAREN . expresion op value RPAREN
+    (10) expresion -> LPAREN . value op value RPAREN
+    (4) expresion -> . value
+    (5) expresion -> . expresion op expresion
+    (6) expresion -> . expresion op value
+    (7) expresion -> . value op value
+    (8) expresion -> . LPAREN expresion op expresion RPAREN
+    (9) expresion -> . LPAREN expresion op value RPAREN
+    (10) expresion -> . LPAREN value op value RPAREN
+    (35) value -> . INTEGER
+    (36) value -> . DOUBLE
+    (37) value -> . STRING
+    (38) value -> . BOOLEAN
+    (39) value -> . list
+    (17) list -> . LSQUARE RSQUARE
+    (18) list -> . LSQUARE values RSQUARE
+
+    LPAREN          shift and go to state 26
+    INTEGER         shift and go to state 29
+    DOUBLE          shift and go to state 30
+    STRING          shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    LSQUARE         shift and go to state 34
+
+    expresion                      shift and go to state 36
+    value                          shift and go to state 37
+    list                           shift and go to state 33
+
+state 27
+
+    (16) print -> PRINT LPAREN expresion . RPAREN SEMICOLON
+    (5) expresion -> expresion . op expresion
+    (6) expresion -> expresion . op value
+    (11) op -> . PLUS
+    (12) op -> . MINUS
+    (13) op -> . TIMES
+    (14) op -> . DIVIDE
+
+    RPAREN          shift and go to state 38
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+
+    op                             shift and go to state 39
+
+state 28
+
+    (4) expresion -> value .
+    (7) expresion -> value . op value
+    (11) op -> . PLUS
+    (12) op -> . MINUS
+    (13) op -> . TIMES
+    (14) op -> . DIVIDE
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    RPAREN          reduce using rule 4 (expresion -> value .)
+    SEMICOLON       reduce using rule 4 (expresion -> value .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+
+  ! PLUS            [ reduce using rule 4 (expresion -> value .) ]
+  ! MINUS           [ reduce using rule 4 (expresion -> value .) ]
+  ! TIMES           [ reduce using rule 4 (expresion -> value .) ]
+  ! DIVIDE          [ reduce using rule 4 (expresion -> value .) ]
+
+    op                             shift and go to state 44
+
+state 29
+
+    (35) value -> INTEGER .
+
+    PLUS            reduce using rule 35 (value -> INTEGER .)
+    MINUS           reduce using rule 35 (value -> INTEGER .)
+    TIMES           reduce using rule 35 (value -> INTEGER .)
+    DIVIDE          reduce using rule 35 (value -> INTEGER .)
+    RPAREN          reduce using rule 35 (value -> INTEGER .)
+    COMMA           reduce using rule 35 (value -> INTEGER .)
+    RSQUARE         reduce using rule 35 (value -> INTEGER .)
+    SEMICOLON       reduce using rule 35 (value -> INTEGER .)
+
+
+state 30
+
+    (36) value -> DOUBLE .
+
+    PLUS            reduce using rule 36 (value -> DOUBLE .)
+    MINUS           reduce using rule 36 (value -> DOUBLE .)
+    TIMES           reduce using rule 36 (value -> DOUBLE .)
+    DIVIDE          reduce using rule 36 (value -> DOUBLE .)
+    RPAREN          reduce using rule 36 (value -> DOUBLE .)
+    COMMA           reduce using rule 36 (value -> DOUBLE .)
+    RSQUARE         reduce using rule 36 (value -> DOUBLE .)
+    SEMICOLON       reduce using rule 36 (value -> DOUBLE .)
+
+
+state 31
+
+    (37) value -> STRING .
+
+    PLUS            reduce using rule 37 (value -> STRING .)
+    MINUS           reduce using rule 37 (value -> STRING .)
+    TIMES           reduce using rule 37 (value -> STRING .)
+    DIVIDE          reduce using rule 37 (value -> STRING .)
+    RPAREN          reduce using rule 37 (value -> STRING .)
+    COMMA           reduce using rule 37 (value -> STRING .)
+    RSQUARE         reduce using rule 37 (value -> STRING .)
+    SEMICOLON       reduce using rule 37 (value -> STRING .)
+
+
+state 32
+
+    (38) value -> BOOLEAN .
+
+    PLUS            reduce using rule 38 (value -> BOOLEAN .)
+    MINUS           reduce using rule 38 (value -> BOOLEAN .)
+    TIMES           reduce using rule 38 (value -> BOOLEAN .)
+    DIVIDE          reduce using rule 38 (value -> BOOLEAN .)
+    RPAREN          reduce using rule 38 (value -> BOOLEAN .)
+    COMMA           reduce using rule 38 (value -> BOOLEAN .)
+    RSQUARE         reduce using rule 38 (value -> BOOLEAN .)
+    SEMICOLON       reduce using rule 38 (value -> BOOLEAN .)
+
+
+state 33
+
+    (39) value -> list .
+
+    PLUS            reduce using rule 39 (value -> list .)
+    MINUS           reduce using rule 39 (value -> list .)
+    TIMES           reduce using rule 39 (value -> list .)
+    DIVIDE          reduce using rule 39 (value -> list .)
+    RPAREN          reduce using rule 39 (value -> list .)
+    COMMA           reduce using rule 39 (value -> list .)
+    RSQUARE         reduce using rule 39 (value -> list .)
+    SEMICOLON       reduce using rule 39 (value -> list .)
+
+
+state 34
+
+    (17) list -> LSQUARE . RSQUARE
+    (18) list -> LSQUARE . values RSQUARE
+    (40) values -> . value
+    (41) values -> . value COMMA values
+    (35) value -> . INTEGER
+    (36) value -> . DOUBLE
+    (37) value -> . STRING
+    (38) value -> . BOOLEAN
+    (39) value -> . list
+    (17) list -> . LSQUARE RSQUARE
+    (18) list -> . LSQUARE values RSQUARE
+
+    RSQUARE         shift and go to state 45
+    INTEGER         shift and go to state 29
+    DOUBLE          shift and go to state 30
+    STRING          shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    LSQUARE         shift and go to state 34
+
+    values                         shift and go to state 46
+    value                          shift and go to state 47
+    list                           shift and go to state 33
+
+state 35
+
+    (15) assignment -> modifier type QUESTION_MARK IDENTIFIER . ASSIGN expresion SEMICOLON
+
+    ASSIGN          shift and go to state 48
+
+
+state 36
+
+    (8) expresion -> LPAREN expresion . op expresion RPAREN
+    (9) expresion -> LPAREN expresion . op value RPAREN
+    (5) expresion -> expresion . op expresion
+    (6) expresion -> expresion . op value
+    (11) op -> . PLUS
+    (12) op -> . MINUS
+    (13) op -> . TIMES
+    (14) op -> . DIVIDE
+
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+
+    op                             shift and go to state 49
+
+state 37
+
+    (10) expresion -> LPAREN value . op value RPAREN
+    (4) expresion -> value .
+    (7) expresion -> value . op value
+    (11) op -> . PLUS
+    (12) op -> . MINUS
+    (13) op -> . TIMES
+    (14) op -> . DIVIDE
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+
+  ! PLUS            [ reduce using rule 4 (expresion -> value .) ]
+  ! MINUS           [ reduce using rule 4 (expresion -> value .) ]
+  ! TIMES           [ reduce using rule 4 (expresion -> value .) ]
+  ! DIVIDE          [ reduce using rule 4 (expresion -> value .) ]
+
+    op                             shift and go to state 50
+
+state 38
+
+    (16) print -> PRINT LPAREN expresion RPAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 51
+
+
+state 39
+
+    (5) expresion -> expresion op . expresion
+    (6) expresion -> expresion op . value
+    (4) expresion -> . value
+    (5) expresion -> . expresion op expresion
+    (6) expresion -> . expresion op value
+    (7) expresion -> . value op value
+    (8) expresion -> . LPAREN expresion op expresion RPAREN
+    (9) expresion -> . LPAREN expresion op value RPAREN
+    (10) expresion -> . LPAREN value op value RPAREN
+    (35) value -> . INTEGER
+    (36) value -> . DOUBLE
+    (37) value -> . STRING
+    (38) value -> . BOOLEAN
+    (39) value -> . list
+    (17) list -> . LSQUARE RSQUARE
+    (18) list -> . LSQUARE values RSQUARE
+
+    LPAREN          shift and go to state 26
+    INTEGER         shift and go to state 29
+    DOUBLE          shift and go to state 30
+    STRING          shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    LSQUARE         shift and go to state 34
+
+    expresion                      shift and go to state 52
+    value                          shift and go to state 53
+    list                           shift and go to state 33
+
+state 40
+
+    (11) op -> PLUS .
+
+    LPAREN          reduce using rule 11 (op -> PLUS .)
+    INTEGER         reduce using rule 11 (op -> PLUS .)
+    DOUBLE          reduce using rule 11 (op -> PLUS .)
+    STRING          reduce using rule 11 (op -> PLUS .)
+    BOOLEAN         reduce using rule 11 (op -> PLUS .)
+    LSQUARE         reduce using rule 11 (op -> PLUS .)
+
+
+state 41
+
+    (12) op -> MINUS .
+
+    LPAREN          reduce using rule 12 (op -> MINUS .)
+    INTEGER         reduce using rule 12 (op -> MINUS .)
+    DOUBLE          reduce using rule 12 (op -> MINUS .)
+    STRING          reduce using rule 12 (op -> MINUS .)
+    BOOLEAN         reduce using rule 12 (op -> MINUS .)
+    LSQUARE         reduce using rule 12 (op -> MINUS .)
+
+
+state 42
+
+    (13) op -> TIMES .
+
+    LPAREN          reduce using rule 13 (op -> TIMES .)
+    INTEGER         reduce using rule 13 (op -> TIMES .)
+    DOUBLE          reduce using rule 13 (op -> TIMES .)
+    STRING          reduce using rule 13 (op -> TIMES .)
+    BOOLEAN         reduce using rule 13 (op -> TIMES .)
+    LSQUARE         reduce using rule 13 (op -> TIMES .)
+
+
+state 43
+
+    (14) op -> DIVIDE .
+
+    LPAREN          reduce using rule 14 (op -> DIVIDE .)
+    INTEGER         reduce using rule 14 (op -> DIVIDE .)
+    DOUBLE          reduce using rule 14 (op -> DIVIDE .)
+    STRING          reduce using rule 14 (op -> DIVIDE .)
+    BOOLEAN         reduce using rule 14 (op -> DIVIDE .)
+    LSQUARE         reduce using rule 14 (op -> DIVIDE .)
+
+
+state 44
+
+    (7) expresion -> value op . value
+    (35) value -> . INTEGER
+    (36) value -> . DOUBLE
+    (37) value -> . STRING
+    (38) value -> . BOOLEAN
+    (39) value -> . list
+    (17) list -> . LSQUARE RSQUARE
+    (18) list -> . LSQUARE values RSQUARE
+
+    INTEGER         shift and go to state 29
+    DOUBLE          shift and go to state 30
+    STRING          shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    LSQUARE         shift and go to state 34
+
+    value                          shift and go to state 54
+    list                           shift and go to state 33
+
+state 45
+
+    (17) list -> LSQUARE RSQUARE .
+
+    PLUS            reduce using rule 17 (list -> LSQUARE RSQUARE .)
+    MINUS           reduce using rule 17 (list -> LSQUARE RSQUARE .)
+    TIMES           reduce using rule 17 (list -> LSQUARE RSQUARE .)
+    DIVIDE          reduce using rule 17 (list -> LSQUARE RSQUARE .)
+    RPAREN          reduce using rule 17 (list -> LSQUARE RSQUARE .)
+    COMMA           reduce using rule 17 (list -> LSQUARE RSQUARE .)
+    RSQUARE         reduce using rule 17 (list -> LSQUARE RSQUARE .)
+    SEMICOLON       reduce using rule 17 (list -> LSQUARE RSQUARE .)
+
+
+state 46
+
+    (18) list -> LSQUARE values . RSQUARE
+
+    RSQUARE         shift and go to state 55
+
+
+state 47
+
+    (40) values -> value .
+    (41) values -> value . COMMA values
+
+    RSQUARE         reduce using rule 40 (values -> value .)
+    COMMA           shift and go to state 56
+
+
+state 48
+
+    (15) assignment -> modifier type QUESTION_MARK IDENTIFIER ASSIGN . expresion SEMICOLON
+    (4) expresion -> . value
+    (5) expresion -> . expresion op expresion
+    (6) expresion -> . expresion op value
+    (7) expresion -> . value op value
+    (8) expresion -> . LPAREN expresion op expresion RPAREN
+    (9) expresion -> . LPAREN expresion op value RPAREN
+    (10) expresion -> . LPAREN value op value RPAREN
+    (35) value -> . INTEGER
+    (36) value -> . DOUBLE
+    (37) value -> . STRING
+    (38) value -> . BOOLEAN
+    (39) value -> . list
+    (17) list -> . LSQUARE RSQUARE
+    (18) list -> . LSQUARE values RSQUARE
+
+    LPAREN          shift and go to state 26
+    INTEGER         shift and go to state 29
+    DOUBLE          shift and go to state 30
+    STRING          shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    LSQUARE         shift and go to state 34
+
+    expresion                      shift and go to state 57
+    value                          shift and go to state 28
+    list                           shift and go to state 33
+
+state 49
+
+    (8) expresion -> LPAREN expresion op . expresion RPAREN
+    (9) expresion -> LPAREN expresion op . value RPAREN
+    (5) expresion -> expresion op . expresion
+    (6) expresion -> expresion op . value
+    (4) expresion -> . value
+    (5) expresion -> . expresion op expresion
+    (6) expresion -> . expresion op value
+    (7) expresion -> . value op value
+    (8) expresion -> . LPAREN expresion op expresion RPAREN
+    (9) expresion -> . LPAREN expresion op value RPAREN
+    (10) expresion -> . LPAREN value op value RPAREN
+    (35) value -> . INTEGER
+    (36) value -> . DOUBLE
+    (37) value -> . STRING
+    (38) value -> . BOOLEAN
+    (39) value -> . list
+    (17) list -> . LSQUARE RSQUARE
+    (18) list -> . LSQUARE values RSQUARE
+
+    LPAREN          shift and go to state 26
+    INTEGER         shift and go to state 29
+    DOUBLE          shift and go to state 30
+    STRING          shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    LSQUARE         shift and go to state 34
+
+    expresion                      shift and go to state 58
+    value                          shift and go to state 59
+    list                           shift and go to state 33
+
+state 50
+
+    (10) expresion -> LPAREN value op . value RPAREN
+    (7) expresion -> value op . value
+    (35) value -> . INTEGER
+    (36) value -> . DOUBLE
+    (37) value -> . STRING
+    (38) value -> . BOOLEAN
+    (39) value -> . list
+    (17) list -> . LSQUARE RSQUARE
+    (18) list -> . LSQUARE values RSQUARE
+
+    INTEGER         shift and go to state 29
+    DOUBLE          shift and go to state 30
+    STRING          shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    LSQUARE         shift and go to state 34
+
+    value                          shift and go to state 60
+    list                           shift and go to state 33
+
+state 51
+
+    (16) print -> PRINT LPAREN expresion RPAREN SEMICOLON .
+
+    $end            reduce using rule 16 (print -> PRINT LPAREN expresion RPAREN SEMICOLON .)
+
+
+state 52
+
+    (5) expresion -> expresion op expresion .
+    (5) expresion -> expresion . op expresion
+    (6) expresion -> expresion . op value
+    (11) op -> . PLUS
+    (12) op -> . MINUS
+    (13) op -> . TIMES
+    (14) op -> . DIVIDE
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    RPAREN          reduce using rule 5 (expresion -> expresion op expresion .)
+    SEMICOLON       reduce using rule 5 (expresion -> expresion op expresion .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+
+  ! PLUS            [ reduce using rule 5 (expresion -> expresion op expresion .) ]
+  ! MINUS           [ reduce using rule 5 (expresion -> expresion op expresion .) ]
+  ! TIMES           [ reduce using rule 5 (expresion -> expresion op expresion .) ]
+  ! DIVIDE          [ reduce using rule 5 (expresion -> expresion op expresion .) ]
+
+    op                             shift and go to state 39
+
+state 53
+
+    (6) expresion -> expresion op value .
+    (4) expresion -> value .
+    (7) expresion -> value . op value
+    (11) op -> . PLUS
+    (12) op -> . MINUS
+    (13) op -> . TIMES
+    (14) op -> . DIVIDE
+
+  ! reduce/reduce conflict for PLUS resolved using rule 4 (expresion -> value .)
+  ! reduce/reduce conflict for MINUS resolved using rule 4 (expresion -> value .)
+  ! reduce/reduce conflict for TIMES resolved using rule 4 (expresion -> value .)
+  ! reduce/reduce conflict for DIVIDE resolved using rule 4 (expresion -> value .)
+  ! reduce/reduce conflict for RPAREN resolved using rule 4 (expresion -> value .)
+  ! reduce/reduce conflict for SEMICOLON resolved using rule 4 (expresion -> value .)
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    RPAREN          reduce using rule 4 (expresion -> value .)
+    SEMICOLON       reduce using rule 4 (expresion -> value .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+
+  ! RPAREN          [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! PLUS            [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! MINUS           [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! TIMES           [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! DIVIDE          [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! SEMICOLON       [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! PLUS            [ reduce using rule 4 (expresion -> value .) ]
+  ! MINUS           [ reduce using rule 4 (expresion -> value .) ]
+  ! TIMES           [ reduce using rule 4 (expresion -> value .) ]
+  ! DIVIDE          [ reduce using rule 4 (expresion -> value .) ]
+
+    op                             shift and go to state 44
+
+state 54
+
+    (7) expresion -> value op value .
+
+    RPAREN          reduce using rule 7 (expresion -> value op value .)
+    PLUS            reduce using rule 7 (expresion -> value op value .)
+    MINUS           reduce using rule 7 (expresion -> value op value .)
+    TIMES           reduce using rule 7 (expresion -> value op value .)
+    DIVIDE          reduce using rule 7 (expresion -> value op value .)
+    SEMICOLON       reduce using rule 7 (expresion -> value op value .)
+
+
+state 55
+
+    (18) list -> LSQUARE values RSQUARE .
+
+    PLUS            reduce using rule 18 (list -> LSQUARE values RSQUARE .)
+    MINUS           reduce using rule 18 (list -> LSQUARE values RSQUARE .)
+    TIMES           reduce using rule 18 (list -> LSQUARE values RSQUARE .)
+    DIVIDE          reduce using rule 18 (list -> LSQUARE values RSQUARE .)
+    RPAREN          reduce using rule 18 (list -> LSQUARE values RSQUARE .)
+    COMMA           reduce using rule 18 (list -> LSQUARE values RSQUARE .)
+    RSQUARE         reduce using rule 18 (list -> LSQUARE values RSQUARE .)
+    SEMICOLON       reduce using rule 18 (list -> LSQUARE values RSQUARE .)
+
+
+state 56
+
+    (41) values -> value COMMA . values
+    (40) values -> . value
+    (41) values -> . value COMMA values
+    (35) value -> . INTEGER
+    (36) value -> . DOUBLE
+    (37) value -> . STRING
+    (38) value -> . BOOLEAN
+    (39) value -> . list
+    (17) list -> . LSQUARE RSQUARE
+    (18) list -> . LSQUARE values RSQUARE
+
+    INTEGER         shift and go to state 29
+    DOUBLE          shift and go to state 30
+    STRING          shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    LSQUARE         shift and go to state 34
+
+    value                          shift and go to state 47
+    values                         shift and go to state 61
+    list                           shift and go to state 33
+
+state 57
+
+    (15) assignment -> modifier type QUESTION_MARK IDENTIFIER ASSIGN expresion . SEMICOLON
+    (5) expresion -> expresion . op expresion
+    (6) expresion -> expresion . op value
+    (11) op -> . PLUS
+    (12) op -> . MINUS
+    (13) op -> . TIMES
+    (14) op -> . DIVIDE
+
+    SEMICOLON       shift and go to state 62
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+
+    op                             shift and go to state 39
+
+state 58
+
+    (8) expresion -> LPAREN expresion op expresion . RPAREN
+    (5) expresion -> expresion op expresion .
+    (5) expresion -> expresion . op expresion
+    (6) expresion -> expresion . op value
+    (11) op -> . PLUS
+    (12) op -> . MINUS
+    (13) op -> . TIMES
+    (14) op -> . DIVIDE
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    RPAREN          shift and go to state 63
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+
+  ! PLUS            [ reduce using rule 5 (expresion -> expresion op expresion .) ]
+  ! MINUS           [ reduce using rule 5 (expresion -> expresion op expresion .) ]
+  ! TIMES           [ reduce using rule 5 (expresion -> expresion op expresion .) ]
+  ! DIVIDE          [ reduce using rule 5 (expresion -> expresion op expresion .) ]
+
+    op                             shift and go to state 39
+
+state 59
+
+    (9) expresion -> LPAREN expresion op value . RPAREN
+    (6) expresion -> expresion op value .
+    (4) expresion -> value .
+    (7) expresion -> value . op value
+    (11) op -> . PLUS
+    (12) op -> . MINUS
+    (13) op -> . TIMES
+    (14) op -> . DIVIDE
+
+  ! shift/reduce conflict for RPAREN resolved as shift
+  ! reduce/reduce conflict for PLUS resolved using rule 4 (expresion -> value .)
+  ! reduce/reduce conflict for MINUS resolved using rule 4 (expresion -> value .)
+  ! reduce/reduce conflict for TIMES resolved using rule 4 (expresion -> value .)
+  ! reduce/reduce conflict for DIVIDE resolved using rule 4 (expresion -> value .)
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    RPAREN          shift and go to state 64
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+
+  ! PLUS            [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! MINUS           [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! TIMES           [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! DIVIDE          [ reduce using rule 6 (expresion -> expresion op value .) ]
+  ! RPAREN          [ reduce using rule 4 (expresion -> value .) ]
+  ! PLUS            [ reduce using rule 4 (expresion -> value .) ]
+  ! MINUS           [ reduce using rule 4 (expresion -> value .) ]
+  ! TIMES           [ reduce using rule 4 (expresion -> value .) ]
+  ! DIVIDE          [ reduce using rule 4 (expresion -> value .) ]
+
+    op                             shift and go to state 44
+
+state 60
+
+    (10) expresion -> LPAREN value op value . RPAREN
+    (7) expresion -> value op value .
+
+    RPAREN          shift and go to state 65
+    PLUS            reduce using rule 7 (expresion -> value op value .)
+    MINUS           reduce using rule 7 (expresion -> value op value .)
+    TIMES           reduce using rule 7 (expresion -> value op value .)
+    DIVIDE          reduce using rule 7 (expresion -> value op value .)
+
+
+state 61
+
+    (41) values -> value COMMA values .
+
+    RSQUARE         reduce using rule 41 (values -> value COMMA values .)
+
+
+state 62
+
+    (15) assignment -> modifier type QUESTION_MARK IDENTIFIER ASSIGN expresion SEMICOLON .
+
+    $end            reduce using rule 15 (assignment -> modifier type QUESTION_MARK IDENTIFIER ASSIGN expresion SEMICOLON .)
+
+
+state 63
+
+    (8) expresion -> LPAREN expresion op expresion RPAREN .
+
+    RPAREN          reduce using rule 8 (expresion -> LPAREN expresion op expresion RPAREN .)
+    PLUS            reduce using rule 8 (expresion -> LPAREN expresion op expresion RPAREN .)
+    MINUS           reduce using rule 8 (expresion -> LPAREN expresion op expresion RPAREN .)
+    TIMES           reduce using rule 8 (expresion -> LPAREN expresion op expresion RPAREN .)
+    DIVIDE          reduce using rule 8 (expresion -> LPAREN expresion op expresion RPAREN .)
+    SEMICOLON       reduce using rule 8 (expresion -> LPAREN expresion op expresion RPAREN .)
+
+
+state 64
+
+    (9) expresion -> LPAREN expresion op value RPAREN .
+
+    RPAREN          reduce using rule 9 (expresion -> LPAREN expresion op value RPAREN .)
+    PLUS            reduce using rule 9 (expresion -> LPAREN expresion op value RPAREN .)
+    MINUS           reduce using rule 9 (expresion -> LPAREN expresion op value RPAREN .)
+    TIMES           reduce using rule 9 (expresion -> LPAREN expresion op value RPAREN .)
+    DIVIDE          reduce using rule 9 (expresion -> LPAREN expresion op value RPAREN .)
+    SEMICOLON       reduce using rule 9 (expresion -> LPAREN expresion op value RPAREN .)
+
+
+state 65
+
+    (10) expresion -> LPAREN value op value RPAREN .
+
+    RPAREN          reduce using rule 10 (expresion -> LPAREN value op value RPAREN .)
+    PLUS            reduce using rule 10 (expresion -> LPAREN value op value RPAREN .)
+    MINUS           reduce using rule 10 (expresion -> LPAREN value op value RPAREN .)
+    TIMES           reduce using rule 10 (expresion -> LPAREN value op value RPAREN .)
+    DIVIDE          reduce using rule 10 (expresion -> LPAREN value op value RPAREN .)
+    SEMICOLON       reduce using rule 10 (expresion -> LPAREN value op value RPAREN .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 28 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 28 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 28 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 28 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 37 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 37 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 37 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 37 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 52 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 52 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 52 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 52 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 53 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 53 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 53 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 53 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 58 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 58 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 58 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 58 resolved as shift
+WARNING: shift/reduce conflict for RPAREN in state 59 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 59 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 59 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 59 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 59 resolved as shift
+WARNING: reduce/reduce conflict in state 53 resolved using rule (expresion -> value)
+WARNING: rejected rule (expresion -> expresion op value) in state 53
+WARNING: reduce/reduce conflict in state 59 resolved using rule (expresion -> value)
+WARNING: rejected rule (expresion -> expresion op value) in state 59
+WARNING: Rule (expresion -> expresion op value) is never reduced
