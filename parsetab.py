@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ABSTRACT AS ASSERT ASSIGN ASYNC AWAIT BLOCKCOMMENT BOOLEAN BOOLEAN_TYPE BREAK CASE CATCH COLON COMMA COMMENT CONST CONTINUE DEFAULT DEFERRED DIVIDE DO DOT DOUBLE DOUBLE_TYPE DYNAMIC_TYPE ELSE ENUM ENUM_TYPE EQUAL EXPORT EXTENDS EXTENSION EXTERNAL FALSE FINAL FINALLY FOR GET GREATER GREATER_EQUAL HIDE IDENTIFIER IF IMPLEMENTS IMPORT IN INTEGER INTEGER_TYPE INTERFACE IS KEYWORD LATE LBRACE LESS LESS_EQUAL LIBRARY LIST_TYPE LOGICAL_AND LOGICAL_NOT LOGICAL_OR LPAREN LSQUARE MAP_TYPE MINUS NOT_EQUAL NULL ON OPERATOR PART PLUS PRINT QUESTION_MARK QUEUE_TYPE RBRACE RETHROW RETURN RPAREN RSQUARE SEMICOLON SET SET_TYPE SHOW STATIC STRING STRING_TYPE SUPER SWITCH SYNC THROW TIMES TRUE TRY TYPEDEF VAR WHILE WITH YIELD\n statement : assignment\n           | print\n           | comment\n   expresion : value\n        |   expresion op expresion\n        |   expresion op value\n        |   value op value\n        |   LPAREN expresion op expresion RPAREN\n        |   LPAREN expresion op value RPAREN\n        |   LPAREN value op value RPAREN\n     op : PLUS\n        |   MINUS\n        |   TIMES\n        |   DIVIDE\n      assignment : modifier type QUESTION_MARK IDENTIFIER ASSIGN expresion SEMICOLON\n      print : PRINT LPAREN expresion RPAREN SEMICOLON\n     list : LSQUARE RSQUARE\n            | LSQUARE values RSQUARE\n    \n     comment : COMMENT\n                | BLOCKCOMMENT\n    \n     type : INTEGER_TYPE\n                | DOUBLE_TYPE\n                | BOOLEAN_TYPE\n                | QUEUE_TYPE\n                | STRING_TYPE\n                | ENUM_TYPE\n                | VAR\n                | LIST_TYPE\n                | MAP_TYPE\n                | SET_TYPE\n                | DYNAMIC_TYPE\n     modifier : LATE\n                | FINAL\n                | CONST\n    value : INTEGER\n         | DOUBLE\n         | STRING\n         | BOOLEAN\n         | list\n  values : value\n             | value COMMA values\n '
+_lr_signature = 'ABSTRACT AS ASSERT ASSIGN ASYNC AWAIT BLOCKCOMMENT BOOLEAN BOOLEAN_TYPE BREAK CASE CATCH COLON COMMA COMMENT CONST CONTINUE DEFAULT DEFERRED DIVIDE DO DOT DOUBLE DOUBLE_TYPE DYNAMIC_TYPE ELSE ENUM ENUM_TYPE EQUAL EXPORT EXTENDS EXTENSION EXTERNAL FALSE FINAL FINALLY FOR GET GREATER GREATER_EQUAL HIDE IDENTIFIER IF IMPLEMENTS IMPORT IN INTEGER INTEGER_TYPE INTERFACE IS KEYWORD LATE LBRACE LESS LESS_EQUAL LIBRARY LIST_TYPE LOGICAL_AND LOGICAL_NOT LOGICAL_OR LPAREN LSQUARE MAP_TYPE MINUS NOT_EQUAL NULL ON OPERATOR PART PLUS PRINT QUESTION_MARK QUEUE_TYPE RBRACE RETHROW RETURN RPAREN RSQUARE SEMICOLON SET SET_TYPE SHOW STATIC STRING STRING_TYPE SUPER SWITCH SYNC THROW TIMES TRUE TRY TYPEDEF VAR WHILE WITH YIELD\n statement : assignment\n           | print\n   expresion : value\n        |   expresion op expresion\n        |   expresion op value\n        |   value op value\n        |   LPAREN expresion op expresion RPAREN\n        |   LPAREN expresion op value RPAREN\n        |   LPAREN value op value RPAREN\n     op : PLUS\n        |   MINUS\n        |   TIMES\n        |   DIVIDE\n      assignment : modifier type nullable IDENTIFIER ASSIGN expresion SEMICOLON\n      print : PRINT LPAREN expresion RPAREN SEMICOLON\n     list : LSQUARE RSQUARE\n            | LSQUARE values RSQUARE\n    \n     type : INTEGER_TYPE\n                | DOUBLE_TYPE\n                | BOOLEAN_TYPE\n                | QUEUE_TYPE\n                | STRING_TYPE\n                | ENUM_TYPE\n                | VAR\n                | LIST_TYPE\n                | MAP_TYPE\n                | SET_TYPE\n                | DYNAMIC_TYPE\n     modifier : LATE\n                | FINAL\n                | CONST\n                | \n     nullable : QUESTION_MARK\n                |\n    value : INTEGER\n         | DOUBLE\n         | STRING\n         | BOOLEAN\n         | list\n  values : value\n             | value COMMA values\n '
     
-_lr_action_items = {'PRINT':([0,],[6,]),'COMMENT':([0,],[7,]),'BLOCKCOMMENT':([0,],[8,]),'LATE':([0,],[9,]),'FINAL':([0,],[10,]),'CONST':([0,],[11,]),'$end':([1,2,3,4,7,8,51,62,],[0,-1,-2,-3,-19,-20,-16,-15,]),'INTEGER_TYPE':([5,9,10,11,],[13,-32,-33,-34,]),'DOUBLE_TYPE':([5,9,10,11,],[14,-32,-33,-34,]),'BOOLEAN_TYPE':([5,9,10,11,],[15,-32,-33,-34,]),'QUEUE_TYPE':([5,9,10,11,],[16,-32,-33,-34,]),'STRING_TYPE':([5,9,10,11,],[17,-32,-33,-34,]),'ENUM_TYPE':([5,9,10,11,],[18,-32,-33,-34,]),'VAR':([5,9,10,11,],[19,-32,-33,-34,]),'LIST_TYPE':([5,9,10,11,],[20,-32,-33,-34,]),'MAP_TYPE':([5,9,10,11,],[21,-32,-33,-34,]),'SET_TYPE':([5,9,10,11,],[22,-32,-33,-34,]),'DYNAMIC_TYPE':([5,9,10,11,],[23,-32,-33,-34,]),'LPAREN':([6,24,26,39,40,41,42,43,48,49,],[24,26,26,26,-11,-12,-13,-14,26,26,]),'QUESTION_MARK':([12,13,14,15,16,17,18,19,20,21,22,23,],[25,-21,-22,-23,-24,-25,-26,-27,-28,-29,-30,-31,]),'INTEGER':([24,26,34,39,40,41,42,43,44,48,49,50,56,],[29,29,29,29,-11,-12,-13,-14,29,29,29,29,29,]),'DOUBLE':([24,26,34,39,40,41,42,43,44,48,49,50,56,],[30,30,30,30,-11,-12,-13,-14,30,30,30,30,30,]),'STRING':([24,26,34,39,40,41,42,43,44,48,49,50,56,],[31,31,31,31,-11,-12,-13,-14,31,31,31,31,31,]),'BOOLEAN':([24,26,34,39,40,41,42,43,44,48,49,50,56,],[32,32,32,32,-11,-12,-13,-14,32,32,32,32,32,]),'LSQUARE':([24,26,34,39,40,41,42,43,44,48,49,50,56,],[34,34,34,34,-11,-12,-13,-14,34,34,34,34,34,]),'IDENTIFIER':([25,],[35,]),'RPAREN':([27,28,29,30,31,32,33,45,52,53,54,55,58,59,60,63,64,65,],[38,-4,-35,-36,-37,-38,-39,-17,-5,-4,-7,-18,63,64,65,-8,-9,-10,]),'PLUS':([27,28,29,30,31,32,33,36,37,45,52,53,54,55,57,58,59,60,63,64,65,],[40,40,-35,-36,-37,-38,-39,40,40,-17,40,40,-7,-18,40,40,40,-7,-8,-9,-10,]),'MINUS':([27,28,29,30,31,32,33,36,37,45,52,53,54,55,57,58,59,60,63,64,65,],[41,41,-35,-36,-37,-38,-39,41,41,-17,41,41,-7,-18,41,41,41,-7,-8,-9,-10,]),'TIMES':([27,28,29,30,31,32,33,36,37,45,52,53,54,55,57,58,59,60,63,64,65,],[42,42,-35,-36,-37,-38,-39,42,42,-17,42,42,-7,-18,42,42,42,-7,-8,-9,-10,]),'DIVIDE':([27,28,29,30,31,32,33,36,37,45,52,53,54,55,57,58,59,60,63,64,65,],[43,43,-35,-36,-37,-38,-39,43,43,-17,43,43,-7,-18,43,43,43,-7,-8,-9,-10,]),'SEMICOLON':([28,29,30,31,32,33,38,45,52,53,54,55,57,63,64,65,],[-4,-35,-36,-37,-38,-39,51,-17,-5,-4,-7,-18,62,-8,-9,-10,]),'COMMA':([29,30,31,32,33,45,47,55,],[-35,-36,-37,-38,-39,-17,56,-18,]),'RSQUARE':([29,30,31,32,33,34,45,46,47,55,61,],[-35,-36,-37,-38,-39,45,-17,55,-40,-18,-41,]),'ASSIGN':([35,],[48,]),}
+_lr_action_items = {'PRINT':([0,],[5,]),'LATE':([0,],[6,]),'FINAL':([0,],[7,]),'CONST':([0,],[8,]),'INTEGER_TYPE':([0,4,6,7,8,],[-32,10,-29,-30,-31,]),'DOUBLE_TYPE':([0,4,6,7,8,],[-32,11,-29,-30,-31,]),'BOOLEAN_TYPE':([0,4,6,7,8,],[-32,12,-29,-30,-31,]),'QUEUE_TYPE':([0,4,6,7,8,],[-32,13,-29,-30,-31,]),'STRING_TYPE':([0,4,6,7,8,],[-32,14,-29,-30,-31,]),'ENUM_TYPE':([0,4,6,7,8,],[-32,15,-29,-30,-31,]),'VAR':([0,4,6,7,8,],[-32,16,-29,-30,-31,]),'LIST_TYPE':([0,4,6,7,8,],[-32,17,-29,-30,-31,]),'MAP_TYPE':([0,4,6,7,8,],[-32,18,-29,-30,-31,]),'SET_TYPE':([0,4,6,7,8,],[-32,19,-29,-30,-31,]),'DYNAMIC_TYPE':([0,4,6,7,8,],[-32,20,-29,-30,-31,]),'$end':([1,2,3,49,60,],[0,-1,-2,-15,-14,]),'LPAREN':([5,21,24,37,38,39,40,41,46,47,],[21,24,24,24,-10,-11,-12,-13,24,24,]),'QUESTION_MARK':([9,10,11,12,13,14,15,16,17,18,19,20,],[23,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,]),'IDENTIFIER':([9,10,11,12,13,14,15,16,17,18,19,20,22,23,],[-34,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,33,-33,]),'INTEGER':([21,24,32,37,38,39,40,41,42,46,47,48,54,],[27,27,27,27,-10,-11,-12,-13,27,27,27,27,27,]),'DOUBLE':([21,24,32,37,38,39,40,41,42,46,47,48,54,],[28,28,28,28,-10,-11,-12,-13,28,28,28,28,28,]),'STRING':([21,24,32,37,38,39,40,41,42,46,47,48,54,],[29,29,29,29,-10,-11,-12,-13,29,29,29,29,29,]),'BOOLEAN':([21,24,32,37,38,39,40,41,42,46,47,48,54,],[30,30,30,30,-10,-11,-12,-13,30,30,30,30,30,]),'LSQUARE':([21,24,32,37,38,39,40,41,42,46,47,48,54,],[32,32,32,32,-10,-11,-12,-13,32,32,32,32,32,]),'RPAREN':([25,26,27,28,29,30,31,43,50,51,52,53,56,57,58,61,62,63,],[36,-3,-35,-36,-37,-38,-39,-16,-4,-3,-6,-17,61,62,63,-7,-8,-9,]),'PLUS':([25,26,27,28,29,30,31,34,35,43,50,51,52,53,55,56,57,58,61,62,63,],[38,38,-35,-36,-37,-38,-39,38,38,-16,38,38,-6,-17,38,38,38,-6,-7,-8,-9,]),'MINUS':([25,26,27,28,29,30,31,34,35,43,50,51,52,53,55,56,57,58,61,62,63,],[39,39,-35,-36,-37,-38,-39,39,39,-16,39,39,-6,-17,39,39,39,-6,-7,-8,-9,]),'TIMES':([25,26,27,28,29,30,31,34,35,43,50,51,52,53,55,56,57,58,61,62,63,],[40,40,-35,-36,-37,-38,-39,40,40,-16,40,40,-6,-17,40,40,40,-6,-7,-8,-9,]),'DIVIDE':([25,26,27,28,29,30,31,34,35,43,50,51,52,53,55,56,57,58,61,62,63,],[41,41,-35,-36,-37,-38,-39,41,41,-16,41,41,-6,-17,41,41,41,-6,-7,-8,-9,]),'SEMICOLON':([26,27,28,29,30,31,36,43,50,51,52,53,55,61,62,63,],[-3,-35,-36,-37,-38,-39,49,-16,-4,-3,-6,-17,60,-7,-8,-9,]),'COMMA':([27,28,29,30,31,43,45,53,],[-35,-36,-37,-38,-39,-16,54,-17,]),'RSQUARE':([27,28,29,30,31,32,43,44,45,53,59,],[-35,-36,-37,-38,-39,43,-16,53,-40,-17,-41,]),'ASSIGN':([33,],[46,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'statement':([0,],[1,]),'assignment':([0,],[2,]),'print':([0,],[3,]),'comment':([0,],[4,]),'modifier':([0,],[5,]),'type':([5,],[12,]),'expresion':([24,26,39,48,49,],[27,36,52,57,58,]),'value':([24,26,34,39,44,48,49,50,56,],[28,37,47,53,54,28,59,60,47,]),'list':([24,26,34,39,44,48,49,50,56,],[33,33,33,33,33,33,33,33,33,]),'op':([27,28,36,37,52,53,57,58,59,],[39,44,49,50,39,44,39,39,44,]),'values':([34,56,],[46,61,]),}
+_lr_goto_items = {'statement':([0,],[1,]),'assignment':([0,],[2,]),'print':([0,],[3,]),'modifier':([0,],[4,]),'type':([4,],[9,]),'nullable':([9,],[22,]),'expresion':([21,24,37,46,47,],[25,34,50,55,56,]),'value':([21,24,32,37,42,46,47,48,54,],[26,35,45,51,52,26,57,58,45,]),'list':([21,24,32,37,42,46,47,48,54,],[31,31,31,31,31,31,31,31,31,]),'op':([25,26,34,35,50,51,55,56,57,],[37,42,47,48,37,42,37,37,42,]),'values':([32,54,],[44,59,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -29,43 +29,43 @@ _lr_productions = [
   ("S' -> statement","S'",1,None,None,None),
   ('statement -> assignment','statement',1,'p_statement','main.py',6),
   ('statement -> print','statement',1,'p_statement','main.py',7),
-  ('statement -> comment','statement',1,'p_statement','main.py',8),
-  ('expresion -> value','expresion',1,'p_expresion','main.py',12),
-  ('expresion -> expresion op expresion','expresion',3,'p_expresion','main.py',13),
-  ('expresion -> expresion op value','expresion',3,'p_expresion','main.py',14),
-  ('expresion -> value op value','expresion',3,'p_expresion','main.py',15),
-  ('expresion -> LPAREN expresion op expresion RPAREN','expresion',5,'p_expresion','main.py',16),
-  ('expresion -> LPAREN expresion op value RPAREN','expresion',5,'p_expresion','main.py',17),
-  ('expresion -> LPAREN value op value RPAREN','expresion',5,'p_expresion','main.py',18),
-  ('op -> PLUS','op',1,'p_op','main.py',22),
-  ('op -> MINUS','op',1,'p_op','main.py',23),
-  ('op -> TIMES','op',1,'p_op','main.py',24),
-  ('op -> DIVIDE','op',1,'p_op','main.py',25),
-  ('assignment -> modifier type QUESTION_MARK IDENTIFIER ASSIGN expresion SEMICOLON','assignment',7,'p_assignment','main.py',29),
-  ('print -> PRINT LPAREN expresion RPAREN SEMICOLON','print',5,'p_print','main.py',33),
-  ('list -> LSQUARE RSQUARE','list',2,'p_list','main.py',37),
-  ('list -> LSQUARE values RSQUARE','list',3,'p_list','main.py',38),
-  ('comment -> COMMENT','comment',1,'p_comment','main.py',43),
-  ('comment -> BLOCKCOMMENT','comment',1,'p_comment','main.py',44),
-  ('type -> INTEGER_TYPE','type',1,'p_type','main.py',49),
-  ('type -> DOUBLE_TYPE','type',1,'p_type','main.py',50),
-  ('type -> BOOLEAN_TYPE','type',1,'p_type','main.py',51),
-  ('type -> QUEUE_TYPE','type',1,'p_type','main.py',52),
-  ('type -> STRING_TYPE','type',1,'p_type','main.py',53),
-  ('type -> ENUM_TYPE','type',1,'p_type','main.py',54),
-  ('type -> VAR','type',1,'p_type','main.py',55),
-  ('type -> LIST_TYPE','type',1,'p_type','main.py',56),
-  ('type -> MAP_TYPE','type',1,'p_type','main.py',57),
-  ('type -> SET_TYPE','type',1,'p_type','main.py',58),
-  ('type -> DYNAMIC_TYPE','type',1,'p_type','main.py',59),
-  ('modifier -> LATE','modifier',1,'p_modifier','main.py',63),
-  ('modifier -> FINAL','modifier',1,'p_modifier','main.py',64),
-  ('modifier -> CONST','modifier',1,'p_modifier','main.py',65),
-  ('value -> INTEGER','value',1,'p_value','main.py',69),
-  ('value -> DOUBLE','value',1,'p_value','main.py',70),
-  ('value -> STRING','value',1,'p_value','main.py',71),
-  ('value -> BOOLEAN','value',1,'p_value','main.py',72),
-  ('value -> list','value',1,'p_value','main.py',73),
-  ('values -> value','values',1,'p_values','main.py',77),
-  ('values -> value COMMA values','values',3,'p_values','main.py',78),
+  ('expresion -> value','expresion',1,'p_expresion','main.py',11),
+  ('expresion -> expresion op expresion','expresion',3,'p_expresion','main.py',12),
+  ('expresion -> expresion op value','expresion',3,'p_expresion','main.py',13),
+  ('expresion -> value op value','expresion',3,'p_expresion','main.py',14),
+  ('expresion -> LPAREN expresion op expresion RPAREN','expresion',5,'p_expresion','main.py',15),
+  ('expresion -> LPAREN expresion op value RPAREN','expresion',5,'p_expresion','main.py',16),
+  ('expresion -> LPAREN value op value RPAREN','expresion',5,'p_expresion','main.py',17),
+  ('op -> PLUS','op',1,'p_op','main.py',21),
+  ('op -> MINUS','op',1,'p_op','main.py',22),
+  ('op -> TIMES','op',1,'p_op','main.py',23),
+  ('op -> DIVIDE','op',1,'p_op','main.py',24),
+  ('assignment -> modifier type nullable IDENTIFIER ASSIGN expresion SEMICOLON','assignment',7,'p_assignment','main.py',28),
+  ('print -> PRINT LPAREN expresion RPAREN SEMICOLON','print',5,'p_print','main.py',32),
+  ('list -> LSQUARE RSQUARE','list',2,'p_list','main.py',36),
+  ('list -> LSQUARE values RSQUARE','list',3,'p_list','main.py',37),
+  ('type -> INTEGER_TYPE','type',1,'p_type','main.py',42),
+  ('type -> DOUBLE_TYPE','type',1,'p_type','main.py',43),
+  ('type -> BOOLEAN_TYPE','type',1,'p_type','main.py',44),
+  ('type -> QUEUE_TYPE','type',1,'p_type','main.py',45),
+  ('type -> STRING_TYPE','type',1,'p_type','main.py',46),
+  ('type -> ENUM_TYPE','type',1,'p_type','main.py',47),
+  ('type -> VAR','type',1,'p_type','main.py',48),
+  ('type -> LIST_TYPE','type',1,'p_type','main.py',49),
+  ('type -> MAP_TYPE','type',1,'p_type','main.py',50),
+  ('type -> SET_TYPE','type',1,'p_type','main.py',51),
+  ('type -> DYNAMIC_TYPE','type',1,'p_type','main.py',52),
+  ('modifier -> LATE','modifier',1,'p_modifier','main.py',56),
+  ('modifier -> FINAL','modifier',1,'p_modifier','main.py',57),
+  ('modifier -> CONST','modifier',1,'p_modifier','main.py',58),
+  ('modifier -> <empty>','modifier',0,'p_modifier','main.py',59),
+  ('nullable -> QUESTION_MARK','nullable',1,'p_nullable','main.py',63),
+  ('nullable -> <empty>','nullable',0,'p_nullable','main.py',64),
+  ('value -> INTEGER','value',1,'p_value','main.py',68),
+  ('value -> DOUBLE','value',1,'p_value','main.py',69),
+  ('value -> STRING','value',1,'p_value','main.py',70),
+  ('value -> BOOLEAN','value',1,'p_value','main.py',71),
+  ('value -> list','value',1,'p_value','main.py',72),
+  ('values -> value','values',1,'p_values','main.py',76),
+  ('values -> value COMMA values','values',3,'p_values','main.py',77),
 ]

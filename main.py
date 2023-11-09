@@ -25,7 +25,7 @@ def p_op(p):
     '''
 
 def p_assignment(p):
-    '''  assignment : modifier type QUESTION_MARK IDENTIFIER ASSIGN expresion SEMICOLON
+    '''  assignment : modifier type nullable IDENTIFIER ASSIGN expresion SEMICOLON
     '''
 
 def p_print(p):
@@ -37,7 +37,6 @@ def p_list(p):
             | LSQUARE values RSQUARE
     
     '''
-
 
 def p_type(p):
     ''' type : INTEGER_TYPE
@@ -57,6 +56,12 @@ def p_modifier(p):
     ''' modifier : LATE
                 | FINAL
                 | CONST
+                | 
+    '''
+    
+def p_nullable(p):
+    ''' nullable : QUESTION_MARK
+                |
     '''
 
 def p_value(p):
