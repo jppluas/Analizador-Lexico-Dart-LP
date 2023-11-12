@@ -7,6 +7,14 @@ def p_statement(p):
            | print
  '''
 
+def p_assignment(p):
+    '''  assignment : modifier type nullable IDENTIFIER ASSIGN expresion SEMICOLON
+    '''
+
+def p_print(p):
+    '''  print : PRINT LPAREN expresion RPAREN SEMICOLON
+    '''
+
 def p_expresion(p):
     '''  expresion : value
         |   expresion op expresion
@@ -22,20 +30,6 @@ def p_op(p):
         |   MINUS
         |   TIMES
         |   DIVIDE
-    '''
-
-def p_assignment(p):
-    '''  assignment : modifier type nullable IDENTIFIER ASSIGN expresion SEMICOLON
-    '''
-
-def p_print(p):
-    '''  print : PRINT LPAREN expresion RPAREN SEMICOLON
-    '''
-
-def p_list(p):
-    ''' list : LSQUARE RSQUARE
-            | LSQUARE values RSQUARE
-    
     '''
 
 def p_type(p):
@@ -76,6 +70,12 @@ def p_values(p):
  ''' values : value
              | value COMMA values
  '''
+
+def p_list(p):
+    ''' list : LSQUARE RSQUARE
+            | LSQUARE values RSQUARE
+    
+    '''
 
 # Error rule for syntax errors
 def p_error(p):
