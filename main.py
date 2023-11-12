@@ -86,7 +86,7 @@ parser = sint.yacc()
 
 while True:
   try:
-      s = input('Ingrese codigo: ')
+      s = input('Ingrese código: ')
   except EOFError:
       break
   if not s: continue
