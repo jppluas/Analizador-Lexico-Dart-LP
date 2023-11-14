@@ -5,31 +5,51 @@ def p_statement(p):
  '''
  statement : assignment
            | print
+           | function
+           | if_statement
  '''
 
-def p_expresion(p):
-    '''  expresion : value
-        |   expresion op expresion
-        |   expresion op value
-        |   value op value
-        |   LPAREN expresion op expresion RPAREN
-        |   LPAREN expresion op value RPAREN
-        |   LPAREN value op value RPAREN
+def p_expression(p):
+    '''  expression : value
+        |   expression op expression
+        |   LPAREN expression op expression RPAREN
+    '''
+    
+def p_assignment(p):
+    '''  assignment : modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
     '''
 
-def p_op(p):
-    ''' op : PLUS
+def p_print(p):
+    '''  print : PRINT LPAREN expression RPAREN SEMICOLON
+    '''
+
+def p_logical(p):
+    ''' logical : LOGICAL_AND
+        |   LOGICAL_OR
+        |   LOGICAL_NOT
+    '''
+
+def p_arithmetic(p):
+    ''' arithmetic : PLUS
         |   MINUS
         |   TIMES
         |   DIVIDE
     '''
 
-def p_assignment(p):
-    '''  assignment : modifier type nullable IDENTIFIER ASSIGN expresion SEMICOLON
-    '''
+def p_comparation(p):
+      '''
+      comparation : EQUAL
+                 | NOT_EQUAL
+                 | LESS
+                 | LESS_EQUAL
+                 | GREATER
+                 | GREATER_EQUAL
+      '''
 
-def p_print(p):
-    '''  print : PRINT LPAREN expresion RPAREN SEMICOLON
+def p_op(p):
+    ''' op : arithmetic
+        |   comparation
+        |   logical
     '''
 
 def p_list(p):
@@ -65,10 +85,12 @@ def p_nullable(p):
     '''
 
 def p_value(p):
- '''value : INTEGER
+ '''value : IDENTIFIER
+         | INTEGER
          | DOUBLE
          | STRING
-         | BOOLEAN
+         | TRUE
+         | FALSE
          | list
  '''
 
@@ -76,44 +98,30 @@ def p_values(p):
  ''' values : value
              | value COMMA values
  '''
-def p_function(p):
-    '''
-    function : FUNCTION IDENTIFIER LPAREN params RPAREN LBRACE statements RBRACE
-    '''
-def p_list(p):
-    '''
-    list : LSQUARE RSQUARE
-         | LSQUARE values RSQUARE
-    '''  
+
+def p_parameter(p):
+  '''
+  parameter : type IDENTIFIER
+  '''
+
 def p_parameters(p):
       '''
       parameters : parameter
                  | parameter COMMA parameters
                  |
       '''
-def p_parameter(p):
-  '''
-  parameter : type VAR
-  '''
+      
+def p_function(p):
+    '''
+    function : type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE
+    '''
+    
 def p_if_statement(p):
     '''
-    if_statement : IF LPAREN expression RPAREN LBRACE statements RBRACE
-                 | IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    if_statement : IF LPAREN expression RPAREN LBRACE statement RBRACE
+                 | ELSE if_statement
+                 | if_statement ELSE LBRACE statement RBRACE
     '''
-def p_expression(p):
-      '''
-      expression : expression comparator expression
-      | value
-      '''
-def p_comparator(p):
-      '''
-      comparator : EQUAL
-                 | NOT_EQUAL
-                 | LESS
-                 | LESS_EQUAL
-                 | GREATER
-                 | GREATER_EQUAL
-      '''
 
 # Error rule for syntax errors
 def p_error(p):

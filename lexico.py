@@ -15,7 +15,6 @@ tokens = (
   'RBRACE',
   'SEMICOLON',
   'STRING',
-  'BOOLEAN',
   'KEYWORD',
   'COMMENT',
   'BLOCKCOMMENT',
