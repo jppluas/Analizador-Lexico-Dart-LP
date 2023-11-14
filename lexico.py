@@ -73,7 +73,7 @@ keywords = {
   'print' : 'PRINT',
   #Aporte de Juan Pablo Plúas
   'final' : 'FINAL',
-  'conts' : 'CONST',
+  'const' : 'CONST',
   'import': 'IMPORT',
   'static': 'STATIC',
   'assert': 'ASSERT',
@@ -103,7 +103,8 @@ keywords = {
   'late': 'LATE',
   'operator': 'OPERATOR',
   'part': 'PART',
-  'with': 'WITH'
+  'with': 'WITH',
+  'void': 'VOID'
 }
 
 tokens += tuple(keywords.values())
