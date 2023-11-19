@@ -8,8 +8,21 @@ def p_statement(p):
            | print
            | function
            | if_statement
+           | lines
            |
  '''
+
+def p_lines(p):
+    ''' lines : line LINE_BREAK
+
+    '''
+
+def p_line(p):
+    ''' line : print
+            | assignment
+            | function
+            | if_statement
+    '''
 
 def p_assignment(p):
     '''  assignment : modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
@@ -35,9 +48,15 @@ def p_print(p):
 
 def p_if_statement(p):
     '''
-    if_statement : IF LPAREN expression RPAREN LBRACE statement RBRACE
+    if_statement : IF LPAREN logic RPAREN LBRACE lines RBRACE
                  | if_statement ELSE if_statement
-                 | if_statement ELSE LBRACE statement RBRACE
+                 | if_statement ELSE LBRACE lines RBRACE
+    '''
+
+
+def p_function_call(p):
+    '''
+    function_call : IDENTIFIER LPAREN parameters RPAREN
     '''
 
 def p_type(p):
@@ -55,33 +74,46 @@ def p_type(p):
     '''
 
 def p_expression(p):
-    '''  expression : value
-        |   expression op expression
-        |   LPAREN expression op expression RPAREN
-    '''
-
-def p_op(p):
-    ''' op : arithmetic
-        |   comparation
-        |   logical
-    '''
-
-def p_logical(p):
-    ''' logical : LOGICAL_AND
-        |   LOGICAL_OR
-        |   LOGICAL_NOT
+    '''  expression : arithmetic
+                    | logic
+                    | function_call
     '''
 
 def p_arithmetic(p):
-    ''' arithmetic : PLUS
+    ''' arithmetic : value
+        |   arithmetic arith_op arithmetic
+        |   LPAREN arithmetic arith_op arithmetic RPAREN
+    '''
+
+def p_comparison(p):
+    ''' comparison : value
+        |   boolean
+        |   comparison comp_op comparison
+        |   LPAREN comparison comp_op comparison RPAREN
+    '''
+    
+def p_logic(p):
+    ''' logic : comparison
+        |   logic logic_op logic
+        |   LPAREN logic logic_op logic RPAREN
+        |   LOGICAL_NOT logic
+    '''
+
+def p_logic_op(p):
+    ''' logic_op : LOGICAL_AND
+        |   LOGICAL_OR
+    '''
+
+def p_arith_op(p):
+    ''' arith_op : PLUS
         |   MINUS
         |   TIMES
         |   DIVIDE
     '''
 
-def p_comparation(p):
+def p_comp_op(p):
       '''
-      comparation : EQUAL
+      comp_op : EQUAL
                  | NOT_EQUAL
                  | LESS
                  | LESS_EQUAL
@@ -97,13 +129,24 @@ def p_values(p):
 
 def p_value(p):
  '''value : IDENTIFIER
-         | INTEGER
-         | DOUBLE
-         | STRING
-         | TRUE
-         | FALSE
+         | number
+         | string
          | list
  '''
+ 
+def p_number(p):
+    ''' number : INTEGER 
+                | DOUBLE
+     '''
+     
+def p_string(p):
+    ''' string : STRING
+    '''
+ 
+def p_boolean(p):
+    ''' boolean : TRUE
+                | FALSE
+    '''
 
 def p_list(p):
     ''' list : LSQUARE RSQUARE
