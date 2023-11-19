@@ -12,18 +12,6 @@ def p_statement(p):
            |
  '''
 
-def p_lines(p):
-    ''' lines : line LINE_BREAK
-
-    '''
-
-def p_line(p):
-    ''' line : print
-            | assignment
-            | function
-            | if_statement
-    '''
-
 def p_assignment(p):
     '''  assignment : modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
                     | type nullable IDENTIFIER ASSIGN expression SEMICOLON
@@ -156,7 +144,21 @@ def p_list(p):
 
 def p_function(p):
     '''
-    function : type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE
+    function : type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE
+    '''
+
+def p_lines(p):
+    ''' lines : line LINE_BREAK
+            | line
+            | 
+
+    '''
+
+def p_line(p):
+    ''' line : print
+            | assignment
+            | function
+            | if_statement
     '''
 
 def p_parameters(p):

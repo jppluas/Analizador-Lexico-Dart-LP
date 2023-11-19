@@ -63,179 +63,181 @@ Rule 4     statement -> function
 Rule 5     statement -> if_statement
 Rule 6     statement -> lines
 Rule 7     statement -> <empty>
-Rule 8     lines -> line LINE_BREAK
-Rule 9     line -> print
-Rule 10    line -> assignment
-Rule 11    line -> function
-Rule 12    line -> if_statement
-Rule 13    assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
-Rule 14    assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON
-Rule 15    assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON
-Rule 16    assignment -> type IDENTIFIER ASSIGN expression SEMICOLON
-Rule 17    nullable -> QUESTION_MARK
-Rule 18    modifier -> LATE
-Rule 19    modifier -> FINAL
-Rule 20    modifier -> CONST
-Rule 21    print -> PRINT LPAREN expression RPAREN SEMICOLON
-Rule 22    print -> PRINT LPAREN RPAREN SEMICOLON
-Rule 23    if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE
-Rule 24    if_statement -> if_statement ELSE if_statement
-Rule 25    if_statement -> if_statement ELSE LBRACE lines RBRACE
-Rule 26    function_call -> IDENTIFIER LPAREN parameters RPAREN
-Rule 27    type -> INTEGER_TYPE
-Rule 28    type -> DOUBLE_TYPE
-Rule 29    type -> BOOLEAN_TYPE
-Rule 30    type -> QUEUE_TYPE
-Rule 31    type -> STRING_TYPE
-Rule 32    type -> ENUM_TYPE
-Rule 33    type -> VAR
-Rule 34    type -> LIST_TYPE
-Rule 35    type -> MAP_TYPE
-Rule 36    type -> SET_TYPE
-Rule 37    type -> DYNAMIC_TYPE
-Rule 38    expression -> arithmetic
-Rule 39    expression -> logic
-Rule 40    expression -> function_call
-Rule 41    arithmetic -> value
-Rule 42    arithmetic -> arithmetic arith_op arithmetic
-Rule 43    arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN
-Rule 44    comparison -> value
-Rule 45    comparison -> boolean
-Rule 46    comparison -> comparison comp_op comparison
-Rule 47    comparison -> LPAREN comparison comp_op comparison RPAREN
-Rule 48    logic -> comparison
-Rule 49    logic -> logic logic_op logic
-Rule 50    logic -> LPAREN logic logic_op logic RPAREN
-Rule 51    logic -> LOGICAL_NOT logic
-Rule 52    logic_op -> LOGICAL_AND
-Rule 53    logic_op -> LOGICAL_OR
-Rule 54    arith_op -> PLUS
-Rule 55    arith_op -> MINUS
-Rule 56    arith_op -> TIMES
-Rule 57    arith_op -> DIVIDE
-Rule 58    comp_op -> EQUAL
-Rule 59    comp_op -> NOT_EQUAL
-Rule 60    comp_op -> LESS
-Rule 61    comp_op -> LESS_EQUAL
-Rule 62    comp_op -> GREATER
-Rule 63    comp_op -> GREATER_EQUAL
-Rule 64    values -> value
-Rule 65    values -> value COMMA values
-Rule 66    value -> IDENTIFIER
-Rule 67    value -> number
-Rule 68    value -> string
-Rule 69    value -> list
-Rule 70    number -> INTEGER
-Rule 71    number -> DOUBLE
-Rule 72    string -> STRING
-Rule 73    boolean -> TRUE
-Rule 74    boolean -> FALSE
-Rule 75    list -> LSQUARE RSQUARE
-Rule 76    list -> LSQUARE values RSQUARE
-Rule 77    function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE
-Rule 78    parameters -> VOID
-Rule 79    parameters -> parameter
-Rule 80    parameters -> parameter COMMA parameters
-Rule 81    parameters -> <empty>
-Rule 82    parameter -> type IDENTIFIER
+Rule 8     assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
+Rule 9     assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON
+Rule 10    assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON
+Rule 11    assignment -> type IDENTIFIER ASSIGN expression SEMICOLON
+Rule 12    nullable -> QUESTION_MARK
+Rule 13    modifier -> LATE
+Rule 14    modifier -> FINAL
+Rule 15    modifier -> CONST
+Rule 16    print -> PRINT LPAREN expression RPAREN SEMICOLON
+Rule 17    print -> PRINT LPAREN RPAREN SEMICOLON
+Rule 18    if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE
+Rule 19    if_statement -> if_statement ELSE if_statement
+Rule 20    if_statement -> if_statement ELSE LBRACE lines RBRACE
+Rule 21    function_call -> IDENTIFIER LPAREN parameters RPAREN
+Rule 22    type -> INTEGER_TYPE
+Rule 23    type -> DOUBLE_TYPE
+Rule 24    type -> BOOLEAN_TYPE
+Rule 25    type -> QUEUE_TYPE
+Rule 26    type -> STRING_TYPE
+Rule 27    type -> ENUM_TYPE
+Rule 28    type -> VAR
+Rule 29    type -> LIST_TYPE
+Rule 30    type -> MAP_TYPE
+Rule 31    type -> SET_TYPE
+Rule 32    type -> DYNAMIC_TYPE
+Rule 33    expression -> arithmetic
+Rule 34    expression -> logic
+Rule 35    expression -> function_call
+Rule 36    arithmetic -> value
+Rule 37    arithmetic -> arithmetic arith_op arithmetic
+Rule 38    arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN
+Rule 39    comparison -> value
+Rule 40    comparison -> boolean
+Rule 41    comparison -> comparison comp_op comparison
+Rule 42    comparison -> LPAREN comparison comp_op comparison RPAREN
+Rule 43    logic -> comparison
+Rule 44    logic -> logic logic_op logic
+Rule 45    logic -> LPAREN logic logic_op logic RPAREN
+Rule 46    logic -> LOGICAL_NOT logic
+Rule 47    logic_op -> LOGICAL_AND
+Rule 48    logic_op -> LOGICAL_OR
+Rule 49    arith_op -> PLUS
+Rule 50    arith_op -> MINUS
+Rule 51    arith_op -> TIMES
+Rule 52    arith_op -> DIVIDE
+Rule 53    comp_op -> EQUAL
+Rule 54    comp_op -> NOT_EQUAL
+Rule 55    comp_op -> LESS
+Rule 56    comp_op -> LESS_EQUAL
+Rule 57    comp_op -> GREATER
+Rule 58    comp_op -> GREATER_EQUAL
+Rule 59    values -> value
+Rule 60    values -> value COMMA values
+Rule 61    value -> IDENTIFIER
+Rule 62    value -> number
+Rule 63    value -> string
+Rule 64    value -> list
+Rule 65    number -> INTEGER
+Rule 66    number -> DOUBLE
+Rule 67    string -> STRING
+Rule 68    boolean -> TRUE
+Rule 69    boolean -> FALSE
+Rule 70    list -> LSQUARE RSQUARE
+Rule 71    list -> LSQUARE values RSQUARE
+Rule 72    function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE
+Rule 73    lines -> line LINE_BREAK
+Rule 74    lines -> line
+Rule 75    lines -> <empty>
+Rule 76    line -> print
+Rule 77    line -> assignment
+Rule 78    line -> function
+Rule 79    line -> if_statement
+Rule 80    parameters -> VOID
+Rule 81    parameters -> parameter
+Rule 82    parameters -> parameter COMMA parameters
+Rule 83    parameters -> <empty>
+Rule 84    parameter -> type IDENTIFIER
 
 Terminals, with rules where they appear
 
 ABSTRACT             : 
 AS                   : 
 ASSERT               : 
-ASSIGN               : 13 14 15 16
+ASSIGN               : 8 9 10 11
 ASYNC                : 
 AWAIT                : 
 BLOCKCOMMENT         : 
-BOOLEAN_TYPE         : 29
+BOOLEAN_TYPE         : 24
 BREAK                : 
 CASE                 : 
 CATCH                : 
 COLON                : 
-COMMA                : 65 80
+COMMA                : 60 82
 COMMENT              : 
-CONST                : 20
+CONST                : 15
 CONTINUE             : 
 DEFAULT              : 
 DEFERRED             : 
-DIVIDE               : 57
+DIVIDE               : 52
 DO                   : 
 DOT                  : 
-DOUBLE               : 71
-DOUBLE_TYPE          : 28
-DYNAMIC_TYPE         : 37
-ELSE                 : 24 25
+DOUBLE               : 66
+DOUBLE_TYPE          : 23
+DYNAMIC_TYPE         : 32
+ELSE                 : 19 20
 ENUM                 : 
-ENUM_TYPE            : 32
-EQUAL                : 58
+ENUM_TYPE            : 27
+EQUAL                : 53
 EXPORT               : 
 EXTENDS              : 
 EXTENSION            : 
 EXTERNAL             : 
-FALSE                : 74
-FINAL                : 19
+FALSE                : 69
+FINAL                : 14
 FINALLY              : 
 FOR                  : 
 GET                  : 
-GREATER              : 62
-GREATER_EQUAL        : 63
+GREATER              : 57
+GREATER_EQUAL        : 58
 HIDE                 : 
-IDENTIFIER           : 13 14 15 16 26 66 77 82
-IF                   : 23
+IDENTIFIER           : 8 9 10 11 21 61 72 84
+IF                   : 18
 IMPLEMENTS           : 
 IMPORT               : 
 IN                   : 
-INTEGER              : 70
-INTEGER_TYPE         : 27
+INTEGER              : 65
+INTEGER_TYPE         : 22
 INTERFACE            : 
 IS                   : 
 KEYWORD              : 
-LATE                 : 18
-LBRACE               : 23 25 77
-LESS                 : 60
-LESS_EQUAL           : 61
+LATE                 : 13
+LBRACE               : 18 20 72
+LESS                 : 55
+LESS_EQUAL           : 56
 LIBRARY              : 
-LINE_BREAK           : 8
-LIST_TYPE            : 34
-LOGICAL_AND          : 52
-LOGICAL_NOT          : 51
-LOGICAL_OR           : 53
-LPAREN               : 21 22 23 26 43 47 50 77
-LSQUARE              : 75 76
-MAP_TYPE             : 35
-MINUS                : 55
-NOT_EQUAL            : 59
+LINE_BREAK           : 73
+LIST_TYPE            : 29
+LOGICAL_AND          : 47
+LOGICAL_NOT          : 46
+LOGICAL_OR           : 48
+LPAREN               : 16 17 18 21 38 42 45 72
+LSQUARE              : 70 71
+MAP_TYPE             : 30
+MINUS                : 50
+NOT_EQUAL            : 54
 NULL                 : 
 ON                   : 
 OPERATOR             : 
 PART                 : 
-PLUS                 : 54
-PRINT                : 21 22
-QUESTION_MARK        : 17
-QUEUE_TYPE           : 30
-RBRACE               : 23 25 77
+PLUS                 : 49
+PRINT                : 16 17
+QUESTION_MARK        : 12
+QUEUE_TYPE           : 25
+RBRACE               : 18 20 72
 RETHROW              : 
 RETURN               : 
-RPAREN               : 21 22 23 26 43 47 50 77
-RSQUARE              : 75 76
-SEMICOLON            : 13 14 15 16 21 22
+RPAREN               : 16 17 18 21 38 42 45 72
+RSQUARE              : 70 71
+SEMICOLON            : 8 9 10 11 16 17
 SET                  : 
-SET_TYPE             : 36
+SET_TYPE             : 31
 SHOW                 : 
 STATIC               : 
-STRING               : 72
-STRING_TYPE          : 31
+STRING               : 67
+STRING_TYPE          : 26
 SUPER                : 
 SWITCH               : 
 SYNC                 : 
 THROW                : 
-TIMES                : 56
-TRUE                 : 73
+TIMES                : 51
+TRUE                 : 68
 TRY                  : 
 TYPEDEF              : 
-VAR                  : 33
-VOID                 : 78
+VAR                  : 28
+VOID                 : 80
 WHILE                : 
 WITH                 : 
 YIELD                : 
@@ -243,32 +245,32 @@ error                :
 
 Nonterminals, with rules where they appear
 
-arith_op             : 42 43
-arithmetic           : 38 42 42 43 43
-assignment           : 2 10
-boolean              : 45
-comp_op              : 46 47
-comparison           : 46 46 47 47 48
-expression           : 1 13 14 15 16 21
-function             : 4 11
-function_call        : 40
-if_statement         : 5 12 24 24 25
-line                 : 8
-lines                : 6 23 25
-list                 : 69
-logic                : 23 39 49 49 50 50 51
-logic_op             : 49 50
-modifier             : 13 15
-nullable             : 13 14
-number               : 67
-parameter            : 79 80
-parameters           : 26 77 80
-print                : 3 9
-statement            : 77 0
-string               : 68
-type                 : 13 14 15 16 77 82
-value                : 41 44 64 65
-values               : 65 76
+arith_op             : 37 38
+arithmetic           : 33 37 37 38 38
+assignment           : 2 77
+boolean              : 40
+comp_op              : 41 42
+comparison           : 41 41 42 42 43
+expression           : 1 8 9 10 11 16
+function             : 4 78
+function_call        : 35
+if_statement         : 5 19 19 20 79
+line                 : 73 74
+lines                : 6 18 20 72
+list                 : 64
+logic                : 18 34 44 44 45 45 46
+logic_op             : 44 45
+modifier             : 8 10
+nullable             : 8 9
+number               : 62
+parameter            : 81 82
+parameters           : 21 72 82
+print                : 3 76
+statement            : 0
+string               : 63
+type                 : 8 9 10 11 72 84
+value                : 36 39 59 60
+values               : 60 71
 
 Parsing method: LALR
 
@@ -282,62 +284,65 @@ state 0
     (5) statement -> . if_statement
     (6) statement -> . lines
     (7) statement -> .
-    (38) expression -> . arithmetic
-    (39) expression -> . logic
-    (40) expression -> . function_call
-    (13) assignment -> . modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (14) assignment -> . type nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (15) assignment -> . modifier type IDENTIFIER ASSIGN expression SEMICOLON
-    (16) assignment -> . type IDENTIFIER ASSIGN expression SEMICOLON
-    (21) print -> . PRINT LPAREN expression RPAREN SEMICOLON
-    (22) print -> . PRINT LPAREN RPAREN SEMICOLON
-    (77) function -> . type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE
-    (23) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
-    (24) if_statement -> . if_statement ELSE if_statement
-    (25) if_statement -> . if_statement ELSE LBRACE lines RBRACE
-    (8) lines -> . line LINE_BREAK
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (26) function_call -> . IDENTIFIER LPAREN parameters RPAREN
-    (18) modifier -> . LATE
-    (19) modifier -> . FINAL
-    (20) modifier -> . CONST
-    (27) type -> . INTEGER_TYPE
-    (28) type -> . DOUBLE_TYPE
-    (29) type -> . BOOLEAN_TYPE
-    (30) type -> . QUEUE_TYPE
-    (31) type -> . STRING_TYPE
-    (32) type -> . ENUM_TYPE
-    (33) type -> . VAR
-    (34) type -> . LIST_TYPE
-    (35) type -> . MAP_TYPE
-    (36) type -> . SET_TYPE
-    (37) type -> . DYNAMIC_TYPE
-    (9) line -> . print
-    (10) line -> . assignment
-    (11) line -> . function
-    (12) line -> . if_statement
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
+    (33) expression -> . arithmetic
+    (34) expression -> . logic
+    (35) expression -> . function_call
+    (8) assignment -> . modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (9) assignment -> . type nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> . modifier type IDENTIFIER ASSIGN expression SEMICOLON
+    (11) assignment -> . type IDENTIFIER ASSIGN expression SEMICOLON
+    (16) print -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (17) print -> . PRINT LPAREN RPAREN SEMICOLON
+    (72) function -> . type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE
+    (18) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
+    (19) if_statement -> . if_statement ELSE if_statement
+    (20) if_statement -> . if_statement ELSE LBRACE lines RBRACE
+    (73) lines -> . line LINE_BREAK
+    (74) lines -> . line
+    (75) lines -> .
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (21) function_call -> . IDENTIFIER LPAREN parameters RPAREN
+    (13) modifier -> . LATE
+    (14) modifier -> . FINAL
+    (15) modifier -> . CONST
+    (22) type -> . INTEGER_TYPE
+    (23) type -> . DOUBLE_TYPE
+    (24) type -> . BOOLEAN_TYPE
+    (25) type -> . QUEUE_TYPE
+    (26) type -> . STRING_TYPE
+    (27) type -> . ENUM_TYPE
+    (28) type -> . VAR
+    (29) type -> . LIST_TYPE
+    (30) type -> . MAP_TYPE
+    (31) type -> . SET_TYPE
+    (32) type -> . DYNAMIC_TYPE
+    (76) line -> . print
+    (77) line -> . assignment
+    (78) line -> . function
+    (79) line -> . if_statement
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
 
+  ! reduce/reduce conflict for $end resolved using rule 7 (statement -> .)
     $end            reduce using rule 7 (statement -> .)
     PRINT           shift and go to state 14
     IF              shift and go to state 16
@@ -364,6 +369,8 @@ state 0
     LSQUARE         shift and go to state 42
     TRUE            shift and go to state 43
     FALSE           shift and go to state 44
+
+  ! $end            [ reduce using rule 75 (lines -> .) ]
 
     statement                      shift and go to state 1
     expression                     shift and go to state 2
@@ -396,50 +403,57 @@ state 2
     (1) statement -> expression .
 
     $end            reduce using rule 1 (statement -> expression .)
-    RBRACE          reduce using rule 1 (statement -> expression .)
 
 
 state 3
 
     (2) statement -> assignment .
-    (10) line -> assignment .
+    (77) line -> assignment .
 
+  ! reduce/reduce conflict for $end resolved using rule 2 (statement -> assignment .)
     $end            reduce using rule 2 (statement -> assignment .)
-    RBRACE          reduce using rule 2 (statement -> assignment .)
-    LINE_BREAK      reduce using rule 10 (line -> assignment .)
+    LINE_BREAK      reduce using rule 77 (line -> assignment .)
+
+  ! $end            [ reduce using rule 77 (line -> assignment .) ]
 
 
 state 4
 
     (3) statement -> print .
-    (9) line -> print .
+    (76) line -> print .
 
+  ! reduce/reduce conflict for $end resolved using rule 3 (statement -> print .)
     $end            reduce using rule 3 (statement -> print .)
-    RBRACE          reduce using rule 3 (statement -> print .)
-    LINE_BREAK      reduce using rule 9 (line -> print .)
+    LINE_BREAK      reduce using rule 76 (line -> print .)
+
+  ! $end            [ reduce using rule 76 (line -> print .) ]
 
 
 state 5
 
     (4) statement -> function .
-    (11) line -> function .
+    (78) line -> function .
 
+  ! reduce/reduce conflict for $end resolved using rule 4 (statement -> function .)
     $end            reduce using rule 4 (statement -> function .)
-    RBRACE          reduce using rule 4 (statement -> function .)
-    LINE_BREAK      reduce using rule 11 (line -> function .)
+    LINE_BREAK      reduce using rule 78 (line -> function .)
+
+  ! $end            [ reduce using rule 78 (line -> function .) ]
 
 
 state 6
 
     (5) statement -> if_statement .
-    (24) if_statement -> if_statement . ELSE if_statement
-    (25) if_statement -> if_statement . ELSE LBRACE lines RBRACE
-    (12) line -> if_statement .
+    (19) if_statement -> if_statement . ELSE if_statement
+    (20) if_statement -> if_statement . ELSE LBRACE lines RBRACE
+    (79) line -> if_statement .
 
+  ! reduce/reduce conflict for $end resolved using rule 5 (statement -> if_statement .)
     $end            reduce using rule 5 (statement -> if_statement .)
-    RBRACE          reduce using rule 5 (statement -> if_statement .)
     ELSE            shift and go to state 45
-    LINE_BREAK      reduce using rule 12 (line -> if_statement .)
+    LINE_BREAK      reduce using rule 79 (line -> if_statement .)
+
+  ! $end            [ reduce using rule 79 (line -> if_statement .) ]
 
 
 state 7
@@ -447,22 +461,20 @@ state 7
     (6) statement -> lines .
 
     $end            reduce using rule 6 (statement -> lines .)
-    RBRACE          reduce using rule 6 (statement -> lines .)
 
 
 state 8
 
-    (38) expression -> arithmetic .
-    (42) arithmetic -> arithmetic . arith_op arithmetic
-    (54) arith_op -> . PLUS
-    (55) arith_op -> . MINUS
-    (56) arith_op -> . TIMES
-    (57) arith_op -> . DIVIDE
+    (33) expression -> arithmetic .
+    (37) arithmetic -> arithmetic . arith_op arithmetic
+    (49) arith_op -> . PLUS
+    (50) arith_op -> . MINUS
+    (51) arith_op -> . TIMES
+    (52) arith_op -> . DIVIDE
 
-    $end            reduce using rule 38 (expression -> arithmetic .)
-    RPAREN          reduce using rule 38 (expression -> arithmetic .)
-    SEMICOLON       reduce using rule 38 (expression -> arithmetic .)
-    RBRACE          reduce using rule 38 (expression -> arithmetic .)
+    $end            reduce using rule 33 (expression -> arithmetic .)
+    RPAREN          reduce using rule 33 (expression -> arithmetic .)
+    SEMICOLON       reduce using rule 33 (expression -> arithmetic .)
     PLUS            shift and go to state 47
     MINUS           shift and go to state 48
     TIMES           shift and go to state 49
@@ -472,15 +484,14 @@ state 8
 
 state 9
 
-    (39) expression -> logic .
-    (49) logic -> logic . logic_op logic
-    (52) logic_op -> . LOGICAL_AND
-    (53) logic_op -> . LOGICAL_OR
+    (34) expression -> logic .
+    (44) logic -> logic . logic_op logic
+    (47) logic_op -> . LOGICAL_AND
+    (48) logic_op -> . LOGICAL_OR
 
-    $end            reduce using rule 39 (expression -> logic .)
-    RPAREN          reduce using rule 39 (expression -> logic .)
-    SEMICOLON       reduce using rule 39 (expression -> logic .)
-    RBRACE          reduce using rule 39 (expression -> logic .)
+    $end            reduce using rule 34 (expression -> logic .)
+    RPAREN          reduce using rule 34 (expression -> logic .)
+    SEMICOLON       reduce using rule 34 (expression -> logic .)
     LOGICAL_AND     shift and go to state 52
     LOGICAL_OR      shift and go to state 53
 
@@ -488,29 +499,28 @@ state 9
 
 state 10
 
-    (40) expression -> function_call .
+    (35) expression -> function_call .
 
-    $end            reduce using rule 40 (expression -> function_call .)
-    RPAREN          reduce using rule 40 (expression -> function_call .)
-    SEMICOLON       reduce using rule 40 (expression -> function_call .)
-    RBRACE          reduce using rule 40 (expression -> function_call .)
+    $end            reduce using rule 35 (expression -> function_call .)
+    RPAREN          reduce using rule 35 (expression -> function_call .)
+    SEMICOLON       reduce using rule 35 (expression -> function_call .)
 
 
 state 11
 
-    (13) assignment -> modifier . type nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (15) assignment -> modifier . type IDENTIFIER ASSIGN expression SEMICOLON
-    (27) type -> . INTEGER_TYPE
-    (28) type -> . DOUBLE_TYPE
-    (29) type -> . BOOLEAN_TYPE
-    (30) type -> . QUEUE_TYPE
-    (31) type -> . STRING_TYPE
-    (32) type -> . ENUM_TYPE
-    (33) type -> . VAR
-    (34) type -> . LIST_TYPE
-    (35) type -> . MAP_TYPE
-    (36) type -> . SET_TYPE
-    (37) type -> . DYNAMIC_TYPE
+    (8) assignment -> modifier . type nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> modifier . type IDENTIFIER ASSIGN expression SEMICOLON
+    (22) type -> . INTEGER_TYPE
+    (23) type -> . DOUBLE_TYPE
+    (24) type -> . BOOLEAN_TYPE
+    (25) type -> . QUEUE_TYPE
+    (26) type -> . STRING_TYPE
+    (27) type -> . ENUM_TYPE
+    (28) type -> . VAR
+    (29) type -> . LIST_TYPE
+    (30) type -> . MAP_TYPE
+    (31) type -> . SET_TYPE
+    (32) type -> . DYNAMIC_TYPE
 
     INTEGER_TYPE    shift and go to state 24
     DOUBLE_TYPE     shift and go to state 25
@@ -528,10 +538,10 @@ state 11
 
 state 12
 
-    (14) assignment -> type . nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (16) assignment -> type . IDENTIFIER ASSIGN expression SEMICOLON
-    (77) function -> type . IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE
-    (17) nullable -> . QUESTION_MARK
+    (9) assignment -> type . nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (11) assignment -> type . IDENTIFIER ASSIGN expression SEMICOLON
+    (72) function -> type . IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE
+    (12) nullable -> . QUESTION_MARK
 
     IDENTIFIER      shift and go to state 56
     QUESTION_MARK   shift and go to state 57
@@ -540,63 +550,62 @@ state 12
 
 state 13
 
-    (26) function_call -> IDENTIFIER . LPAREN parameters RPAREN
-    (66) value -> IDENTIFIER .
+    (21) function_call -> IDENTIFIER . LPAREN parameters RPAREN
+    (61) value -> IDENTIFIER .
 
     LPAREN          shift and go to state 58
-    PLUS            reduce using rule 66 (value -> IDENTIFIER .)
-    MINUS           reduce using rule 66 (value -> IDENTIFIER .)
-    TIMES           reduce using rule 66 (value -> IDENTIFIER .)
-    DIVIDE          reduce using rule 66 (value -> IDENTIFIER .)
-    $end            reduce using rule 66 (value -> IDENTIFIER .)
-    EQUAL           reduce using rule 66 (value -> IDENTIFIER .)
-    NOT_EQUAL       reduce using rule 66 (value -> IDENTIFIER .)
-    LESS            reduce using rule 66 (value -> IDENTIFIER .)
-    LESS_EQUAL      reduce using rule 66 (value -> IDENTIFIER .)
-    GREATER         reduce using rule 66 (value -> IDENTIFIER .)
-    GREATER_EQUAL   reduce using rule 66 (value -> IDENTIFIER .)
-    LOGICAL_AND     reduce using rule 66 (value -> IDENTIFIER .)
-    LOGICAL_OR      reduce using rule 66 (value -> IDENTIFIER .)
-    RPAREN          reduce using rule 66 (value -> IDENTIFIER .)
-    SEMICOLON       reduce using rule 66 (value -> IDENTIFIER .)
-    RBRACE          reduce using rule 66 (value -> IDENTIFIER .)
+    PLUS            reduce using rule 61 (value -> IDENTIFIER .)
+    MINUS           reduce using rule 61 (value -> IDENTIFIER .)
+    TIMES           reduce using rule 61 (value -> IDENTIFIER .)
+    DIVIDE          reduce using rule 61 (value -> IDENTIFIER .)
+    $end            reduce using rule 61 (value -> IDENTIFIER .)
+    EQUAL           reduce using rule 61 (value -> IDENTIFIER .)
+    NOT_EQUAL       reduce using rule 61 (value -> IDENTIFIER .)
+    LESS            reduce using rule 61 (value -> IDENTIFIER .)
+    LESS_EQUAL      reduce using rule 61 (value -> IDENTIFIER .)
+    GREATER         reduce using rule 61 (value -> IDENTIFIER .)
+    GREATER_EQUAL   reduce using rule 61 (value -> IDENTIFIER .)
+    LOGICAL_AND     reduce using rule 61 (value -> IDENTIFIER .)
+    LOGICAL_OR      reduce using rule 61 (value -> IDENTIFIER .)
+    RPAREN          reduce using rule 61 (value -> IDENTIFIER .)
+    SEMICOLON       reduce using rule 61 (value -> IDENTIFIER .)
 
 
 state 14
 
-    (21) print -> PRINT . LPAREN expression RPAREN SEMICOLON
-    (22) print -> PRINT . LPAREN RPAREN SEMICOLON
+    (16) print -> PRINT . LPAREN expression RPAREN SEMICOLON
+    (17) print -> PRINT . LPAREN RPAREN SEMICOLON
 
     LPAREN          shift and go to state 59
 
 
 state 15
 
-    (43) arithmetic -> LPAREN . arithmetic arith_op arithmetic RPAREN
-    (50) logic -> LPAREN . logic logic_op logic RPAREN
-    (47) comparison -> LPAREN . comparison comp_op comparison RPAREN
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (38) arithmetic -> LPAREN . arithmetic arith_op arithmetic RPAREN
+    (45) logic -> LPAREN . logic logic_op logic RPAREN
+    (42) comparison -> LPAREN . comparison comp_op comparison RPAREN
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 15
     LOGICAL_NOT     shift and go to state 20
@@ -619,67 +628,66 @@ state 15
 
 state 16
 
-    (23) if_statement -> IF . LPAREN logic RPAREN LBRACE lines RBRACE
+    (18) if_statement -> IF . LPAREN logic RPAREN LBRACE lines RBRACE
 
     LPAREN          shift and go to state 64
 
 
 state 17
 
-    (8) lines -> line . LINE_BREAK
+    (73) lines -> line . LINE_BREAK
+    (74) lines -> line .
 
     LINE_BREAK      shift and go to state 65
+    $end            reduce using rule 74 (lines -> line .)
+    RBRACE          reduce using rule 74 (lines -> line .)
 
 
 state 18
 
-    (41) arithmetic -> value .
-    (44) comparison -> value .
+    (36) arithmetic -> value .
+    (39) comparison -> value .
 
-  ! reduce/reduce conflict for $end resolved using rule 41 (arithmetic -> value .)
-  ! reduce/reduce conflict for RPAREN resolved using rule 41 (arithmetic -> value .)
-  ! reduce/reduce conflict for SEMICOLON resolved using rule 41 (arithmetic -> value .)
-  ! reduce/reduce conflict for RBRACE resolved using rule 41 (arithmetic -> value .)
-    PLUS            reduce using rule 41 (arithmetic -> value .)
-    MINUS           reduce using rule 41 (arithmetic -> value .)
-    TIMES           reduce using rule 41 (arithmetic -> value .)
-    DIVIDE          reduce using rule 41 (arithmetic -> value .)
-    $end            reduce using rule 41 (arithmetic -> value .)
-    RPAREN          reduce using rule 41 (arithmetic -> value .)
-    SEMICOLON       reduce using rule 41 (arithmetic -> value .)
-    RBRACE          reduce using rule 41 (arithmetic -> value .)
-    EQUAL           reduce using rule 44 (comparison -> value .)
-    NOT_EQUAL       reduce using rule 44 (comparison -> value .)
-    LESS            reduce using rule 44 (comparison -> value .)
-    LESS_EQUAL      reduce using rule 44 (comparison -> value .)
-    GREATER         reduce using rule 44 (comparison -> value .)
-    GREATER_EQUAL   reduce using rule 44 (comparison -> value .)
-    LOGICAL_AND     reduce using rule 44 (comparison -> value .)
-    LOGICAL_OR      reduce using rule 44 (comparison -> value .)
+  ! reduce/reduce conflict for $end resolved using rule 36 (arithmetic -> value .)
+  ! reduce/reduce conflict for RPAREN resolved using rule 36 (arithmetic -> value .)
+  ! reduce/reduce conflict for SEMICOLON resolved using rule 36 (arithmetic -> value .)
+    PLUS            reduce using rule 36 (arithmetic -> value .)
+    MINUS           reduce using rule 36 (arithmetic -> value .)
+    TIMES           reduce using rule 36 (arithmetic -> value .)
+    DIVIDE          reduce using rule 36 (arithmetic -> value .)
+    $end            reduce using rule 36 (arithmetic -> value .)
+    RPAREN          reduce using rule 36 (arithmetic -> value .)
+    SEMICOLON       reduce using rule 36 (arithmetic -> value .)
+    EQUAL           reduce using rule 39 (comparison -> value .)
+    NOT_EQUAL       reduce using rule 39 (comparison -> value .)
+    LESS            reduce using rule 39 (comparison -> value .)
+    LESS_EQUAL      reduce using rule 39 (comparison -> value .)
+    GREATER         reduce using rule 39 (comparison -> value .)
+    GREATER_EQUAL   reduce using rule 39 (comparison -> value .)
+    LOGICAL_AND     reduce using rule 39 (comparison -> value .)
+    LOGICAL_OR      reduce using rule 39 (comparison -> value .)
 
-  ! $end            [ reduce using rule 44 (comparison -> value .) ]
-  ! RPAREN          [ reduce using rule 44 (comparison -> value .) ]
-  ! SEMICOLON       [ reduce using rule 44 (comparison -> value .) ]
-  ! RBRACE          [ reduce using rule 44 (comparison -> value .) ]
+  ! $end            [ reduce using rule 39 (comparison -> value .) ]
+  ! RPAREN          [ reduce using rule 39 (comparison -> value .) ]
+  ! SEMICOLON       [ reduce using rule 39 (comparison -> value .) ]
 
 
 state 19
 
-    (48) logic -> comparison .
-    (46) comparison -> comparison . comp_op comparison
-    (58) comp_op -> . EQUAL
-    (59) comp_op -> . NOT_EQUAL
-    (60) comp_op -> . LESS
-    (61) comp_op -> . LESS_EQUAL
-    (62) comp_op -> . GREATER
-    (63) comp_op -> . GREATER_EQUAL
+    (43) logic -> comparison .
+    (41) comparison -> comparison . comp_op comparison
+    (53) comp_op -> . EQUAL
+    (54) comp_op -> . NOT_EQUAL
+    (55) comp_op -> . LESS
+    (56) comp_op -> . LESS_EQUAL
+    (57) comp_op -> . GREATER
+    (58) comp_op -> . GREATER_EQUAL
 
-    LOGICAL_AND     reduce using rule 48 (logic -> comparison .)
-    LOGICAL_OR      reduce using rule 48 (logic -> comparison .)
-    $end            reduce using rule 48 (logic -> comparison .)
-    RPAREN          reduce using rule 48 (logic -> comparison .)
-    SEMICOLON       reduce using rule 48 (logic -> comparison .)
-    RBRACE          reduce using rule 48 (logic -> comparison .)
+    LOGICAL_AND     reduce using rule 43 (logic -> comparison .)
+    LOGICAL_OR      reduce using rule 43 (logic -> comparison .)
+    $end            reduce using rule 43 (logic -> comparison .)
+    RPAREN          reduce using rule 43 (logic -> comparison .)
+    SEMICOLON       reduce using rule 43 (logic -> comparison .)
     EQUAL           shift and go to state 67
     NOT_EQUAL       shift and go to state 68
     LESS            shift and go to state 69
@@ -691,26 +699,26 @@ state 19
 
 state 20
 
-    (51) logic -> LOGICAL_NOT . logic
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (46) logic -> LOGICAL_NOT . logic
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 74
     LOGICAL_NOT     shift and go to state 20
@@ -732,320 +740,313 @@ state 20
 
 state 21
 
-    (18) modifier -> LATE .
+    (13) modifier -> LATE .
 
-    INTEGER_TYPE    reduce using rule 18 (modifier -> LATE .)
-    DOUBLE_TYPE     reduce using rule 18 (modifier -> LATE .)
-    BOOLEAN_TYPE    reduce using rule 18 (modifier -> LATE .)
-    QUEUE_TYPE      reduce using rule 18 (modifier -> LATE .)
-    STRING_TYPE     reduce using rule 18 (modifier -> LATE .)
-    ENUM_TYPE       reduce using rule 18 (modifier -> LATE .)
-    VAR             reduce using rule 18 (modifier -> LATE .)
-    LIST_TYPE       reduce using rule 18 (modifier -> LATE .)
-    MAP_TYPE        reduce using rule 18 (modifier -> LATE .)
-    SET_TYPE        reduce using rule 18 (modifier -> LATE .)
-    DYNAMIC_TYPE    reduce using rule 18 (modifier -> LATE .)
+    INTEGER_TYPE    reduce using rule 13 (modifier -> LATE .)
+    DOUBLE_TYPE     reduce using rule 13 (modifier -> LATE .)
+    BOOLEAN_TYPE    reduce using rule 13 (modifier -> LATE .)
+    QUEUE_TYPE      reduce using rule 13 (modifier -> LATE .)
+    STRING_TYPE     reduce using rule 13 (modifier -> LATE .)
+    ENUM_TYPE       reduce using rule 13 (modifier -> LATE .)
+    VAR             reduce using rule 13 (modifier -> LATE .)
+    LIST_TYPE       reduce using rule 13 (modifier -> LATE .)
+    MAP_TYPE        reduce using rule 13 (modifier -> LATE .)
+    SET_TYPE        reduce using rule 13 (modifier -> LATE .)
+    DYNAMIC_TYPE    reduce using rule 13 (modifier -> LATE .)
 
 
 state 22
 
-    (19) modifier -> FINAL .
+    (14) modifier -> FINAL .
 
-    INTEGER_TYPE    reduce using rule 19 (modifier -> FINAL .)
-    DOUBLE_TYPE     reduce using rule 19 (modifier -> FINAL .)
-    BOOLEAN_TYPE    reduce using rule 19 (modifier -> FINAL .)
-    QUEUE_TYPE      reduce using rule 19 (modifier -> FINAL .)
-    STRING_TYPE     reduce using rule 19 (modifier -> FINAL .)
-    ENUM_TYPE       reduce using rule 19 (modifier -> FINAL .)
-    VAR             reduce using rule 19 (modifier -> FINAL .)
-    LIST_TYPE       reduce using rule 19 (modifier -> FINAL .)
-    MAP_TYPE        reduce using rule 19 (modifier -> FINAL .)
-    SET_TYPE        reduce using rule 19 (modifier -> FINAL .)
-    DYNAMIC_TYPE    reduce using rule 19 (modifier -> FINAL .)
+    INTEGER_TYPE    reduce using rule 14 (modifier -> FINAL .)
+    DOUBLE_TYPE     reduce using rule 14 (modifier -> FINAL .)
+    BOOLEAN_TYPE    reduce using rule 14 (modifier -> FINAL .)
+    QUEUE_TYPE      reduce using rule 14 (modifier -> FINAL .)
+    STRING_TYPE     reduce using rule 14 (modifier -> FINAL .)
+    ENUM_TYPE       reduce using rule 14 (modifier -> FINAL .)
+    VAR             reduce using rule 14 (modifier -> FINAL .)
+    LIST_TYPE       reduce using rule 14 (modifier -> FINAL .)
+    MAP_TYPE        reduce using rule 14 (modifier -> FINAL .)
+    SET_TYPE        reduce using rule 14 (modifier -> FINAL .)
+    DYNAMIC_TYPE    reduce using rule 14 (modifier -> FINAL .)
 
 
 state 23
 
-    (20) modifier -> CONST .
+    (15) modifier -> CONST .
 
-    INTEGER_TYPE    reduce using rule 20 (modifier -> CONST .)
-    DOUBLE_TYPE     reduce using rule 20 (modifier -> CONST .)
-    BOOLEAN_TYPE    reduce using rule 20 (modifier -> CONST .)
-    QUEUE_TYPE      reduce using rule 20 (modifier -> CONST .)
-    STRING_TYPE     reduce using rule 20 (modifier -> CONST .)
-    ENUM_TYPE       reduce using rule 20 (modifier -> CONST .)
-    VAR             reduce using rule 20 (modifier -> CONST .)
-    LIST_TYPE       reduce using rule 20 (modifier -> CONST .)
-    MAP_TYPE        reduce using rule 20 (modifier -> CONST .)
-    SET_TYPE        reduce using rule 20 (modifier -> CONST .)
-    DYNAMIC_TYPE    reduce using rule 20 (modifier -> CONST .)
+    INTEGER_TYPE    reduce using rule 15 (modifier -> CONST .)
+    DOUBLE_TYPE     reduce using rule 15 (modifier -> CONST .)
+    BOOLEAN_TYPE    reduce using rule 15 (modifier -> CONST .)
+    QUEUE_TYPE      reduce using rule 15 (modifier -> CONST .)
+    STRING_TYPE     reduce using rule 15 (modifier -> CONST .)
+    ENUM_TYPE       reduce using rule 15 (modifier -> CONST .)
+    VAR             reduce using rule 15 (modifier -> CONST .)
+    LIST_TYPE       reduce using rule 15 (modifier -> CONST .)
+    MAP_TYPE        reduce using rule 15 (modifier -> CONST .)
+    SET_TYPE        reduce using rule 15 (modifier -> CONST .)
+    DYNAMIC_TYPE    reduce using rule 15 (modifier -> CONST .)
 
 
 state 24
 
-    (27) type -> INTEGER_TYPE .
+    (22) type -> INTEGER_TYPE .
 
-    IDENTIFIER      reduce using rule 27 (type -> INTEGER_TYPE .)
-    QUESTION_MARK   reduce using rule 27 (type -> INTEGER_TYPE .)
+    IDENTIFIER      reduce using rule 22 (type -> INTEGER_TYPE .)
+    QUESTION_MARK   reduce using rule 22 (type -> INTEGER_TYPE .)
 
 
 state 25
 
-    (28) type -> DOUBLE_TYPE .
+    (23) type -> DOUBLE_TYPE .
 
-    IDENTIFIER      reduce using rule 28 (type -> DOUBLE_TYPE .)
-    QUESTION_MARK   reduce using rule 28 (type -> DOUBLE_TYPE .)
+    IDENTIFIER      reduce using rule 23 (type -> DOUBLE_TYPE .)
+    QUESTION_MARK   reduce using rule 23 (type -> DOUBLE_TYPE .)
 
 
 state 26
 
-    (29) type -> BOOLEAN_TYPE .
+    (24) type -> BOOLEAN_TYPE .
 
-    IDENTIFIER      reduce using rule 29 (type -> BOOLEAN_TYPE .)
-    QUESTION_MARK   reduce using rule 29 (type -> BOOLEAN_TYPE .)
+    IDENTIFIER      reduce using rule 24 (type -> BOOLEAN_TYPE .)
+    QUESTION_MARK   reduce using rule 24 (type -> BOOLEAN_TYPE .)
 
 
 state 27
 
-    (30) type -> QUEUE_TYPE .
+    (25) type -> QUEUE_TYPE .
 
-    IDENTIFIER      reduce using rule 30 (type -> QUEUE_TYPE .)
-    QUESTION_MARK   reduce using rule 30 (type -> QUEUE_TYPE .)
+    IDENTIFIER      reduce using rule 25 (type -> QUEUE_TYPE .)
+    QUESTION_MARK   reduce using rule 25 (type -> QUEUE_TYPE .)
 
 
 state 28
 
-    (31) type -> STRING_TYPE .
+    (26) type -> STRING_TYPE .
 
-    IDENTIFIER      reduce using rule 31 (type -> STRING_TYPE .)
-    QUESTION_MARK   reduce using rule 31 (type -> STRING_TYPE .)
+    IDENTIFIER      reduce using rule 26 (type -> STRING_TYPE .)
+    QUESTION_MARK   reduce using rule 26 (type -> STRING_TYPE .)
 
 
 state 29
 
-    (32) type -> ENUM_TYPE .
+    (27) type -> ENUM_TYPE .
 
-    IDENTIFIER      reduce using rule 32 (type -> ENUM_TYPE .)
-    QUESTION_MARK   reduce using rule 32 (type -> ENUM_TYPE .)
+    IDENTIFIER      reduce using rule 27 (type -> ENUM_TYPE .)
+    QUESTION_MARK   reduce using rule 27 (type -> ENUM_TYPE .)
 
 
 state 30
 
-    (33) type -> VAR .
+    (28) type -> VAR .
 
-    IDENTIFIER      reduce using rule 33 (type -> VAR .)
-    QUESTION_MARK   reduce using rule 33 (type -> VAR .)
+    IDENTIFIER      reduce using rule 28 (type -> VAR .)
+    QUESTION_MARK   reduce using rule 28 (type -> VAR .)
 
 
 state 31
 
-    (34) type -> LIST_TYPE .
+    (29) type -> LIST_TYPE .
 
-    IDENTIFIER      reduce using rule 34 (type -> LIST_TYPE .)
-    QUESTION_MARK   reduce using rule 34 (type -> LIST_TYPE .)
+    IDENTIFIER      reduce using rule 29 (type -> LIST_TYPE .)
+    QUESTION_MARK   reduce using rule 29 (type -> LIST_TYPE .)
 
 
 state 32
 
-    (35) type -> MAP_TYPE .
+    (30) type -> MAP_TYPE .
 
-    IDENTIFIER      reduce using rule 35 (type -> MAP_TYPE .)
-    QUESTION_MARK   reduce using rule 35 (type -> MAP_TYPE .)
+    IDENTIFIER      reduce using rule 30 (type -> MAP_TYPE .)
+    QUESTION_MARK   reduce using rule 30 (type -> MAP_TYPE .)
 
 
 state 33
 
-    (36) type -> SET_TYPE .
+    (31) type -> SET_TYPE .
 
-    IDENTIFIER      reduce using rule 36 (type -> SET_TYPE .)
-    QUESTION_MARK   reduce using rule 36 (type -> SET_TYPE .)
+    IDENTIFIER      reduce using rule 31 (type -> SET_TYPE .)
+    QUESTION_MARK   reduce using rule 31 (type -> SET_TYPE .)
 
 
 state 34
 
-    (37) type -> DYNAMIC_TYPE .
+    (32) type -> DYNAMIC_TYPE .
 
-    IDENTIFIER      reduce using rule 37 (type -> DYNAMIC_TYPE .)
-    QUESTION_MARK   reduce using rule 37 (type -> DYNAMIC_TYPE .)
+    IDENTIFIER      reduce using rule 32 (type -> DYNAMIC_TYPE .)
+    QUESTION_MARK   reduce using rule 32 (type -> DYNAMIC_TYPE .)
 
 
 state 35
 
-    (67) value -> number .
+    (62) value -> number .
 
-    PLUS            reduce using rule 67 (value -> number .)
-    MINUS           reduce using rule 67 (value -> number .)
-    TIMES           reduce using rule 67 (value -> number .)
-    DIVIDE          reduce using rule 67 (value -> number .)
-    $end            reduce using rule 67 (value -> number .)
-    EQUAL           reduce using rule 67 (value -> number .)
-    NOT_EQUAL       reduce using rule 67 (value -> number .)
-    LESS            reduce using rule 67 (value -> number .)
-    LESS_EQUAL      reduce using rule 67 (value -> number .)
-    GREATER         reduce using rule 67 (value -> number .)
-    GREATER_EQUAL   reduce using rule 67 (value -> number .)
-    LOGICAL_AND     reduce using rule 67 (value -> number .)
-    LOGICAL_OR      reduce using rule 67 (value -> number .)
-    RPAREN          reduce using rule 67 (value -> number .)
-    SEMICOLON       reduce using rule 67 (value -> number .)
-    RBRACE          reduce using rule 67 (value -> number .)
-    COMMA           reduce using rule 67 (value -> number .)
-    RSQUARE         reduce using rule 67 (value -> number .)
+    PLUS            reduce using rule 62 (value -> number .)
+    MINUS           reduce using rule 62 (value -> number .)
+    TIMES           reduce using rule 62 (value -> number .)
+    DIVIDE          reduce using rule 62 (value -> number .)
+    $end            reduce using rule 62 (value -> number .)
+    EQUAL           reduce using rule 62 (value -> number .)
+    NOT_EQUAL       reduce using rule 62 (value -> number .)
+    LESS            reduce using rule 62 (value -> number .)
+    LESS_EQUAL      reduce using rule 62 (value -> number .)
+    GREATER         reduce using rule 62 (value -> number .)
+    GREATER_EQUAL   reduce using rule 62 (value -> number .)
+    LOGICAL_AND     reduce using rule 62 (value -> number .)
+    LOGICAL_OR      reduce using rule 62 (value -> number .)
+    RPAREN          reduce using rule 62 (value -> number .)
+    SEMICOLON       reduce using rule 62 (value -> number .)
+    COMMA           reduce using rule 62 (value -> number .)
+    RSQUARE         reduce using rule 62 (value -> number .)
 
 
 state 36
 
-    (68) value -> string .
+    (63) value -> string .
 
-    PLUS            reduce using rule 68 (value -> string .)
-    MINUS           reduce using rule 68 (value -> string .)
-    TIMES           reduce using rule 68 (value -> string .)
-    DIVIDE          reduce using rule 68 (value -> string .)
-    $end            reduce using rule 68 (value -> string .)
-    EQUAL           reduce using rule 68 (value -> string .)
-    NOT_EQUAL       reduce using rule 68 (value -> string .)
-    LESS            reduce using rule 68 (value -> string .)
-    LESS_EQUAL      reduce using rule 68 (value -> string .)
-    GREATER         reduce using rule 68 (value -> string .)
-    GREATER_EQUAL   reduce using rule 68 (value -> string .)
-    LOGICAL_AND     reduce using rule 68 (value -> string .)
-    LOGICAL_OR      reduce using rule 68 (value -> string .)
-    RPAREN          reduce using rule 68 (value -> string .)
-    SEMICOLON       reduce using rule 68 (value -> string .)
-    RBRACE          reduce using rule 68 (value -> string .)
-    COMMA           reduce using rule 68 (value -> string .)
-    RSQUARE         reduce using rule 68 (value -> string .)
+    PLUS            reduce using rule 63 (value -> string .)
+    MINUS           reduce using rule 63 (value -> string .)
+    TIMES           reduce using rule 63 (value -> string .)
+    DIVIDE          reduce using rule 63 (value -> string .)
+    $end            reduce using rule 63 (value -> string .)
+    EQUAL           reduce using rule 63 (value -> string .)
+    NOT_EQUAL       reduce using rule 63 (value -> string .)
+    LESS            reduce using rule 63 (value -> string .)
+    LESS_EQUAL      reduce using rule 63 (value -> string .)
+    GREATER         reduce using rule 63 (value -> string .)
+    GREATER_EQUAL   reduce using rule 63 (value -> string .)
+    LOGICAL_AND     reduce using rule 63 (value -> string .)
+    LOGICAL_OR      reduce using rule 63 (value -> string .)
+    RPAREN          reduce using rule 63 (value -> string .)
+    SEMICOLON       reduce using rule 63 (value -> string .)
+    COMMA           reduce using rule 63 (value -> string .)
+    RSQUARE         reduce using rule 63 (value -> string .)
 
 
 state 37
 
-    (69) value -> list .
+    (64) value -> list .
 
-    PLUS            reduce using rule 69 (value -> list .)
-    MINUS           reduce using rule 69 (value -> list .)
-    TIMES           reduce using rule 69 (value -> list .)
-    DIVIDE          reduce using rule 69 (value -> list .)
-    $end            reduce using rule 69 (value -> list .)
-    EQUAL           reduce using rule 69 (value -> list .)
-    NOT_EQUAL       reduce using rule 69 (value -> list .)
-    LESS            reduce using rule 69 (value -> list .)
-    LESS_EQUAL      reduce using rule 69 (value -> list .)
-    GREATER         reduce using rule 69 (value -> list .)
-    GREATER_EQUAL   reduce using rule 69 (value -> list .)
-    LOGICAL_AND     reduce using rule 69 (value -> list .)
-    LOGICAL_OR      reduce using rule 69 (value -> list .)
-    RPAREN          reduce using rule 69 (value -> list .)
-    SEMICOLON       reduce using rule 69 (value -> list .)
-    RBRACE          reduce using rule 69 (value -> list .)
-    COMMA           reduce using rule 69 (value -> list .)
-    RSQUARE         reduce using rule 69 (value -> list .)
+    PLUS            reduce using rule 64 (value -> list .)
+    MINUS           reduce using rule 64 (value -> list .)
+    TIMES           reduce using rule 64 (value -> list .)
+    DIVIDE          reduce using rule 64 (value -> list .)
+    $end            reduce using rule 64 (value -> list .)
+    EQUAL           reduce using rule 64 (value -> list .)
+    NOT_EQUAL       reduce using rule 64 (value -> list .)
+    LESS            reduce using rule 64 (value -> list .)
+    LESS_EQUAL      reduce using rule 64 (value -> list .)
+    GREATER         reduce using rule 64 (value -> list .)
+    GREATER_EQUAL   reduce using rule 64 (value -> list .)
+    LOGICAL_AND     reduce using rule 64 (value -> list .)
+    LOGICAL_OR      reduce using rule 64 (value -> list .)
+    RPAREN          reduce using rule 64 (value -> list .)
+    SEMICOLON       reduce using rule 64 (value -> list .)
+    COMMA           reduce using rule 64 (value -> list .)
+    RSQUARE         reduce using rule 64 (value -> list .)
 
 
 state 38
 
-    (45) comparison -> boolean .
+    (40) comparison -> boolean .
 
-    EQUAL           reduce using rule 45 (comparison -> boolean .)
-    NOT_EQUAL       reduce using rule 45 (comparison -> boolean .)
-    LESS            reduce using rule 45 (comparison -> boolean .)
-    LESS_EQUAL      reduce using rule 45 (comparison -> boolean .)
-    GREATER         reduce using rule 45 (comparison -> boolean .)
-    GREATER_EQUAL   reduce using rule 45 (comparison -> boolean .)
-    LOGICAL_AND     reduce using rule 45 (comparison -> boolean .)
-    LOGICAL_OR      reduce using rule 45 (comparison -> boolean .)
-    $end            reduce using rule 45 (comparison -> boolean .)
-    RPAREN          reduce using rule 45 (comparison -> boolean .)
-    SEMICOLON       reduce using rule 45 (comparison -> boolean .)
-    RBRACE          reduce using rule 45 (comparison -> boolean .)
+    EQUAL           reduce using rule 40 (comparison -> boolean .)
+    NOT_EQUAL       reduce using rule 40 (comparison -> boolean .)
+    LESS            reduce using rule 40 (comparison -> boolean .)
+    LESS_EQUAL      reduce using rule 40 (comparison -> boolean .)
+    GREATER         reduce using rule 40 (comparison -> boolean .)
+    GREATER_EQUAL   reduce using rule 40 (comparison -> boolean .)
+    LOGICAL_AND     reduce using rule 40 (comparison -> boolean .)
+    LOGICAL_OR      reduce using rule 40 (comparison -> boolean .)
+    $end            reduce using rule 40 (comparison -> boolean .)
+    RPAREN          reduce using rule 40 (comparison -> boolean .)
+    SEMICOLON       reduce using rule 40 (comparison -> boolean .)
 
 
 state 39
 
-    (70) number -> INTEGER .
+    (65) number -> INTEGER .
 
-    PLUS            reduce using rule 70 (number -> INTEGER .)
-    MINUS           reduce using rule 70 (number -> INTEGER .)
-    TIMES           reduce using rule 70 (number -> INTEGER .)
-    DIVIDE          reduce using rule 70 (number -> INTEGER .)
-    $end            reduce using rule 70 (number -> INTEGER .)
-    EQUAL           reduce using rule 70 (number -> INTEGER .)
-    NOT_EQUAL       reduce using rule 70 (number -> INTEGER .)
-    LESS            reduce using rule 70 (number -> INTEGER .)
-    LESS_EQUAL      reduce using rule 70 (number -> INTEGER .)
-    GREATER         reduce using rule 70 (number -> INTEGER .)
-    GREATER_EQUAL   reduce using rule 70 (number -> INTEGER .)
-    LOGICAL_AND     reduce using rule 70 (number -> INTEGER .)
-    LOGICAL_OR      reduce using rule 70 (number -> INTEGER .)
-    RPAREN          reduce using rule 70 (number -> INTEGER .)
-    SEMICOLON       reduce using rule 70 (number -> INTEGER .)
-    RBRACE          reduce using rule 70 (number -> INTEGER .)
-    COMMA           reduce using rule 70 (number -> INTEGER .)
-    RSQUARE         reduce using rule 70 (number -> INTEGER .)
+    PLUS            reduce using rule 65 (number -> INTEGER .)
+    MINUS           reduce using rule 65 (number -> INTEGER .)
+    TIMES           reduce using rule 65 (number -> INTEGER .)
+    DIVIDE          reduce using rule 65 (number -> INTEGER .)
+    $end            reduce using rule 65 (number -> INTEGER .)
+    EQUAL           reduce using rule 65 (number -> INTEGER .)
+    NOT_EQUAL       reduce using rule 65 (number -> INTEGER .)
+    LESS            reduce using rule 65 (number -> INTEGER .)
+    LESS_EQUAL      reduce using rule 65 (number -> INTEGER .)
+    GREATER         reduce using rule 65 (number -> INTEGER .)
+    GREATER_EQUAL   reduce using rule 65 (number -> INTEGER .)
+    LOGICAL_AND     reduce using rule 65 (number -> INTEGER .)
+    LOGICAL_OR      reduce using rule 65 (number -> INTEGER .)
+    RPAREN          reduce using rule 65 (number -> INTEGER .)
+    SEMICOLON       reduce using rule 65 (number -> INTEGER .)
+    COMMA           reduce using rule 65 (number -> INTEGER .)
+    RSQUARE         reduce using rule 65 (number -> INTEGER .)
 
 
 state 40
 
-    (71) number -> DOUBLE .
+    (66) number -> DOUBLE .
 
-    PLUS            reduce using rule 71 (number -> DOUBLE .)
-    MINUS           reduce using rule 71 (number -> DOUBLE .)
-    TIMES           reduce using rule 71 (number -> DOUBLE .)
-    DIVIDE          reduce using rule 71 (number -> DOUBLE .)
-    $end            reduce using rule 71 (number -> DOUBLE .)
-    EQUAL           reduce using rule 71 (number -> DOUBLE .)
-    NOT_EQUAL       reduce using rule 71 (number -> DOUBLE .)
-    LESS            reduce using rule 71 (number -> DOUBLE .)
-    LESS_EQUAL      reduce using rule 71 (number -> DOUBLE .)
-    GREATER         reduce using rule 71 (number -> DOUBLE .)
-    GREATER_EQUAL   reduce using rule 71 (number -> DOUBLE .)
-    LOGICAL_AND     reduce using rule 71 (number -> DOUBLE .)
-    LOGICAL_OR      reduce using rule 71 (number -> DOUBLE .)
-    RPAREN          reduce using rule 71 (number -> DOUBLE .)
-    SEMICOLON       reduce using rule 71 (number -> DOUBLE .)
-    RBRACE          reduce using rule 71 (number -> DOUBLE .)
-    COMMA           reduce using rule 71 (number -> DOUBLE .)
-    RSQUARE         reduce using rule 71 (number -> DOUBLE .)
+    PLUS            reduce using rule 66 (number -> DOUBLE .)
+    MINUS           reduce using rule 66 (number -> DOUBLE .)
+    TIMES           reduce using rule 66 (number -> DOUBLE .)
+    DIVIDE          reduce using rule 66 (number -> DOUBLE .)
+    $end            reduce using rule 66 (number -> DOUBLE .)
+    EQUAL           reduce using rule 66 (number -> DOUBLE .)
+    NOT_EQUAL       reduce using rule 66 (number -> DOUBLE .)
+    LESS            reduce using rule 66 (number -> DOUBLE .)
+    LESS_EQUAL      reduce using rule 66 (number -> DOUBLE .)
+    GREATER         reduce using rule 66 (number -> DOUBLE .)
+    GREATER_EQUAL   reduce using rule 66 (number -> DOUBLE .)
+    LOGICAL_AND     reduce using rule 66 (number -> DOUBLE .)
+    LOGICAL_OR      reduce using rule 66 (number -> DOUBLE .)
+    RPAREN          reduce using rule 66 (number -> DOUBLE .)
+    SEMICOLON       reduce using rule 66 (number -> DOUBLE .)
+    COMMA           reduce using rule 66 (number -> DOUBLE .)
+    RSQUARE         reduce using rule 66 (number -> DOUBLE .)
 
 
 state 41
 
-    (72) string -> STRING .
+    (67) string -> STRING .
 
-    PLUS            reduce using rule 72 (string -> STRING .)
-    MINUS           reduce using rule 72 (string -> STRING .)
-    TIMES           reduce using rule 72 (string -> STRING .)
-    DIVIDE          reduce using rule 72 (string -> STRING .)
-    $end            reduce using rule 72 (string -> STRING .)
-    EQUAL           reduce using rule 72 (string -> STRING .)
-    NOT_EQUAL       reduce using rule 72 (string -> STRING .)
-    LESS            reduce using rule 72 (string -> STRING .)
-    LESS_EQUAL      reduce using rule 72 (string -> STRING .)
-    GREATER         reduce using rule 72 (string -> STRING .)
-    GREATER_EQUAL   reduce using rule 72 (string -> STRING .)
-    LOGICAL_AND     reduce using rule 72 (string -> STRING .)
-    LOGICAL_OR      reduce using rule 72 (string -> STRING .)
-    RPAREN          reduce using rule 72 (string -> STRING .)
-    SEMICOLON       reduce using rule 72 (string -> STRING .)
-    RBRACE          reduce using rule 72 (string -> STRING .)
-    COMMA           reduce using rule 72 (string -> STRING .)
-    RSQUARE         reduce using rule 72 (string -> STRING .)
+    PLUS            reduce using rule 67 (string -> STRING .)
+    MINUS           reduce using rule 67 (string -> STRING .)
+    TIMES           reduce using rule 67 (string -> STRING .)
+    DIVIDE          reduce using rule 67 (string -> STRING .)
+    $end            reduce using rule 67 (string -> STRING .)
+    EQUAL           reduce using rule 67 (string -> STRING .)
+    NOT_EQUAL       reduce using rule 67 (string -> STRING .)
+    LESS            reduce using rule 67 (string -> STRING .)
+    LESS_EQUAL      reduce using rule 67 (string -> STRING .)
+    GREATER         reduce using rule 67 (string -> STRING .)
+    GREATER_EQUAL   reduce using rule 67 (string -> STRING .)
+    LOGICAL_AND     reduce using rule 67 (string -> STRING .)
+    LOGICAL_OR      reduce using rule 67 (string -> STRING .)
+    RPAREN          reduce using rule 67 (string -> STRING .)
+    SEMICOLON       reduce using rule 67 (string -> STRING .)
+    COMMA           reduce using rule 67 (string -> STRING .)
+    RSQUARE         reduce using rule 67 (string -> STRING .)
 
 
 state 42
 
-    (75) list -> LSQUARE . RSQUARE
-    (76) list -> LSQUARE . values RSQUARE
-    (64) values -> . value
-    (65) values -> . value COMMA values
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (70) list -> LSQUARE . RSQUARE
+    (71) list -> LSQUARE . values RSQUARE
+    (59) values -> . value
+    (60) values -> . value COMMA values
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     RSQUARE         shift and go to state 76
     IDENTIFIER      shift and go to state 63
@@ -1062,47 +1063,45 @@ state 42
 
 state 43
 
-    (73) boolean -> TRUE .
+    (68) boolean -> TRUE .
 
-    EQUAL           reduce using rule 73 (boolean -> TRUE .)
-    NOT_EQUAL       reduce using rule 73 (boolean -> TRUE .)
-    LESS            reduce using rule 73 (boolean -> TRUE .)
-    LESS_EQUAL      reduce using rule 73 (boolean -> TRUE .)
-    GREATER         reduce using rule 73 (boolean -> TRUE .)
-    GREATER_EQUAL   reduce using rule 73 (boolean -> TRUE .)
-    LOGICAL_AND     reduce using rule 73 (boolean -> TRUE .)
-    LOGICAL_OR      reduce using rule 73 (boolean -> TRUE .)
-    $end            reduce using rule 73 (boolean -> TRUE .)
-    RPAREN          reduce using rule 73 (boolean -> TRUE .)
-    SEMICOLON       reduce using rule 73 (boolean -> TRUE .)
-    RBRACE          reduce using rule 73 (boolean -> TRUE .)
+    EQUAL           reduce using rule 68 (boolean -> TRUE .)
+    NOT_EQUAL       reduce using rule 68 (boolean -> TRUE .)
+    LESS            reduce using rule 68 (boolean -> TRUE .)
+    LESS_EQUAL      reduce using rule 68 (boolean -> TRUE .)
+    GREATER         reduce using rule 68 (boolean -> TRUE .)
+    GREATER_EQUAL   reduce using rule 68 (boolean -> TRUE .)
+    LOGICAL_AND     reduce using rule 68 (boolean -> TRUE .)
+    LOGICAL_OR      reduce using rule 68 (boolean -> TRUE .)
+    $end            reduce using rule 68 (boolean -> TRUE .)
+    RPAREN          reduce using rule 68 (boolean -> TRUE .)
+    SEMICOLON       reduce using rule 68 (boolean -> TRUE .)
 
 
 state 44
 
-    (74) boolean -> FALSE .
+    (69) boolean -> FALSE .
 
-    EQUAL           reduce using rule 74 (boolean -> FALSE .)
-    NOT_EQUAL       reduce using rule 74 (boolean -> FALSE .)
-    LESS            reduce using rule 74 (boolean -> FALSE .)
-    LESS_EQUAL      reduce using rule 74 (boolean -> FALSE .)
-    GREATER         reduce using rule 74 (boolean -> FALSE .)
-    GREATER_EQUAL   reduce using rule 74 (boolean -> FALSE .)
-    LOGICAL_AND     reduce using rule 74 (boolean -> FALSE .)
-    LOGICAL_OR      reduce using rule 74 (boolean -> FALSE .)
-    $end            reduce using rule 74 (boolean -> FALSE .)
-    RPAREN          reduce using rule 74 (boolean -> FALSE .)
-    SEMICOLON       reduce using rule 74 (boolean -> FALSE .)
-    RBRACE          reduce using rule 74 (boolean -> FALSE .)
+    EQUAL           reduce using rule 69 (boolean -> FALSE .)
+    NOT_EQUAL       reduce using rule 69 (boolean -> FALSE .)
+    LESS            reduce using rule 69 (boolean -> FALSE .)
+    LESS_EQUAL      reduce using rule 69 (boolean -> FALSE .)
+    GREATER         reduce using rule 69 (boolean -> FALSE .)
+    GREATER_EQUAL   reduce using rule 69 (boolean -> FALSE .)
+    LOGICAL_AND     reduce using rule 69 (boolean -> FALSE .)
+    LOGICAL_OR      reduce using rule 69 (boolean -> FALSE .)
+    $end            reduce using rule 69 (boolean -> FALSE .)
+    RPAREN          reduce using rule 69 (boolean -> FALSE .)
+    SEMICOLON       reduce using rule 69 (boolean -> FALSE .)
 
 
 state 45
 
-    (24) if_statement -> if_statement ELSE . if_statement
-    (25) if_statement -> if_statement ELSE . LBRACE lines RBRACE
-    (23) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
-    (24) if_statement -> . if_statement ELSE if_statement
-    (25) if_statement -> . if_statement ELSE LBRACE lines RBRACE
+    (19) if_statement -> if_statement ELSE . if_statement
+    (20) if_statement -> if_statement ELSE . LBRACE lines RBRACE
+    (18) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
+    (19) if_statement -> . if_statement ELSE if_statement
+    (20) if_statement -> . if_statement ELSE LBRACE lines RBRACE
 
     LBRACE          shift and go to state 80
     IF              shift and go to state 16
@@ -1111,19 +1110,19 @@ state 45
 
 state 46
 
-    (42) arithmetic -> arithmetic arith_op . arithmetic
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (37) arithmetic -> arithmetic arith_op . arithmetic
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 83
     IDENTIFIER      shift and go to state 63
@@ -1140,74 +1139,74 @@ state 46
 
 state 47
 
-    (54) arith_op -> PLUS .
+    (49) arith_op -> PLUS .
 
-    LPAREN          reduce using rule 54 (arith_op -> PLUS .)
-    IDENTIFIER      reduce using rule 54 (arith_op -> PLUS .)
-    INTEGER         reduce using rule 54 (arith_op -> PLUS .)
-    DOUBLE          reduce using rule 54 (arith_op -> PLUS .)
-    STRING          reduce using rule 54 (arith_op -> PLUS .)
-    LSQUARE         reduce using rule 54 (arith_op -> PLUS .)
+    LPAREN          reduce using rule 49 (arith_op -> PLUS .)
+    IDENTIFIER      reduce using rule 49 (arith_op -> PLUS .)
+    INTEGER         reduce using rule 49 (arith_op -> PLUS .)
+    DOUBLE          reduce using rule 49 (arith_op -> PLUS .)
+    STRING          reduce using rule 49 (arith_op -> PLUS .)
+    LSQUARE         reduce using rule 49 (arith_op -> PLUS .)
 
 
 state 48
 
-    (55) arith_op -> MINUS .
+    (50) arith_op -> MINUS .
 
-    LPAREN          reduce using rule 55 (arith_op -> MINUS .)
-    IDENTIFIER      reduce using rule 55 (arith_op -> MINUS .)
-    INTEGER         reduce using rule 55 (arith_op -> MINUS .)
-    DOUBLE          reduce using rule 55 (arith_op -> MINUS .)
-    STRING          reduce using rule 55 (arith_op -> MINUS .)
-    LSQUARE         reduce using rule 55 (arith_op -> MINUS .)
+    LPAREN          reduce using rule 50 (arith_op -> MINUS .)
+    IDENTIFIER      reduce using rule 50 (arith_op -> MINUS .)
+    INTEGER         reduce using rule 50 (arith_op -> MINUS .)
+    DOUBLE          reduce using rule 50 (arith_op -> MINUS .)
+    STRING          reduce using rule 50 (arith_op -> MINUS .)
+    LSQUARE         reduce using rule 50 (arith_op -> MINUS .)
 
 
 state 49
 
-    (56) arith_op -> TIMES .
+    (51) arith_op -> TIMES .
 
-    LPAREN          reduce using rule 56 (arith_op -> TIMES .)
-    IDENTIFIER      reduce using rule 56 (arith_op -> TIMES .)
-    INTEGER         reduce using rule 56 (arith_op -> TIMES .)
-    DOUBLE          reduce using rule 56 (arith_op -> TIMES .)
-    STRING          reduce using rule 56 (arith_op -> TIMES .)
-    LSQUARE         reduce using rule 56 (arith_op -> TIMES .)
+    LPAREN          reduce using rule 51 (arith_op -> TIMES .)
+    IDENTIFIER      reduce using rule 51 (arith_op -> TIMES .)
+    INTEGER         reduce using rule 51 (arith_op -> TIMES .)
+    DOUBLE          reduce using rule 51 (arith_op -> TIMES .)
+    STRING          reduce using rule 51 (arith_op -> TIMES .)
+    LSQUARE         reduce using rule 51 (arith_op -> TIMES .)
 
 
 state 50
 
-    (57) arith_op -> DIVIDE .
+    (52) arith_op -> DIVIDE .
 
-    LPAREN          reduce using rule 57 (arith_op -> DIVIDE .)
-    IDENTIFIER      reduce using rule 57 (arith_op -> DIVIDE .)
-    INTEGER         reduce using rule 57 (arith_op -> DIVIDE .)
-    DOUBLE          reduce using rule 57 (arith_op -> DIVIDE .)
-    STRING          reduce using rule 57 (arith_op -> DIVIDE .)
-    LSQUARE         reduce using rule 57 (arith_op -> DIVIDE .)
+    LPAREN          reduce using rule 52 (arith_op -> DIVIDE .)
+    IDENTIFIER      reduce using rule 52 (arith_op -> DIVIDE .)
+    INTEGER         reduce using rule 52 (arith_op -> DIVIDE .)
+    DOUBLE          reduce using rule 52 (arith_op -> DIVIDE .)
+    STRING          reduce using rule 52 (arith_op -> DIVIDE .)
+    LSQUARE         reduce using rule 52 (arith_op -> DIVIDE .)
 
 
 state 51
 
-    (49) logic -> logic logic_op . logic
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (44) logic -> logic logic_op . logic
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 74
     LOGICAL_NOT     shift and go to state 20
@@ -1229,39 +1228,39 @@ state 51
 
 state 52
 
-    (52) logic_op -> LOGICAL_AND .
+    (47) logic_op -> LOGICAL_AND .
 
-    LPAREN          reduce using rule 52 (logic_op -> LOGICAL_AND .)
-    LOGICAL_NOT     reduce using rule 52 (logic_op -> LOGICAL_AND .)
-    IDENTIFIER      reduce using rule 52 (logic_op -> LOGICAL_AND .)
-    TRUE            reduce using rule 52 (logic_op -> LOGICAL_AND .)
-    FALSE           reduce using rule 52 (logic_op -> LOGICAL_AND .)
-    INTEGER         reduce using rule 52 (logic_op -> LOGICAL_AND .)
-    DOUBLE          reduce using rule 52 (logic_op -> LOGICAL_AND .)
-    STRING          reduce using rule 52 (logic_op -> LOGICAL_AND .)
-    LSQUARE         reduce using rule 52 (logic_op -> LOGICAL_AND .)
+    LPAREN          reduce using rule 47 (logic_op -> LOGICAL_AND .)
+    LOGICAL_NOT     reduce using rule 47 (logic_op -> LOGICAL_AND .)
+    IDENTIFIER      reduce using rule 47 (logic_op -> LOGICAL_AND .)
+    TRUE            reduce using rule 47 (logic_op -> LOGICAL_AND .)
+    FALSE           reduce using rule 47 (logic_op -> LOGICAL_AND .)
+    INTEGER         reduce using rule 47 (logic_op -> LOGICAL_AND .)
+    DOUBLE          reduce using rule 47 (logic_op -> LOGICAL_AND .)
+    STRING          reduce using rule 47 (logic_op -> LOGICAL_AND .)
+    LSQUARE         reduce using rule 47 (logic_op -> LOGICAL_AND .)
 
 
 state 53
 
-    (53) logic_op -> LOGICAL_OR .
+    (48) logic_op -> LOGICAL_OR .
 
-    LPAREN          reduce using rule 53 (logic_op -> LOGICAL_OR .)
-    LOGICAL_NOT     reduce using rule 53 (logic_op -> LOGICAL_OR .)
-    IDENTIFIER      reduce using rule 53 (logic_op -> LOGICAL_OR .)
-    TRUE            reduce using rule 53 (logic_op -> LOGICAL_OR .)
-    FALSE           reduce using rule 53 (logic_op -> LOGICAL_OR .)
-    INTEGER         reduce using rule 53 (logic_op -> LOGICAL_OR .)
-    DOUBLE          reduce using rule 53 (logic_op -> LOGICAL_OR .)
-    STRING          reduce using rule 53 (logic_op -> LOGICAL_OR .)
-    LSQUARE         reduce using rule 53 (logic_op -> LOGICAL_OR .)
+    LPAREN          reduce using rule 48 (logic_op -> LOGICAL_OR .)
+    LOGICAL_NOT     reduce using rule 48 (logic_op -> LOGICAL_OR .)
+    IDENTIFIER      reduce using rule 48 (logic_op -> LOGICAL_OR .)
+    TRUE            reduce using rule 48 (logic_op -> LOGICAL_OR .)
+    FALSE           reduce using rule 48 (logic_op -> LOGICAL_OR .)
+    INTEGER         reduce using rule 48 (logic_op -> LOGICAL_OR .)
+    DOUBLE          reduce using rule 48 (logic_op -> LOGICAL_OR .)
+    STRING          reduce using rule 48 (logic_op -> LOGICAL_OR .)
+    LSQUARE         reduce using rule 48 (logic_op -> LOGICAL_OR .)
 
 
 state 54
 
-    (13) assignment -> modifier type . nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (15) assignment -> modifier type . IDENTIFIER ASSIGN expression SEMICOLON
-    (17) nullable -> . QUESTION_MARK
+    (8) assignment -> modifier type . nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> modifier type . IDENTIFIER ASSIGN expression SEMICOLON
+    (12) nullable -> . QUESTION_MARK
 
     IDENTIFIER      shift and go to state 86
     QUESTION_MARK   shift and go to state 57
@@ -1270,15 +1269,15 @@ state 54
 
 state 55
 
-    (14) assignment -> type nullable . IDENTIFIER ASSIGN expression SEMICOLON
+    (9) assignment -> type nullable . IDENTIFIER ASSIGN expression SEMICOLON
 
     IDENTIFIER      shift and go to state 87
 
 
 state 56
 
-    (16) assignment -> type IDENTIFIER . ASSIGN expression SEMICOLON
-    (77) function -> type IDENTIFIER . LPAREN parameters RPAREN LBRACE statement RBRACE
+    (11) assignment -> type IDENTIFIER . ASSIGN expression SEMICOLON
+    (72) function -> type IDENTIFIER . LPAREN parameters RPAREN LBRACE lines RBRACE
 
     ASSIGN          shift and go to state 88
     LPAREN          shift and go to state 89
@@ -1286,33 +1285,33 @@ state 56
 
 state 57
 
-    (17) nullable -> QUESTION_MARK .
+    (12) nullable -> QUESTION_MARK .
 
-    IDENTIFIER      reduce using rule 17 (nullable -> QUESTION_MARK .)
+    IDENTIFIER      reduce using rule 12 (nullable -> QUESTION_MARK .)
 
 
 state 58
 
-    (26) function_call -> IDENTIFIER LPAREN . parameters RPAREN
-    (78) parameters -> . VOID
-    (79) parameters -> . parameter
-    (80) parameters -> . parameter COMMA parameters
-    (81) parameters -> .
-    (82) parameter -> . type IDENTIFIER
-    (27) type -> . INTEGER_TYPE
-    (28) type -> . DOUBLE_TYPE
-    (29) type -> . BOOLEAN_TYPE
-    (30) type -> . QUEUE_TYPE
-    (31) type -> . STRING_TYPE
-    (32) type -> . ENUM_TYPE
-    (33) type -> . VAR
-    (34) type -> . LIST_TYPE
-    (35) type -> . MAP_TYPE
-    (36) type -> . SET_TYPE
-    (37) type -> . DYNAMIC_TYPE
+    (21) function_call -> IDENTIFIER LPAREN . parameters RPAREN
+    (80) parameters -> . VOID
+    (81) parameters -> . parameter
+    (82) parameters -> . parameter COMMA parameters
+    (83) parameters -> .
+    (84) parameter -> . type IDENTIFIER
+    (22) type -> . INTEGER_TYPE
+    (23) type -> . DOUBLE_TYPE
+    (24) type -> . BOOLEAN_TYPE
+    (25) type -> . QUEUE_TYPE
+    (26) type -> . STRING_TYPE
+    (27) type -> . ENUM_TYPE
+    (28) type -> . VAR
+    (29) type -> . LIST_TYPE
+    (30) type -> . MAP_TYPE
+    (31) type -> . SET_TYPE
+    (32) type -> . DYNAMIC_TYPE
 
     VOID            shift and go to state 91
-    RPAREN          reduce using rule 81 (parameters -> .)
+    RPAREN          reduce using rule 83 (parameters -> .)
     INTEGER_TYPE    shift and go to state 24
     DOUBLE_TYPE     shift and go to state 25
     BOOLEAN_TYPE    shift and go to state 26
@@ -1331,34 +1330,34 @@ state 58
 
 state 59
 
-    (21) print -> PRINT LPAREN . expression RPAREN SEMICOLON
-    (22) print -> PRINT LPAREN . RPAREN SEMICOLON
-    (38) expression -> . arithmetic
-    (39) expression -> . logic
-    (40) expression -> . function_call
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (26) function_call -> . IDENTIFIER LPAREN parameters RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
+    (16) print -> PRINT LPAREN . expression RPAREN SEMICOLON
+    (17) print -> PRINT LPAREN . RPAREN SEMICOLON
+    (33) expression -> . arithmetic
+    (34) expression -> . logic
+    (35) expression -> . function_call
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (21) function_call -> . IDENTIFIER LPAREN parameters RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
 
     RPAREN          shift and go to state 95
     LPAREN          shift and go to state 15
@@ -1384,12 +1383,12 @@ state 59
 
 state 60
 
-    (43) arithmetic -> LPAREN arithmetic . arith_op arithmetic RPAREN
-    (42) arithmetic -> arithmetic . arith_op arithmetic
-    (54) arith_op -> . PLUS
-    (55) arith_op -> . MINUS
-    (56) arith_op -> . TIMES
-    (57) arith_op -> . DIVIDE
+    (38) arithmetic -> LPAREN arithmetic . arith_op arithmetic RPAREN
+    (37) arithmetic -> arithmetic . arith_op arithmetic
+    (49) arith_op -> . PLUS
+    (50) arith_op -> . MINUS
+    (51) arith_op -> . TIMES
+    (52) arith_op -> . DIVIDE
 
     PLUS            shift and go to state 47
     MINUS           shift and go to state 48
@@ -1400,10 +1399,10 @@ state 60
 
 state 61
 
-    (50) logic -> LPAREN logic . logic_op logic RPAREN
-    (49) logic -> logic . logic_op logic
-    (52) logic_op -> . LOGICAL_AND
-    (53) logic_op -> . LOGICAL_OR
+    (45) logic -> LPAREN logic . logic_op logic RPAREN
+    (44) logic -> logic . logic_op logic
+    (47) logic_op -> . LOGICAL_AND
+    (48) logic_op -> . LOGICAL_OR
 
     LOGICAL_AND     shift and go to state 52
     LOGICAL_OR      shift and go to state 53
@@ -1412,18 +1411,18 @@ state 61
 
 state 62
 
-    (47) comparison -> LPAREN comparison . comp_op comparison RPAREN
-    (48) logic -> comparison .
-    (46) comparison -> comparison . comp_op comparison
-    (58) comp_op -> . EQUAL
-    (59) comp_op -> . NOT_EQUAL
-    (60) comp_op -> . LESS
-    (61) comp_op -> . LESS_EQUAL
-    (62) comp_op -> . GREATER
-    (63) comp_op -> . GREATER_EQUAL
+    (42) comparison -> LPAREN comparison . comp_op comparison RPAREN
+    (43) logic -> comparison .
+    (41) comparison -> comparison . comp_op comparison
+    (53) comp_op -> . EQUAL
+    (54) comp_op -> . NOT_EQUAL
+    (55) comp_op -> . LESS
+    (56) comp_op -> . LESS_EQUAL
+    (57) comp_op -> . GREATER
+    (58) comp_op -> . GREATER_EQUAL
 
-    LOGICAL_AND     reduce using rule 48 (logic -> comparison .)
-    LOGICAL_OR      reduce using rule 48 (logic -> comparison .)
+    LOGICAL_AND     reduce using rule 43 (logic -> comparison .)
+    LOGICAL_OR      reduce using rule 43 (logic -> comparison .)
     EQUAL           shift and go to state 67
     NOT_EQUAL       shift and go to state 68
     LESS            shift and go to state 69
@@ -1435,50 +1434,49 @@ state 62
 
 state 63
 
-    (66) value -> IDENTIFIER .
+    (61) value -> IDENTIFIER .
 
-    PLUS            reduce using rule 66 (value -> IDENTIFIER .)
-    MINUS           reduce using rule 66 (value -> IDENTIFIER .)
-    TIMES           reduce using rule 66 (value -> IDENTIFIER .)
-    DIVIDE          reduce using rule 66 (value -> IDENTIFIER .)
-    EQUAL           reduce using rule 66 (value -> IDENTIFIER .)
-    NOT_EQUAL       reduce using rule 66 (value -> IDENTIFIER .)
-    LESS            reduce using rule 66 (value -> IDENTIFIER .)
-    LESS_EQUAL      reduce using rule 66 (value -> IDENTIFIER .)
-    GREATER         reduce using rule 66 (value -> IDENTIFIER .)
-    GREATER_EQUAL   reduce using rule 66 (value -> IDENTIFIER .)
-    LOGICAL_AND     reduce using rule 66 (value -> IDENTIFIER .)
-    LOGICAL_OR      reduce using rule 66 (value -> IDENTIFIER .)
-    $end            reduce using rule 66 (value -> IDENTIFIER .)
-    RPAREN          reduce using rule 66 (value -> IDENTIFIER .)
-    SEMICOLON       reduce using rule 66 (value -> IDENTIFIER .)
-    RBRACE          reduce using rule 66 (value -> IDENTIFIER .)
-    COMMA           reduce using rule 66 (value -> IDENTIFIER .)
-    RSQUARE         reduce using rule 66 (value -> IDENTIFIER .)
+    PLUS            reduce using rule 61 (value -> IDENTIFIER .)
+    MINUS           reduce using rule 61 (value -> IDENTIFIER .)
+    TIMES           reduce using rule 61 (value -> IDENTIFIER .)
+    DIVIDE          reduce using rule 61 (value -> IDENTIFIER .)
+    EQUAL           reduce using rule 61 (value -> IDENTIFIER .)
+    NOT_EQUAL       reduce using rule 61 (value -> IDENTIFIER .)
+    LESS            reduce using rule 61 (value -> IDENTIFIER .)
+    LESS_EQUAL      reduce using rule 61 (value -> IDENTIFIER .)
+    GREATER         reduce using rule 61 (value -> IDENTIFIER .)
+    GREATER_EQUAL   reduce using rule 61 (value -> IDENTIFIER .)
+    LOGICAL_AND     reduce using rule 61 (value -> IDENTIFIER .)
+    LOGICAL_OR      reduce using rule 61 (value -> IDENTIFIER .)
+    $end            reduce using rule 61 (value -> IDENTIFIER .)
+    RPAREN          reduce using rule 61 (value -> IDENTIFIER .)
+    SEMICOLON       reduce using rule 61 (value -> IDENTIFIER .)
+    COMMA           reduce using rule 61 (value -> IDENTIFIER .)
+    RSQUARE         reduce using rule 61 (value -> IDENTIFIER .)
 
 
 state 64
 
-    (23) if_statement -> IF LPAREN . logic RPAREN LBRACE lines RBRACE
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (18) if_statement -> IF LPAREN . logic RPAREN LBRACE lines RBRACE
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 74
     LOGICAL_NOT     shift and go to state 20
@@ -1500,30 +1498,30 @@ state 64
 
 state 65
 
-    (8) lines -> line LINE_BREAK .
+    (73) lines -> line LINE_BREAK .
 
-    $end            reduce using rule 8 (lines -> line LINE_BREAK .)
-    RBRACE          reduce using rule 8 (lines -> line LINE_BREAK .)
+    $end            reduce using rule 73 (lines -> line LINE_BREAK .)
+    RBRACE          reduce using rule 73 (lines -> line LINE_BREAK .)
 
 
 state 66
 
-    (46) comparison -> comparison comp_op . comparison
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (41) comparison -> comparison comp_op . comparison
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 101
     IDENTIFIER      shift and go to state 63
@@ -1543,132 +1541,131 @@ state 66
 
 state 67
 
-    (58) comp_op -> EQUAL .
+    (53) comp_op -> EQUAL .
 
-    LPAREN          reduce using rule 58 (comp_op -> EQUAL .)
-    IDENTIFIER      reduce using rule 58 (comp_op -> EQUAL .)
-    TRUE            reduce using rule 58 (comp_op -> EQUAL .)
-    FALSE           reduce using rule 58 (comp_op -> EQUAL .)
-    INTEGER         reduce using rule 58 (comp_op -> EQUAL .)
-    DOUBLE          reduce using rule 58 (comp_op -> EQUAL .)
-    STRING          reduce using rule 58 (comp_op -> EQUAL .)
-    LSQUARE         reduce using rule 58 (comp_op -> EQUAL .)
+    LPAREN          reduce using rule 53 (comp_op -> EQUAL .)
+    IDENTIFIER      reduce using rule 53 (comp_op -> EQUAL .)
+    TRUE            reduce using rule 53 (comp_op -> EQUAL .)
+    FALSE           reduce using rule 53 (comp_op -> EQUAL .)
+    INTEGER         reduce using rule 53 (comp_op -> EQUAL .)
+    DOUBLE          reduce using rule 53 (comp_op -> EQUAL .)
+    STRING          reduce using rule 53 (comp_op -> EQUAL .)
+    LSQUARE         reduce using rule 53 (comp_op -> EQUAL .)
 
 
 state 68
 
-    (59) comp_op -> NOT_EQUAL .
+    (54) comp_op -> NOT_EQUAL .
 
-    LPAREN          reduce using rule 59 (comp_op -> NOT_EQUAL .)
-    IDENTIFIER      reduce using rule 59 (comp_op -> NOT_EQUAL .)
-    TRUE            reduce using rule 59 (comp_op -> NOT_EQUAL .)
-    FALSE           reduce using rule 59 (comp_op -> NOT_EQUAL .)
-    INTEGER         reduce using rule 59 (comp_op -> NOT_EQUAL .)
-    DOUBLE          reduce using rule 59 (comp_op -> NOT_EQUAL .)
-    STRING          reduce using rule 59 (comp_op -> NOT_EQUAL .)
-    LSQUARE         reduce using rule 59 (comp_op -> NOT_EQUAL .)
+    LPAREN          reduce using rule 54 (comp_op -> NOT_EQUAL .)
+    IDENTIFIER      reduce using rule 54 (comp_op -> NOT_EQUAL .)
+    TRUE            reduce using rule 54 (comp_op -> NOT_EQUAL .)
+    FALSE           reduce using rule 54 (comp_op -> NOT_EQUAL .)
+    INTEGER         reduce using rule 54 (comp_op -> NOT_EQUAL .)
+    DOUBLE          reduce using rule 54 (comp_op -> NOT_EQUAL .)
+    STRING          reduce using rule 54 (comp_op -> NOT_EQUAL .)
+    LSQUARE         reduce using rule 54 (comp_op -> NOT_EQUAL .)
 
 
 state 69
 
-    (60) comp_op -> LESS .
+    (55) comp_op -> LESS .
 
-    LPAREN          reduce using rule 60 (comp_op -> LESS .)
-    IDENTIFIER      reduce using rule 60 (comp_op -> LESS .)
-    TRUE            reduce using rule 60 (comp_op -> LESS .)
-    FALSE           reduce using rule 60 (comp_op -> LESS .)
-    INTEGER         reduce using rule 60 (comp_op -> LESS .)
-    DOUBLE          reduce using rule 60 (comp_op -> LESS .)
-    STRING          reduce using rule 60 (comp_op -> LESS .)
-    LSQUARE         reduce using rule 60 (comp_op -> LESS .)
+    LPAREN          reduce using rule 55 (comp_op -> LESS .)
+    IDENTIFIER      reduce using rule 55 (comp_op -> LESS .)
+    TRUE            reduce using rule 55 (comp_op -> LESS .)
+    FALSE           reduce using rule 55 (comp_op -> LESS .)
+    INTEGER         reduce using rule 55 (comp_op -> LESS .)
+    DOUBLE          reduce using rule 55 (comp_op -> LESS .)
+    STRING          reduce using rule 55 (comp_op -> LESS .)
+    LSQUARE         reduce using rule 55 (comp_op -> LESS .)
 
 
 state 70
 
-    (61) comp_op -> LESS_EQUAL .
+    (56) comp_op -> LESS_EQUAL .
 
-    LPAREN          reduce using rule 61 (comp_op -> LESS_EQUAL .)
-    IDENTIFIER      reduce using rule 61 (comp_op -> LESS_EQUAL .)
-    TRUE            reduce using rule 61 (comp_op -> LESS_EQUAL .)
-    FALSE           reduce using rule 61 (comp_op -> LESS_EQUAL .)
-    INTEGER         reduce using rule 61 (comp_op -> LESS_EQUAL .)
-    DOUBLE          reduce using rule 61 (comp_op -> LESS_EQUAL .)
-    STRING          reduce using rule 61 (comp_op -> LESS_EQUAL .)
-    LSQUARE         reduce using rule 61 (comp_op -> LESS_EQUAL .)
+    LPAREN          reduce using rule 56 (comp_op -> LESS_EQUAL .)
+    IDENTIFIER      reduce using rule 56 (comp_op -> LESS_EQUAL .)
+    TRUE            reduce using rule 56 (comp_op -> LESS_EQUAL .)
+    FALSE           reduce using rule 56 (comp_op -> LESS_EQUAL .)
+    INTEGER         reduce using rule 56 (comp_op -> LESS_EQUAL .)
+    DOUBLE          reduce using rule 56 (comp_op -> LESS_EQUAL .)
+    STRING          reduce using rule 56 (comp_op -> LESS_EQUAL .)
+    LSQUARE         reduce using rule 56 (comp_op -> LESS_EQUAL .)
 
 
 state 71
 
-    (62) comp_op -> GREATER .
+    (57) comp_op -> GREATER .
 
-    LPAREN          reduce using rule 62 (comp_op -> GREATER .)
-    IDENTIFIER      reduce using rule 62 (comp_op -> GREATER .)
-    TRUE            reduce using rule 62 (comp_op -> GREATER .)
-    FALSE           reduce using rule 62 (comp_op -> GREATER .)
-    INTEGER         reduce using rule 62 (comp_op -> GREATER .)
-    DOUBLE          reduce using rule 62 (comp_op -> GREATER .)
-    STRING          reduce using rule 62 (comp_op -> GREATER .)
-    LSQUARE         reduce using rule 62 (comp_op -> GREATER .)
+    LPAREN          reduce using rule 57 (comp_op -> GREATER .)
+    IDENTIFIER      reduce using rule 57 (comp_op -> GREATER .)
+    TRUE            reduce using rule 57 (comp_op -> GREATER .)
+    FALSE           reduce using rule 57 (comp_op -> GREATER .)
+    INTEGER         reduce using rule 57 (comp_op -> GREATER .)
+    DOUBLE          reduce using rule 57 (comp_op -> GREATER .)
+    STRING          reduce using rule 57 (comp_op -> GREATER .)
+    LSQUARE         reduce using rule 57 (comp_op -> GREATER .)
 
 
 state 72
 
-    (63) comp_op -> GREATER_EQUAL .
+    (58) comp_op -> GREATER_EQUAL .
 
-    LPAREN          reduce using rule 63 (comp_op -> GREATER_EQUAL .)
-    IDENTIFIER      reduce using rule 63 (comp_op -> GREATER_EQUAL .)
-    TRUE            reduce using rule 63 (comp_op -> GREATER_EQUAL .)
-    FALSE           reduce using rule 63 (comp_op -> GREATER_EQUAL .)
-    INTEGER         reduce using rule 63 (comp_op -> GREATER_EQUAL .)
-    DOUBLE          reduce using rule 63 (comp_op -> GREATER_EQUAL .)
-    STRING          reduce using rule 63 (comp_op -> GREATER_EQUAL .)
-    LSQUARE         reduce using rule 63 (comp_op -> GREATER_EQUAL .)
+    LPAREN          reduce using rule 58 (comp_op -> GREATER_EQUAL .)
+    IDENTIFIER      reduce using rule 58 (comp_op -> GREATER_EQUAL .)
+    TRUE            reduce using rule 58 (comp_op -> GREATER_EQUAL .)
+    FALSE           reduce using rule 58 (comp_op -> GREATER_EQUAL .)
+    INTEGER         reduce using rule 58 (comp_op -> GREATER_EQUAL .)
+    DOUBLE          reduce using rule 58 (comp_op -> GREATER_EQUAL .)
+    STRING          reduce using rule 58 (comp_op -> GREATER_EQUAL .)
+    LSQUARE         reduce using rule 58 (comp_op -> GREATER_EQUAL .)
 
 
 state 73
 
-    (51) logic -> LOGICAL_NOT logic .
-    (49) logic -> logic . logic_op logic
-    (52) logic_op -> . LOGICAL_AND
-    (53) logic_op -> . LOGICAL_OR
+    (46) logic -> LOGICAL_NOT logic .
+    (44) logic -> logic . logic_op logic
+    (47) logic_op -> . LOGICAL_AND
+    (48) logic_op -> . LOGICAL_OR
 
   ! shift/reduce conflict for LOGICAL_AND resolved as shift
   ! shift/reduce conflict for LOGICAL_OR resolved as shift
-    $end            reduce using rule 51 (logic -> LOGICAL_NOT logic .)
-    RPAREN          reduce using rule 51 (logic -> LOGICAL_NOT logic .)
-    SEMICOLON       reduce using rule 51 (logic -> LOGICAL_NOT logic .)
-    RBRACE          reduce using rule 51 (logic -> LOGICAL_NOT logic .)
+    $end            reduce using rule 46 (logic -> LOGICAL_NOT logic .)
+    RPAREN          reduce using rule 46 (logic -> LOGICAL_NOT logic .)
+    SEMICOLON       reduce using rule 46 (logic -> LOGICAL_NOT logic .)
     LOGICAL_AND     shift and go to state 52
     LOGICAL_OR      shift and go to state 53
 
-  ! LOGICAL_AND     [ reduce using rule 51 (logic -> LOGICAL_NOT logic .) ]
-  ! LOGICAL_OR      [ reduce using rule 51 (logic -> LOGICAL_NOT logic .) ]
+  ! LOGICAL_AND     [ reduce using rule 46 (logic -> LOGICAL_NOT logic .) ]
+  ! LOGICAL_OR      [ reduce using rule 46 (logic -> LOGICAL_NOT logic .) ]
 
     logic_op                       shift and go to state 51
 
 state 74
 
-    (50) logic -> LPAREN . logic logic_op logic RPAREN
-    (47) comparison -> LPAREN . comparison comp_op comparison RPAREN
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (45) logic -> LPAREN . logic logic_op logic RPAREN
+    (42) comparison -> LPAREN . comparison comp_op comparison RPAREN
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 74
     LOGICAL_NOT     shift and go to state 20
@@ -1690,110 +1687,111 @@ state 74
 
 state 75
 
-    (44) comparison -> value .
+    (39) comparison -> value .
 
-    EQUAL           reduce using rule 44 (comparison -> value .)
-    NOT_EQUAL       reduce using rule 44 (comparison -> value .)
-    LESS            reduce using rule 44 (comparison -> value .)
-    LESS_EQUAL      reduce using rule 44 (comparison -> value .)
-    GREATER         reduce using rule 44 (comparison -> value .)
-    GREATER_EQUAL   reduce using rule 44 (comparison -> value .)
-    LOGICAL_AND     reduce using rule 44 (comparison -> value .)
-    LOGICAL_OR      reduce using rule 44 (comparison -> value .)
-    $end            reduce using rule 44 (comparison -> value .)
-    RPAREN          reduce using rule 44 (comparison -> value .)
-    SEMICOLON       reduce using rule 44 (comparison -> value .)
-    RBRACE          reduce using rule 44 (comparison -> value .)
+    EQUAL           reduce using rule 39 (comparison -> value .)
+    NOT_EQUAL       reduce using rule 39 (comparison -> value .)
+    LESS            reduce using rule 39 (comparison -> value .)
+    LESS_EQUAL      reduce using rule 39 (comparison -> value .)
+    GREATER         reduce using rule 39 (comparison -> value .)
+    GREATER_EQUAL   reduce using rule 39 (comparison -> value .)
+    LOGICAL_AND     reduce using rule 39 (comparison -> value .)
+    LOGICAL_OR      reduce using rule 39 (comparison -> value .)
+    $end            reduce using rule 39 (comparison -> value .)
+    RPAREN          reduce using rule 39 (comparison -> value .)
+    SEMICOLON       reduce using rule 39 (comparison -> value .)
 
 
 state 76
 
-    (75) list -> LSQUARE RSQUARE .
+    (70) list -> LSQUARE RSQUARE .
 
-    PLUS            reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    MINUS           reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    TIMES           reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    DIVIDE          reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    $end            reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    EQUAL           reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    NOT_EQUAL       reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    LESS            reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    LESS_EQUAL      reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    GREATER         reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    GREATER_EQUAL   reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    LOGICAL_AND     reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    LOGICAL_OR      reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    RPAREN          reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    SEMICOLON       reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    RBRACE          reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    COMMA           reduce using rule 75 (list -> LSQUARE RSQUARE .)
-    RSQUARE         reduce using rule 75 (list -> LSQUARE RSQUARE .)
+    PLUS            reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    MINUS           reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    TIMES           reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    DIVIDE          reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    $end            reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    EQUAL           reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    NOT_EQUAL       reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    LESS            reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    LESS_EQUAL      reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    GREATER         reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    GREATER_EQUAL   reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    LOGICAL_AND     reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    LOGICAL_OR      reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    RPAREN          reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    SEMICOLON       reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    COMMA           reduce using rule 70 (list -> LSQUARE RSQUARE .)
+    RSQUARE         reduce using rule 70 (list -> LSQUARE RSQUARE .)
 
 
 state 77
 
-    (76) list -> LSQUARE values . RSQUARE
+    (71) list -> LSQUARE values . RSQUARE
 
     RSQUARE         shift and go to state 102
 
 
 state 78
 
-    (64) values -> value .
-    (65) values -> value . COMMA values
+    (59) values -> value .
+    (60) values -> value . COMMA values
 
-    RSQUARE         reduce using rule 64 (values -> value .)
+    RSQUARE         reduce using rule 59 (values -> value .)
     COMMA           shift and go to state 103
 
 
 state 79
 
-    (24) if_statement -> if_statement ELSE if_statement .
-    (24) if_statement -> if_statement . ELSE if_statement
-    (25) if_statement -> if_statement . ELSE LBRACE lines RBRACE
+    (19) if_statement -> if_statement ELSE if_statement .
+    (19) if_statement -> if_statement . ELSE if_statement
+    (20) if_statement -> if_statement . ELSE LBRACE lines RBRACE
 
   ! shift/reduce conflict for ELSE resolved as shift
-    $end            reduce using rule 24 (if_statement -> if_statement ELSE if_statement .)
-    LINE_BREAK      reduce using rule 24 (if_statement -> if_statement ELSE if_statement .)
-    RBRACE          reduce using rule 24 (if_statement -> if_statement ELSE if_statement .)
+    $end            reduce using rule 19 (if_statement -> if_statement ELSE if_statement .)
+    LINE_BREAK      reduce using rule 19 (if_statement -> if_statement ELSE if_statement .)
+    RBRACE          reduce using rule 19 (if_statement -> if_statement ELSE if_statement .)
     ELSE            shift and go to state 45
 
-  ! ELSE            [ reduce using rule 24 (if_statement -> if_statement ELSE if_statement .) ]
+  ! ELSE            [ reduce using rule 19 (if_statement -> if_statement ELSE if_statement .) ]
 
 
 state 80
 
-    (25) if_statement -> if_statement ELSE LBRACE . lines RBRACE
-    (8) lines -> . line LINE_BREAK
-    (9) line -> . print
-    (10) line -> . assignment
-    (11) line -> . function
-    (12) line -> . if_statement
-    (21) print -> . PRINT LPAREN expression RPAREN SEMICOLON
-    (22) print -> . PRINT LPAREN RPAREN SEMICOLON
-    (13) assignment -> . modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (14) assignment -> . type nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (15) assignment -> . modifier type IDENTIFIER ASSIGN expression SEMICOLON
-    (16) assignment -> . type IDENTIFIER ASSIGN expression SEMICOLON
-    (77) function -> . type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE
-    (23) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
-    (24) if_statement -> . if_statement ELSE if_statement
-    (25) if_statement -> . if_statement ELSE LBRACE lines RBRACE
-    (18) modifier -> . LATE
-    (19) modifier -> . FINAL
-    (20) modifier -> . CONST
-    (27) type -> . INTEGER_TYPE
-    (28) type -> . DOUBLE_TYPE
-    (29) type -> . BOOLEAN_TYPE
-    (30) type -> . QUEUE_TYPE
-    (31) type -> . STRING_TYPE
-    (32) type -> . ENUM_TYPE
-    (33) type -> . VAR
-    (34) type -> . LIST_TYPE
-    (35) type -> . MAP_TYPE
-    (36) type -> . SET_TYPE
-    (37) type -> . DYNAMIC_TYPE
+    (20) if_statement -> if_statement ELSE LBRACE . lines RBRACE
+    (73) lines -> . line LINE_BREAK
+    (74) lines -> . line
+    (75) lines -> .
+    (76) line -> . print
+    (77) line -> . assignment
+    (78) line -> . function
+    (79) line -> . if_statement
+    (16) print -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (17) print -> . PRINT LPAREN RPAREN SEMICOLON
+    (8) assignment -> . modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (9) assignment -> . type nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> . modifier type IDENTIFIER ASSIGN expression SEMICOLON
+    (11) assignment -> . type IDENTIFIER ASSIGN expression SEMICOLON
+    (72) function -> . type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE
+    (18) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
+    (19) if_statement -> . if_statement ELSE if_statement
+    (20) if_statement -> . if_statement ELSE LBRACE lines RBRACE
+    (13) modifier -> . LATE
+    (14) modifier -> . FINAL
+    (15) modifier -> . CONST
+    (22) type -> . INTEGER_TYPE
+    (23) type -> . DOUBLE_TYPE
+    (24) type -> . BOOLEAN_TYPE
+    (25) type -> . QUEUE_TYPE
+    (26) type -> . STRING_TYPE
+    (27) type -> . ENUM_TYPE
+    (28) type -> . VAR
+    (29) type -> . LIST_TYPE
+    (30) type -> . MAP_TYPE
+    (31) type -> . SET_TYPE
+    (32) type -> . DYNAMIC_TYPE
 
+    RBRACE          reduce using rule 75 (lines -> .)
     PRINT           shift and go to state 14
     IF              shift and go to state 16
     LATE            shift and go to state 21
@@ -1822,62 +1820,60 @@ state 80
 
 state 81
 
-    (42) arithmetic -> arithmetic arith_op arithmetic .
-    (42) arithmetic -> arithmetic . arith_op arithmetic
-    (54) arith_op -> . PLUS
-    (55) arith_op -> . MINUS
-    (56) arith_op -> . TIMES
-    (57) arith_op -> . DIVIDE
+    (37) arithmetic -> arithmetic arith_op arithmetic .
+    (37) arithmetic -> arithmetic . arith_op arithmetic
+    (49) arith_op -> . PLUS
+    (50) arith_op -> . MINUS
+    (51) arith_op -> . TIMES
+    (52) arith_op -> . DIVIDE
 
   ! shift/reduce conflict for PLUS resolved as shift
   ! shift/reduce conflict for MINUS resolved as shift
   ! shift/reduce conflict for TIMES resolved as shift
   ! shift/reduce conflict for DIVIDE resolved as shift
-    $end            reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .)
-    RPAREN          reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .)
-    SEMICOLON       reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .)
-    RBRACE          reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .)
+    $end            reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .)
+    RPAREN          reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .)
+    SEMICOLON       reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .)
     PLUS            shift and go to state 47
     MINUS           shift and go to state 48
     TIMES           shift and go to state 49
     DIVIDE          shift and go to state 50
 
-  ! PLUS            [ reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .) ]
-  ! MINUS           [ reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .) ]
-  ! TIMES           [ reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .) ]
-  ! DIVIDE          [ reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .) ]
+  ! PLUS            [ reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .) ]
+  ! MINUS           [ reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .) ]
+  ! TIMES           [ reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .) ]
+  ! DIVIDE          [ reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .) ]
 
     arith_op                       shift and go to state 46
 
 state 82
 
-    (41) arithmetic -> value .
+    (36) arithmetic -> value .
 
-    PLUS            reduce using rule 41 (arithmetic -> value .)
-    MINUS           reduce using rule 41 (arithmetic -> value .)
-    TIMES           reduce using rule 41 (arithmetic -> value .)
-    DIVIDE          reduce using rule 41 (arithmetic -> value .)
-    $end            reduce using rule 41 (arithmetic -> value .)
-    RPAREN          reduce using rule 41 (arithmetic -> value .)
-    SEMICOLON       reduce using rule 41 (arithmetic -> value .)
-    RBRACE          reduce using rule 41 (arithmetic -> value .)
+    PLUS            reduce using rule 36 (arithmetic -> value .)
+    MINUS           reduce using rule 36 (arithmetic -> value .)
+    TIMES           reduce using rule 36 (arithmetic -> value .)
+    DIVIDE          reduce using rule 36 (arithmetic -> value .)
+    $end            reduce using rule 36 (arithmetic -> value .)
+    RPAREN          reduce using rule 36 (arithmetic -> value .)
+    SEMICOLON       reduce using rule 36 (arithmetic -> value .)
 
 
 state 83
 
-    (43) arithmetic -> LPAREN . arithmetic arith_op arithmetic RPAREN
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (38) arithmetic -> LPAREN . arithmetic arith_op arithmetic RPAREN
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 83
     IDENTIFIER      shift and go to state 63
@@ -1894,75 +1890,74 @@ state 83
 
 state 84
 
-    (49) logic -> logic logic_op logic .
-    (49) logic -> logic . logic_op logic
-    (52) logic_op -> . LOGICAL_AND
-    (53) logic_op -> . LOGICAL_OR
+    (44) logic -> logic logic_op logic .
+    (44) logic -> logic . logic_op logic
+    (47) logic_op -> . LOGICAL_AND
+    (48) logic_op -> . LOGICAL_OR
 
   ! shift/reduce conflict for LOGICAL_AND resolved as shift
   ! shift/reduce conflict for LOGICAL_OR resolved as shift
-    $end            reduce using rule 49 (logic -> logic logic_op logic .)
-    RPAREN          reduce using rule 49 (logic -> logic logic_op logic .)
-    SEMICOLON       reduce using rule 49 (logic -> logic logic_op logic .)
-    RBRACE          reduce using rule 49 (logic -> logic logic_op logic .)
+    $end            reduce using rule 44 (logic -> logic logic_op logic .)
+    RPAREN          reduce using rule 44 (logic -> logic logic_op logic .)
+    SEMICOLON       reduce using rule 44 (logic -> logic logic_op logic .)
     LOGICAL_AND     shift and go to state 52
     LOGICAL_OR      shift and go to state 53
 
-  ! LOGICAL_AND     [ reduce using rule 49 (logic -> logic logic_op logic .) ]
-  ! LOGICAL_OR      [ reduce using rule 49 (logic -> logic logic_op logic .) ]
+  ! LOGICAL_AND     [ reduce using rule 44 (logic -> logic logic_op logic .) ]
+  ! LOGICAL_OR      [ reduce using rule 44 (logic -> logic logic_op logic .) ]
 
     logic_op                       shift and go to state 51
 
 state 85
 
-    (13) assignment -> modifier type nullable . IDENTIFIER ASSIGN expression SEMICOLON
+    (8) assignment -> modifier type nullable . IDENTIFIER ASSIGN expression SEMICOLON
 
     IDENTIFIER      shift and go to state 109
 
 
 state 86
 
-    (15) assignment -> modifier type IDENTIFIER . ASSIGN expression SEMICOLON
+    (10) assignment -> modifier type IDENTIFIER . ASSIGN expression SEMICOLON
 
     ASSIGN          shift and go to state 110
 
 
 state 87
 
-    (14) assignment -> type nullable IDENTIFIER . ASSIGN expression SEMICOLON
+    (9) assignment -> type nullable IDENTIFIER . ASSIGN expression SEMICOLON
 
     ASSIGN          shift and go to state 111
 
 
 state 88
 
-    (16) assignment -> type IDENTIFIER ASSIGN . expression SEMICOLON
-    (38) expression -> . arithmetic
-    (39) expression -> . logic
-    (40) expression -> . function_call
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (26) function_call -> . IDENTIFIER LPAREN parameters RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
+    (11) assignment -> type IDENTIFIER ASSIGN . expression SEMICOLON
+    (33) expression -> . arithmetic
+    (34) expression -> . logic
+    (35) expression -> . function_call
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (21) function_call -> . IDENTIFIER LPAREN parameters RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
 
     LPAREN          shift and go to state 15
     LOGICAL_NOT     shift and go to state 20
@@ -1987,26 +1982,26 @@ state 88
 
 state 89
 
-    (77) function -> type IDENTIFIER LPAREN . parameters RPAREN LBRACE statement RBRACE
-    (78) parameters -> . VOID
-    (79) parameters -> . parameter
-    (80) parameters -> . parameter COMMA parameters
-    (81) parameters -> .
-    (82) parameter -> . type IDENTIFIER
-    (27) type -> . INTEGER_TYPE
-    (28) type -> . DOUBLE_TYPE
-    (29) type -> . BOOLEAN_TYPE
-    (30) type -> . QUEUE_TYPE
-    (31) type -> . STRING_TYPE
-    (32) type -> . ENUM_TYPE
-    (33) type -> . VAR
-    (34) type -> . LIST_TYPE
-    (35) type -> . MAP_TYPE
-    (36) type -> . SET_TYPE
-    (37) type -> . DYNAMIC_TYPE
+    (72) function -> type IDENTIFIER LPAREN . parameters RPAREN LBRACE lines RBRACE
+    (80) parameters -> . VOID
+    (81) parameters -> . parameter
+    (82) parameters -> . parameter COMMA parameters
+    (83) parameters -> .
+    (84) parameter -> . type IDENTIFIER
+    (22) type -> . INTEGER_TYPE
+    (23) type -> . DOUBLE_TYPE
+    (24) type -> . BOOLEAN_TYPE
+    (25) type -> . QUEUE_TYPE
+    (26) type -> . STRING_TYPE
+    (27) type -> . ENUM_TYPE
+    (28) type -> . VAR
+    (29) type -> . LIST_TYPE
+    (30) type -> . MAP_TYPE
+    (31) type -> . SET_TYPE
+    (32) type -> . DYNAMIC_TYPE
 
     VOID            shift and go to state 91
-    RPAREN          reduce using rule 81 (parameters -> .)
+    RPAREN          reduce using rule 83 (parameters -> .)
     INTEGER_TYPE    shift and go to state 24
     DOUBLE_TYPE     shift and go to state 25
     BOOLEAN_TYPE    shift and go to state 26
@@ -2025,64 +2020,64 @@ state 89
 
 state 90
 
-    (26) function_call -> IDENTIFIER LPAREN parameters . RPAREN
+    (21) function_call -> IDENTIFIER LPAREN parameters . RPAREN
 
     RPAREN          shift and go to state 114
 
 
 state 91
 
-    (78) parameters -> VOID .
+    (80) parameters -> VOID .
 
-    RPAREN          reduce using rule 78 (parameters -> VOID .)
+    RPAREN          reduce using rule 80 (parameters -> VOID .)
 
 
 state 92
 
-    (79) parameters -> parameter .
-    (80) parameters -> parameter . COMMA parameters
+    (81) parameters -> parameter .
+    (82) parameters -> parameter . COMMA parameters
 
-    RPAREN          reduce using rule 79 (parameters -> parameter .)
+    RPAREN          reduce using rule 81 (parameters -> parameter .)
     COMMA           shift and go to state 115
 
 
 state 93
 
-    (82) parameter -> type . IDENTIFIER
+    (84) parameter -> type . IDENTIFIER
 
     IDENTIFIER      shift and go to state 116
 
 
 state 94
 
-    (21) print -> PRINT LPAREN expression . RPAREN SEMICOLON
+    (16) print -> PRINT LPAREN expression . RPAREN SEMICOLON
 
     RPAREN          shift and go to state 117
 
 
 state 95
 
-    (22) print -> PRINT LPAREN RPAREN . SEMICOLON
+    (17) print -> PRINT LPAREN RPAREN . SEMICOLON
 
     SEMICOLON       shift and go to state 118
 
 
 state 96
 
-    (43) arithmetic -> LPAREN arithmetic arith_op . arithmetic RPAREN
-    (42) arithmetic -> arithmetic arith_op . arithmetic
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (38) arithmetic -> LPAREN arithmetic arith_op . arithmetic RPAREN
+    (37) arithmetic -> arithmetic arith_op . arithmetic
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 83
     IDENTIFIER      shift and go to state 63
@@ -2099,27 +2094,27 @@ state 96
 
 state 97
 
-    (50) logic -> LPAREN logic logic_op . logic RPAREN
-    (49) logic -> logic logic_op . logic
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (45) logic -> LPAREN logic logic_op . logic RPAREN
+    (44) logic -> logic logic_op . logic
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 74
     LOGICAL_NOT     shift and go to state 20
@@ -2141,23 +2136,23 @@ state 97
 
 state 98
 
-    (47) comparison -> LPAREN comparison comp_op . comparison RPAREN
-    (46) comparison -> comparison comp_op . comparison
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (42) comparison -> LPAREN comparison comp_op . comparison RPAREN
+    (41) comparison -> comparison comp_op . comparison
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 101
     IDENTIFIER      shift and go to state 63
@@ -2177,10 +2172,10 @@ state 98
 
 state 99
 
-    (23) if_statement -> IF LPAREN logic . RPAREN LBRACE lines RBRACE
-    (49) logic -> logic . logic_op logic
-    (52) logic_op -> . LOGICAL_AND
-    (53) logic_op -> . LOGICAL_OR
+    (18) if_statement -> IF LPAREN logic . RPAREN LBRACE lines RBRACE
+    (44) logic -> logic . logic_op logic
+    (47) logic_op -> . LOGICAL_AND
+    (48) logic_op -> . LOGICAL_OR
 
     RPAREN          shift and go to state 122
     LOGICAL_AND     shift and go to state 52
@@ -2190,14 +2185,14 @@ state 99
 
 state 100
 
-    (46) comparison -> comparison comp_op comparison .
-    (46) comparison -> comparison . comp_op comparison
-    (58) comp_op -> . EQUAL
-    (59) comp_op -> . NOT_EQUAL
-    (60) comp_op -> . LESS
-    (61) comp_op -> . LESS_EQUAL
-    (62) comp_op -> . GREATER
-    (63) comp_op -> . GREATER_EQUAL
+    (41) comparison -> comparison comp_op comparison .
+    (41) comparison -> comparison . comp_op comparison
+    (53) comp_op -> . EQUAL
+    (54) comp_op -> . NOT_EQUAL
+    (55) comp_op -> . LESS
+    (56) comp_op -> . LESS_EQUAL
+    (57) comp_op -> . GREATER
+    (58) comp_op -> . GREATER_EQUAL
 
   ! shift/reduce conflict for EQUAL resolved as shift
   ! shift/reduce conflict for NOT_EQUAL resolved as shift
@@ -2205,12 +2200,11 @@ state 100
   ! shift/reduce conflict for LESS_EQUAL resolved as shift
   ! shift/reduce conflict for GREATER resolved as shift
   ! shift/reduce conflict for GREATER_EQUAL resolved as shift
-    LOGICAL_AND     reduce using rule 46 (comparison -> comparison comp_op comparison .)
-    LOGICAL_OR      reduce using rule 46 (comparison -> comparison comp_op comparison .)
-    $end            reduce using rule 46 (comparison -> comparison comp_op comparison .)
-    RPAREN          reduce using rule 46 (comparison -> comparison comp_op comparison .)
-    SEMICOLON       reduce using rule 46 (comparison -> comparison comp_op comparison .)
-    RBRACE          reduce using rule 46 (comparison -> comparison comp_op comparison .)
+    LOGICAL_AND     reduce using rule 41 (comparison -> comparison comp_op comparison .)
+    LOGICAL_OR      reduce using rule 41 (comparison -> comparison comp_op comparison .)
+    $end            reduce using rule 41 (comparison -> comparison comp_op comparison .)
+    RPAREN          reduce using rule 41 (comparison -> comparison comp_op comparison .)
+    SEMICOLON       reduce using rule 41 (comparison -> comparison comp_op comparison .)
     EQUAL           shift and go to state 67
     NOT_EQUAL       shift and go to state 68
     LESS            shift and go to state 69
@@ -2218,33 +2212,33 @@ state 100
     GREATER         shift and go to state 71
     GREATER_EQUAL   shift and go to state 72
 
-  ! EQUAL           [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! NOT_EQUAL       [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! LESS            [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! LESS_EQUAL      [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! GREATER         [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! GREATER_EQUAL   [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
+  ! EQUAL           [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! NOT_EQUAL       [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! LESS            [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! LESS_EQUAL      [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! GREATER         [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! GREATER_EQUAL   [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
 
     comp_op                        shift and go to state 66
 
 state 101
 
-    (47) comparison -> LPAREN . comparison comp_op comparison RPAREN
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (42) comparison -> LPAREN . comparison comp_op comparison RPAREN
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     LPAREN          shift and go to state 101
     IDENTIFIER      shift and go to state 63
@@ -2264,42 +2258,41 @@ state 101
 
 state 102
 
-    (76) list -> LSQUARE values RSQUARE .
+    (71) list -> LSQUARE values RSQUARE .
 
-    PLUS            reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    MINUS           reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    TIMES           reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    DIVIDE          reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    $end            reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    EQUAL           reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    NOT_EQUAL       reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    LESS            reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    LESS_EQUAL      reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    GREATER         reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    GREATER_EQUAL   reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    LOGICAL_AND     reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    LOGICAL_OR      reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    RPAREN          reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    SEMICOLON       reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    RBRACE          reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    COMMA           reduce using rule 76 (list -> LSQUARE values RSQUARE .)
-    RSQUARE         reduce using rule 76 (list -> LSQUARE values RSQUARE .)
+    PLUS            reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    MINUS           reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    TIMES           reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    DIVIDE          reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    $end            reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    EQUAL           reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    NOT_EQUAL       reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    LESS            reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    LESS_EQUAL      reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    GREATER         reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    GREATER_EQUAL   reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    LOGICAL_AND     reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    LOGICAL_OR      reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    RPAREN          reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    SEMICOLON       reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    COMMA           reduce using rule 71 (list -> LSQUARE values RSQUARE .)
+    RSQUARE         reduce using rule 71 (list -> LSQUARE values RSQUARE .)
 
 
 state 103
 
-    (65) values -> value COMMA . values
-    (64) values -> . value
-    (65) values -> . value COMMA values
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
+    (60) values -> value COMMA . values
+    (59) values -> . value
+    (60) values -> . value COMMA values
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
 
     IDENTIFIER      shift and go to state 63
     INTEGER         shift and go to state 39
@@ -2315,78 +2308,82 @@ state 103
 
 state 104
 
-    (12) line -> if_statement .
-    (24) if_statement -> if_statement . ELSE if_statement
-    (25) if_statement -> if_statement . ELSE LBRACE lines RBRACE
+    (79) line -> if_statement .
+    (19) if_statement -> if_statement . ELSE if_statement
+    (20) if_statement -> if_statement . ELSE LBRACE lines RBRACE
 
-    LINE_BREAK      reduce using rule 12 (line -> if_statement .)
+    LINE_BREAK      reduce using rule 79 (line -> if_statement .)
+    RBRACE          reduce using rule 79 (line -> if_statement .)
     ELSE            shift and go to state 45
 
 
 state 105
 
-    (25) if_statement -> if_statement ELSE LBRACE lines . RBRACE
+    (20) if_statement -> if_statement ELSE LBRACE lines . RBRACE
 
     RBRACE          shift and go to state 125
 
 
 state 106
 
-    (9) line -> print .
+    (76) line -> print .
 
-    LINE_BREAK      reduce using rule 9 (line -> print .)
+    LINE_BREAK      reduce using rule 76 (line -> print .)
+    RBRACE          reduce using rule 76 (line -> print .)
 
 
 state 107
 
-    (10) line -> assignment .
+    (77) line -> assignment .
 
-    LINE_BREAK      reduce using rule 10 (line -> assignment .)
+    LINE_BREAK      reduce using rule 77 (line -> assignment .)
+    RBRACE          reduce using rule 77 (line -> assignment .)
 
 
 state 108
 
-    (11) line -> function .
+    (78) line -> function .
 
-    LINE_BREAK      reduce using rule 11 (line -> function .)
+    LINE_BREAK      reduce using rule 78 (line -> function .)
+    RBRACE          reduce using rule 78 (line -> function .)
 
 
 state 109
 
-    (13) assignment -> modifier type nullable IDENTIFIER . ASSIGN expression SEMICOLON
+    (8) assignment -> modifier type nullable IDENTIFIER . ASSIGN expression SEMICOLON
 
     ASSIGN          shift and go to state 126
 
 
 state 110
 
-    (15) assignment -> modifier type IDENTIFIER ASSIGN . expression SEMICOLON
-    (38) expression -> . arithmetic
-    (39) expression -> . logic
-    (40) expression -> . function_call
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (26) function_call -> . IDENTIFIER LPAREN parameters RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
+    (10) assignment -> modifier type IDENTIFIER ASSIGN . expression SEMICOLON
+    (33) expression -> . arithmetic
+    (34) expression -> . logic
+    (35) expression -> . function_call
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (21) function_call -> . IDENTIFIER LPAREN parameters RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
 
     LPAREN          shift and go to state 15
     LOGICAL_NOT     shift and go to state 20
@@ -2411,33 +2408,33 @@ state 110
 
 state 111
 
-    (14) assignment -> type nullable IDENTIFIER ASSIGN . expression SEMICOLON
-    (38) expression -> . arithmetic
-    (39) expression -> . logic
-    (40) expression -> . function_call
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (26) function_call -> . IDENTIFIER LPAREN parameters RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
+    (9) assignment -> type nullable IDENTIFIER ASSIGN . expression SEMICOLON
+    (33) expression -> . arithmetic
+    (34) expression -> . logic
+    (35) expression -> . function_call
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (21) function_call -> . IDENTIFIER LPAREN parameters RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
 
     LPAREN          shift and go to state 15
     LOGICAL_NOT     shift and go to state 20
@@ -2462,50 +2459,49 @@ state 111
 
 state 112
 
-    (16) assignment -> type IDENTIFIER ASSIGN expression . SEMICOLON
+    (11) assignment -> type IDENTIFIER ASSIGN expression . SEMICOLON
 
     SEMICOLON       shift and go to state 129
 
 
 state 113
 
-    (77) function -> type IDENTIFIER LPAREN parameters . RPAREN LBRACE statement RBRACE
+    (72) function -> type IDENTIFIER LPAREN parameters . RPAREN LBRACE lines RBRACE
 
     RPAREN          shift and go to state 130
 
 
 state 114
 
-    (26) function_call -> IDENTIFIER LPAREN parameters RPAREN .
+    (21) function_call -> IDENTIFIER LPAREN parameters RPAREN .
 
-    $end            reduce using rule 26 (function_call -> IDENTIFIER LPAREN parameters RPAREN .)
-    RPAREN          reduce using rule 26 (function_call -> IDENTIFIER LPAREN parameters RPAREN .)
-    SEMICOLON       reduce using rule 26 (function_call -> IDENTIFIER LPAREN parameters RPAREN .)
-    RBRACE          reduce using rule 26 (function_call -> IDENTIFIER LPAREN parameters RPAREN .)
+    $end            reduce using rule 21 (function_call -> IDENTIFIER LPAREN parameters RPAREN .)
+    RPAREN          reduce using rule 21 (function_call -> IDENTIFIER LPAREN parameters RPAREN .)
+    SEMICOLON       reduce using rule 21 (function_call -> IDENTIFIER LPAREN parameters RPAREN .)
 
 
 state 115
 
-    (80) parameters -> parameter COMMA . parameters
-    (78) parameters -> . VOID
-    (79) parameters -> . parameter
-    (80) parameters -> . parameter COMMA parameters
-    (81) parameters -> .
-    (82) parameter -> . type IDENTIFIER
-    (27) type -> . INTEGER_TYPE
-    (28) type -> . DOUBLE_TYPE
-    (29) type -> . BOOLEAN_TYPE
-    (30) type -> . QUEUE_TYPE
-    (31) type -> . STRING_TYPE
-    (32) type -> . ENUM_TYPE
-    (33) type -> . VAR
-    (34) type -> . LIST_TYPE
-    (35) type -> . MAP_TYPE
-    (36) type -> . SET_TYPE
-    (37) type -> . DYNAMIC_TYPE
+    (82) parameters -> parameter COMMA . parameters
+    (80) parameters -> . VOID
+    (81) parameters -> . parameter
+    (82) parameters -> . parameter COMMA parameters
+    (83) parameters -> .
+    (84) parameter -> . type IDENTIFIER
+    (22) type -> . INTEGER_TYPE
+    (23) type -> . DOUBLE_TYPE
+    (24) type -> . BOOLEAN_TYPE
+    (25) type -> . QUEUE_TYPE
+    (26) type -> . STRING_TYPE
+    (27) type -> . ENUM_TYPE
+    (28) type -> . VAR
+    (29) type -> . LIST_TYPE
+    (30) type -> . MAP_TYPE
+    (31) type -> . SET_TYPE
+    (32) type -> . DYNAMIC_TYPE
 
     VOID            shift and go to state 91
-    RPAREN          reduce using rule 81 (parameters -> .)
+    RPAREN          reduce using rule 83 (parameters -> .)
     INTEGER_TYPE    shift and go to state 24
     DOUBLE_TYPE     shift and go to state 25
     BOOLEAN_TYPE    shift and go to state 26
@@ -2524,37 +2520,37 @@ state 115
 
 state 116
 
-    (82) parameter -> type IDENTIFIER .
+    (84) parameter -> type IDENTIFIER .
 
-    COMMA           reduce using rule 82 (parameter -> type IDENTIFIER .)
-    RPAREN          reduce using rule 82 (parameter -> type IDENTIFIER .)
+    COMMA           reduce using rule 84 (parameter -> type IDENTIFIER .)
+    RPAREN          reduce using rule 84 (parameter -> type IDENTIFIER .)
 
 
 state 117
 
-    (21) print -> PRINT LPAREN expression RPAREN . SEMICOLON
+    (16) print -> PRINT LPAREN expression RPAREN . SEMICOLON
 
     SEMICOLON       shift and go to state 132
 
 
 state 118
 
-    (22) print -> PRINT LPAREN RPAREN SEMICOLON .
+    (17) print -> PRINT LPAREN RPAREN SEMICOLON .
 
-    $end            reduce using rule 22 (print -> PRINT LPAREN RPAREN SEMICOLON .)
-    LINE_BREAK      reduce using rule 22 (print -> PRINT LPAREN RPAREN SEMICOLON .)
-    RBRACE          reduce using rule 22 (print -> PRINT LPAREN RPAREN SEMICOLON .)
+    $end            reduce using rule 17 (print -> PRINT LPAREN RPAREN SEMICOLON .)
+    LINE_BREAK      reduce using rule 17 (print -> PRINT LPAREN RPAREN SEMICOLON .)
+    RBRACE          reduce using rule 17 (print -> PRINT LPAREN RPAREN SEMICOLON .)
 
 
 state 119
 
-    (43) arithmetic -> LPAREN arithmetic arith_op arithmetic . RPAREN
-    (42) arithmetic -> arithmetic arith_op arithmetic .
-    (42) arithmetic -> arithmetic . arith_op arithmetic
-    (54) arith_op -> . PLUS
-    (55) arith_op -> . MINUS
-    (56) arith_op -> . TIMES
-    (57) arith_op -> . DIVIDE
+    (38) arithmetic -> LPAREN arithmetic arith_op arithmetic . RPAREN
+    (37) arithmetic -> arithmetic arith_op arithmetic .
+    (37) arithmetic -> arithmetic . arith_op arithmetic
+    (49) arith_op -> . PLUS
+    (50) arith_op -> . MINUS
+    (51) arith_op -> . TIMES
+    (52) arith_op -> . DIVIDE
 
   ! shift/reduce conflict for PLUS resolved as shift
   ! shift/reduce conflict for MINUS resolved as shift
@@ -2566,20 +2562,20 @@ state 119
     TIMES           shift and go to state 49
     DIVIDE          shift and go to state 50
 
-  ! PLUS            [ reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .) ]
-  ! MINUS           [ reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .) ]
-  ! TIMES           [ reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .) ]
-  ! DIVIDE          [ reduce using rule 42 (arithmetic -> arithmetic arith_op arithmetic .) ]
+  ! PLUS            [ reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .) ]
+  ! MINUS           [ reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .) ]
+  ! TIMES           [ reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .) ]
+  ! DIVIDE          [ reduce using rule 37 (arithmetic -> arithmetic arith_op arithmetic .) ]
 
     arith_op                       shift and go to state 46
 
 state 120
 
-    (50) logic -> LPAREN logic logic_op logic . RPAREN
-    (49) logic -> logic logic_op logic .
-    (49) logic -> logic . logic_op logic
-    (52) logic_op -> . LOGICAL_AND
-    (53) logic_op -> . LOGICAL_OR
+    (45) logic -> LPAREN logic logic_op logic . RPAREN
+    (44) logic -> logic logic_op logic .
+    (44) logic -> logic . logic_op logic
+    (47) logic_op -> . LOGICAL_AND
+    (48) logic_op -> . LOGICAL_OR
 
   ! shift/reduce conflict for LOGICAL_AND resolved as shift
   ! shift/reduce conflict for LOGICAL_OR resolved as shift
@@ -2587,22 +2583,22 @@ state 120
     LOGICAL_AND     shift and go to state 52
     LOGICAL_OR      shift and go to state 53
 
-  ! LOGICAL_AND     [ reduce using rule 49 (logic -> logic logic_op logic .) ]
-  ! LOGICAL_OR      [ reduce using rule 49 (logic -> logic logic_op logic .) ]
+  ! LOGICAL_AND     [ reduce using rule 44 (logic -> logic logic_op logic .) ]
+  ! LOGICAL_OR      [ reduce using rule 44 (logic -> logic logic_op logic .) ]
 
     logic_op                       shift and go to state 51
 
 state 121
 
-    (47) comparison -> LPAREN comparison comp_op comparison . RPAREN
-    (46) comparison -> comparison comp_op comparison .
-    (46) comparison -> comparison . comp_op comparison
-    (58) comp_op -> . EQUAL
-    (59) comp_op -> . NOT_EQUAL
-    (60) comp_op -> . LESS
-    (61) comp_op -> . LESS_EQUAL
-    (62) comp_op -> . GREATER
-    (63) comp_op -> . GREATER_EQUAL
+    (42) comparison -> LPAREN comparison comp_op comparison . RPAREN
+    (41) comparison -> comparison comp_op comparison .
+    (41) comparison -> comparison . comp_op comparison
+    (53) comp_op -> . EQUAL
+    (54) comp_op -> . NOT_EQUAL
+    (55) comp_op -> . LESS
+    (56) comp_op -> . LESS_EQUAL
+    (57) comp_op -> . GREATER
+    (58) comp_op -> . GREATER_EQUAL
 
   ! shift/reduce conflict for EQUAL resolved as shift
   ! shift/reduce conflict for NOT_EQUAL resolved as shift
@@ -2611,8 +2607,8 @@ state 121
   ! shift/reduce conflict for GREATER resolved as shift
   ! shift/reduce conflict for GREATER_EQUAL resolved as shift
     RPAREN          shift and go to state 135
-    LOGICAL_AND     reduce using rule 46 (comparison -> comparison comp_op comparison .)
-    LOGICAL_OR      reduce using rule 46 (comparison -> comparison comp_op comparison .)
+    LOGICAL_AND     reduce using rule 41 (comparison -> comparison comp_op comparison .)
+    LOGICAL_OR      reduce using rule 41 (comparison -> comparison comp_op comparison .)
     EQUAL           shift and go to state 67
     NOT_EQUAL       shift and go to state 68
     LESS            shift and go to state 69
@@ -2620,32 +2616,32 @@ state 121
     GREATER         shift and go to state 71
     GREATER_EQUAL   shift and go to state 72
 
-  ! EQUAL           [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! NOT_EQUAL       [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! LESS            [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! LESS_EQUAL      [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! GREATER         [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
-  ! GREATER_EQUAL   [ reduce using rule 46 (comparison -> comparison comp_op comparison .) ]
+  ! EQUAL           [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! NOT_EQUAL       [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! LESS            [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! LESS_EQUAL      [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! GREATER         [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
+  ! GREATER_EQUAL   [ reduce using rule 41 (comparison -> comparison comp_op comparison .) ]
 
     comp_op                        shift and go to state 66
 
 state 122
 
-    (23) if_statement -> IF LPAREN logic RPAREN . LBRACE lines RBRACE
+    (18) if_statement -> IF LPAREN logic RPAREN . LBRACE lines RBRACE
 
     LBRACE          shift and go to state 136
 
 
 state 123
 
-    (47) comparison -> LPAREN comparison . comp_op comparison RPAREN
-    (46) comparison -> comparison . comp_op comparison
-    (58) comp_op -> . EQUAL
-    (59) comp_op -> . NOT_EQUAL
-    (60) comp_op -> . LESS
-    (61) comp_op -> . LESS_EQUAL
-    (62) comp_op -> . GREATER
-    (63) comp_op -> . GREATER_EQUAL
+    (42) comparison -> LPAREN comparison . comp_op comparison RPAREN
+    (41) comparison -> comparison . comp_op comparison
+    (53) comp_op -> . EQUAL
+    (54) comp_op -> . NOT_EQUAL
+    (55) comp_op -> . LESS
+    (56) comp_op -> . LESS_EQUAL
+    (57) comp_op -> . GREATER
+    (58) comp_op -> . GREATER_EQUAL
 
     EQUAL           shift and go to state 67
     NOT_EQUAL       shift and go to state 68
@@ -2658,50 +2654,50 @@ state 123
 
 state 124
 
-    (65) values -> value COMMA values .
+    (60) values -> value COMMA values .
 
-    RSQUARE         reduce using rule 65 (values -> value COMMA values .)
+    RSQUARE         reduce using rule 60 (values -> value COMMA values .)
 
 
 state 125
 
-    (25) if_statement -> if_statement ELSE LBRACE lines RBRACE .
+    (20) if_statement -> if_statement ELSE LBRACE lines RBRACE .
 
-    ELSE            reduce using rule 25 (if_statement -> if_statement ELSE LBRACE lines RBRACE .)
-    $end            reduce using rule 25 (if_statement -> if_statement ELSE LBRACE lines RBRACE .)
-    LINE_BREAK      reduce using rule 25 (if_statement -> if_statement ELSE LBRACE lines RBRACE .)
-    RBRACE          reduce using rule 25 (if_statement -> if_statement ELSE LBRACE lines RBRACE .)
+    ELSE            reduce using rule 20 (if_statement -> if_statement ELSE LBRACE lines RBRACE .)
+    $end            reduce using rule 20 (if_statement -> if_statement ELSE LBRACE lines RBRACE .)
+    LINE_BREAK      reduce using rule 20 (if_statement -> if_statement ELSE LBRACE lines RBRACE .)
+    RBRACE          reduce using rule 20 (if_statement -> if_statement ELSE LBRACE lines RBRACE .)
 
 
 state 126
 
-    (13) assignment -> modifier type nullable IDENTIFIER ASSIGN . expression SEMICOLON
-    (38) expression -> . arithmetic
-    (39) expression -> . logic
-    (40) expression -> . function_call
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (26) function_call -> . IDENTIFIER LPAREN parameters RPAREN
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
+    (8) assignment -> modifier type nullable IDENTIFIER ASSIGN . expression SEMICOLON
+    (33) expression -> . arithmetic
+    (34) expression -> . logic
+    (35) expression -> . function_call
+    (36) arithmetic -> . value
+    (37) arithmetic -> . arithmetic arith_op arithmetic
+    (38) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
+    (43) logic -> . comparison
+    (44) logic -> . logic logic_op logic
+    (45) logic -> . LPAREN logic logic_op logic RPAREN
+    (46) logic -> . LOGICAL_NOT logic
+    (21) function_call -> . IDENTIFIER LPAREN parameters RPAREN
+    (61) value -> . IDENTIFIER
+    (62) value -> . number
+    (63) value -> . string
+    (64) value -> . list
+    (39) comparison -> . value
+    (40) comparison -> . boolean
+    (41) comparison -> . comparison comp_op comparison
+    (42) comparison -> . LPAREN comparison comp_op comparison RPAREN
+    (65) number -> . INTEGER
+    (66) number -> . DOUBLE
+    (67) string -> . STRING
+    (70) list -> . LSQUARE RSQUARE
+    (71) list -> . LSQUARE values RSQUARE
+    (68) boolean -> . TRUE
+    (69) boolean -> . FALSE
 
     LPAREN          shift and go to state 15
     LOGICAL_NOT     shift and go to state 20
@@ -2726,127 +2722,127 @@ state 126
 
 state 127
 
-    (15) assignment -> modifier type IDENTIFIER ASSIGN expression . SEMICOLON
+    (10) assignment -> modifier type IDENTIFIER ASSIGN expression . SEMICOLON
 
     SEMICOLON       shift and go to state 138
 
 
 state 128
 
-    (14) assignment -> type nullable IDENTIFIER ASSIGN expression . SEMICOLON
+    (9) assignment -> type nullable IDENTIFIER ASSIGN expression . SEMICOLON
 
     SEMICOLON       shift and go to state 139
 
 
 state 129
 
-    (16) assignment -> type IDENTIFIER ASSIGN expression SEMICOLON .
+    (11) assignment -> type IDENTIFIER ASSIGN expression SEMICOLON .
 
-    $end            reduce using rule 16 (assignment -> type IDENTIFIER ASSIGN expression SEMICOLON .)
-    LINE_BREAK      reduce using rule 16 (assignment -> type IDENTIFIER ASSIGN expression SEMICOLON .)
-    RBRACE          reduce using rule 16 (assignment -> type IDENTIFIER ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 11 (assignment -> type IDENTIFIER ASSIGN expression SEMICOLON .)
+    LINE_BREAK      reduce using rule 11 (assignment -> type IDENTIFIER ASSIGN expression SEMICOLON .)
+    RBRACE          reduce using rule 11 (assignment -> type IDENTIFIER ASSIGN expression SEMICOLON .)
 
 
 state 130
 
-    (77) function -> type IDENTIFIER LPAREN parameters RPAREN . LBRACE statement RBRACE
+    (72) function -> type IDENTIFIER LPAREN parameters RPAREN . LBRACE lines RBRACE
 
     LBRACE          shift and go to state 140
 
 
 state 131
 
-    (80) parameters -> parameter COMMA parameters .
+    (82) parameters -> parameter COMMA parameters .
 
-    RPAREN          reduce using rule 80 (parameters -> parameter COMMA parameters .)
+    RPAREN          reduce using rule 82 (parameters -> parameter COMMA parameters .)
 
 
 state 132
 
-    (21) print -> PRINT LPAREN expression RPAREN SEMICOLON .
+    (16) print -> PRINT LPAREN expression RPAREN SEMICOLON .
 
-    $end            reduce using rule 21 (print -> PRINT LPAREN expression RPAREN SEMICOLON .)
-    LINE_BREAK      reduce using rule 21 (print -> PRINT LPAREN expression RPAREN SEMICOLON .)
-    RBRACE          reduce using rule 21 (print -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    $end            reduce using rule 16 (print -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    LINE_BREAK      reduce using rule 16 (print -> PRINT LPAREN expression RPAREN SEMICOLON .)
+    RBRACE          reduce using rule 16 (print -> PRINT LPAREN expression RPAREN SEMICOLON .)
 
 
 state 133
 
-    (43) arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .
+    (38) arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .
 
-    PLUS            reduce using rule 43 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
-    MINUS           reduce using rule 43 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
-    TIMES           reduce using rule 43 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
-    DIVIDE          reduce using rule 43 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
-    $end            reduce using rule 43 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
-    RPAREN          reduce using rule 43 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
-    SEMICOLON       reduce using rule 43 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
-    RBRACE          reduce using rule 43 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
+    PLUS            reduce using rule 38 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
+    MINUS           reduce using rule 38 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
+    TIMES           reduce using rule 38 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
+    DIVIDE          reduce using rule 38 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
+    $end            reduce using rule 38 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
+    RPAREN          reduce using rule 38 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
+    SEMICOLON       reduce using rule 38 (arithmetic -> LPAREN arithmetic arith_op arithmetic RPAREN .)
 
 
 state 134
 
-    (50) logic -> LPAREN logic logic_op logic RPAREN .
+    (45) logic -> LPAREN logic logic_op logic RPAREN .
 
-    LOGICAL_AND     reduce using rule 50 (logic -> LPAREN logic logic_op logic RPAREN .)
-    LOGICAL_OR      reduce using rule 50 (logic -> LPAREN logic logic_op logic RPAREN .)
-    $end            reduce using rule 50 (logic -> LPAREN logic logic_op logic RPAREN .)
-    RPAREN          reduce using rule 50 (logic -> LPAREN logic logic_op logic RPAREN .)
-    SEMICOLON       reduce using rule 50 (logic -> LPAREN logic logic_op logic RPAREN .)
-    RBRACE          reduce using rule 50 (logic -> LPAREN logic logic_op logic RPAREN .)
+    LOGICAL_AND     reduce using rule 45 (logic -> LPAREN logic logic_op logic RPAREN .)
+    LOGICAL_OR      reduce using rule 45 (logic -> LPAREN logic logic_op logic RPAREN .)
+    $end            reduce using rule 45 (logic -> LPAREN logic logic_op logic RPAREN .)
+    RPAREN          reduce using rule 45 (logic -> LPAREN logic logic_op logic RPAREN .)
+    SEMICOLON       reduce using rule 45 (logic -> LPAREN logic logic_op logic RPAREN .)
 
 
 state 135
 
-    (47) comparison -> LPAREN comparison comp_op comparison RPAREN .
+    (42) comparison -> LPAREN comparison comp_op comparison RPAREN .
 
-    EQUAL           reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    NOT_EQUAL       reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    LESS            reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    LESS_EQUAL      reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    GREATER         reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    GREATER_EQUAL   reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    LOGICAL_AND     reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    LOGICAL_OR      reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    $end            reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    RPAREN          reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    SEMICOLON       reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
-    RBRACE          reduce using rule 47 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    EQUAL           reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    NOT_EQUAL       reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    LESS            reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    LESS_EQUAL      reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    GREATER         reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    GREATER_EQUAL   reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    LOGICAL_AND     reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    LOGICAL_OR      reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    $end            reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    RPAREN          reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
+    SEMICOLON       reduce using rule 42 (comparison -> LPAREN comparison comp_op comparison RPAREN .)
 
 
 state 136
 
-    (23) if_statement -> IF LPAREN logic RPAREN LBRACE . lines RBRACE
-    (8) lines -> . line LINE_BREAK
-    (9) line -> . print
-    (10) line -> . assignment
-    (11) line -> . function
-    (12) line -> . if_statement
-    (21) print -> . PRINT LPAREN expression RPAREN SEMICOLON
-    (22) print -> . PRINT LPAREN RPAREN SEMICOLON
-    (13) assignment -> . modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (14) assignment -> . type nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (15) assignment -> . modifier type IDENTIFIER ASSIGN expression SEMICOLON
-    (16) assignment -> . type IDENTIFIER ASSIGN expression SEMICOLON
-    (77) function -> . type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE
-    (23) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
-    (24) if_statement -> . if_statement ELSE if_statement
-    (25) if_statement -> . if_statement ELSE LBRACE lines RBRACE
-    (18) modifier -> . LATE
-    (19) modifier -> . FINAL
-    (20) modifier -> . CONST
-    (27) type -> . INTEGER_TYPE
-    (28) type -> . DOUBLE_TYPE
-    (29) type -> . BOOLEAN_TYPE
-    (30) type -> . QUEUE_TYPE
-    (31) type -> . STRING_TYPE
-    (32) type -> . ENUM_TYPE
-    (33) type -> . VAR
-    (34) type -> . LIST_TYPE
-    (35) type -> . MAP_TYPE
-    (36) type -> . SET_TYPE
-    (37) type -> . DYNAMIC_TYPE
+    (18) if_statement -> IF LPAREN logic RPAREN LBRACE . lines RBRACE
+    (73) lines -> . line LINE_BREAK
+    (74) lines -> . line
+    (75) lines -> .
+    (76) line -> . print
+    (77) line -> . assignment
+    (78) line -> . function
+    (79) line -> . if_statement
+    (16) print -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (17) print -> . PRINT LPAREN RPAREN SEMICOLON
+    (8) assignment -> . modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (9) assignment -> . type nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> . modifier type IDENTIFIER ASSIGN expression SEMICOLON
+    (11) assignment -> . type IDENTIFIER ASSIGN expression SEMICOLON
+    (72) function -> . type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE
+    (18) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
+    (19) if_statement -> . if_statement ELSE if_statement
+    (20) if_statement -> . if_statement ELSE LBRACE lines RBRACE
+    (13) modifier -> . LATE
+    (14) modifier -> . FINAL
+    (15) modifier -> . CONST
+    (22) type -> . INTEGER_TYPE
+    (23) type -> . DOUBLE_TYPE
+    (24) type -> . BOOLEAN_TYPE
+    (25) type -> . QUEUE_TYPE
+    (26) type -> . STRING_TYPE
+    (27) type -> . ENUM_TYPE
+    (28) type -> . VAR
+    (29) type -> . LIST_TYPE
+    (30) type -> . MAP_TYPE
+    (31) type -> . SET_TYPE
+    (32) type -> . DYNAMIC_TYPE
 
+    RBRACE          reduce using rule 75 (lines -> .)
     PRINT           shift and go to state 14
     IF              shift and go to state 16
     LATE            shift and go to state 21
@@ -2875,101 +2871,67 @@ state 136
 
 state 137
 
-    (13) assignment -> modifier type nullable IDENTIFIER ASSIGN expression . SEMICOLON
+    (8) assignment -> modifier type nullable IDENTIFIER ASSIGN expression . SEMICOLON
 
     SEMICOLON       shift and go to state 142
 
 
 state 138
 
-    (15) assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON .
+    (10) assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON .
 
-    $end            reduce using rule 15 (assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON .)
-    LINE_BREAK      reduce using rule 15 (assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON .)
-    RBRACE          reduce using rule 15 (assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 10 (assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON .)
+    LINE_BREAK      reduce using rule 10 (assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON .)
+    RBRACE          reduce using rule 10 (assignment -> modifier type IDENTIFIER ASSIGN expression SEMICOLON .)
 
 
 state 139
 
-    (14) assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON .
+    (9) assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON .
 
-    $end            reduce using rule 14 (assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
-    LINE_BREAK      reduce using rule 14 (assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
-    RBRACE          reduce using rule 14 (assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 9 (assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
+    LINE_BREAK      reduce using rule 9 (assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
+    RBRACE          reduce using rule 9 (assignment -> type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
 
 
 state 140
 
-    (77) function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE . statement RBRACE
-    (1) statement -> . expression
-    (2) statement -> . assignment
-    (3) statement -> . print
-    (4) statement -> . function
-    (5) statement -> . if_statement
-    (6) statement -> . lines
-    (7) statement -> .
-    (38) expression -> . arithmetic
-    (39) expression -> . logic
-    (40) expression -> . function_call
-    (13) assignment -> . modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (14) assignment -> . type nullable IDENTIFIER ASSIGN expression SEMICOLON
-    (15) assignment -> . modifier type IDENTIFIER ASSIGN expression SEMICOLON
-    (16) assignment -> . type IDENTIFIER ASSIGN expression SEMICOLON
-    (21) print -> . PRINT LPAREN expression RPAREN SEMICOLON
-    (22) print -> . PRINT LPAREN RPAREN SEMICOLON
-    (77) function -> . type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE
-    (23) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
-    (24) if_statement -> . if_statement ELSE if_statement
-    (25) if_statement -> . if_statement ELSE LBRACE lines RBRACE
-    (8) lines -> . line LINE_BREAK
-    (41) arithmetic -> . value
-    (42) arithmetic -> . arithmetic arith_op arithmetic
-    (43) arithmetic -> . LPAREN arithmetic arith_op arithmetic RPAREN
-    (48) logic -> . comparison
-    (49) logic -> . logic logic_op logic
-    (50) logic -> . LPAREN logic logic_op logic RPAREN
-    (51) logic -> . LOGICAL_NOT logic
-    (26) function_call -> . IDENTIFIER LPAREN parameters RPAREN
-    (18) modifier -> . LATE
-    (19) modifier -> . FINAL
-    (20) modifier -> . CONST
-    (27) type -> . INTEGER_TYPE
-    (28) type -> . DOUBLE_TYPE
-    (29) type -> . BOOLEAN_TYPE
-    (30) type -> . QUEUE_TYPE
-    (31) type -> . STRING_TYPE
-    (32) type -> . ENUM_TYPE
-    (33) type -> . VAR
-    (34) type -> . LIST_TYPE
-    (35) type -> . MAP_TYPE
-    (36) type -> . SET_TYPE
-    (37) type -> . DYNAMIC_TYPE
-    (9) line -> . print
-    (10) line -> . assignment
-    (11) line -> . function
-    (12) line -> . if_statement
-    (66) value -> . IDENTIFIER
-    (67) value -> . number
-    (68) value -> . string
-    (69) value -> . list
-    (44) comparison -> . value
-    (45) comparison -> . boolean
-    (46) comparison -> . comparison comp_op comparison
-    (47) comparison -> . LPAREN comparison comp_op comparison RPAREN
-    (70) number -> . INTEGER
-    (71) number -> . DOUBLE
-    (72) string -> . STRING
-    (75) list -> . LSQUARE RSQUARE
-    (76) list -> . LSQUARE values RSQUARE
-    (73) boolean -> . TRUE
-    (74) boolean -> . FALSE
+    (72) function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE . lines RBRACE
+    (73) lines -> . line LINE_BREAK
+    (74) lines -> . line
+    (75) lines -> .
+    (76) line -> . print
+    (77) line -> . assignment
+    (78) line -> . function
+    (79) line -> . if_statement
+    (16) print -> . PRINT LPAREN expression RPAREN SEMICOLON
+    (17) print -> . PRINT LPAREN RPAREN SEMICOLON
+    (8) assignment -> . modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (9) assignment -> . type nullable IDENTIFIER ASSIGN expression SEMICOLON
+    (10) assignment -> . modifier type IDENTIFIER ASSIGN expression SEMICOLON
+    (11) assignment -> . type IDENTIFIER ASSIGN expression SEMICOLON
+    (72) function -> . type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE
+    (18) if_statement -> . IF LPAREN logic RPAREN LBRACE lines RBRACE
+    (19) if_statement -> . if_statement ELSE if_statement
+    (20) if_statement -> . if_statement ELSE LBRACE lines RBRACE
+    (13) modifier -> . LATE
+    (14) modifier -> . FINAL
+    (15) modifier -> . CONST
+    (22) type -> . INTEGER_TYPE
+    (23) type -> . DOUBLE_TYPE
+    (24) type -> . BOOLEAN_TYPE
+    (25) type -> . QUEUE_TYPE
+    (26) type -> . STRING_TYPE
+    (27) type -> . ENUM_TYPE
+    (28) type -> . VAR
+    (29) type -> . LIST_TYPE
+    (30) type -> . MAP_TYPE
+    (31) type -> . SET_TYPE
+    (32) type -> . DYNAMIC_TYPE
 
-    RBRACE          reduce using rule 7 (statement -> .)
+    RBRACE          reduce using rule 75 (lines -> .)
     PRINT           shift and go to state 14
     IF              shift and go to state 16
-    LPAREN          shift and go to state 15
-    LOGICAL_NOT     shift and go to state 20
-    IDENTIFIER      shift and go to state 13
     LATE            shift and go to state 21
     FINAL           shift and go to state 22
     CONST           shift and go to state 23
@@ -2984,73 +2946,56 @@ state 140
     MAP_TYPE        shift and go to state 32
     SET_TYPE        shift and go to state 33
     DYNAMIC_TYPE    shift and go to state 34
-    INTEGER         shift and go to state 39
-    DOUBLE          shift and go to state 40
-    STRING          shift and go to state 41
-    LSQUARE         shift and go to state 42
-    TRUE            shift and go to state 43
-    FALSE           shift and go to state 44
 
     type                           shift and go to state 12
-    statement                      shift and go to state 143
-    expression                     shift and go to state 2
-    assignment                     shift and go to state 3
-    print                          shift and go to state 4
-    function                       shift and go to state 5
-    if_statement                   shift and go to state 6
-    lines                          shift and go to state 7
-    arithmetic                     shift and go to state 8
-    logic                          shift and go to state 9
-    function_call                  shift and go to state 10
-    modifier                       shift and go to state 11
+    lines                          shift and go to state 143
     line                           shift and go to state 17
-    value                          shift and go to state 18
-    comparison                     shift and go to state 19
-    number                         shift and go to state 35
-    string                         shift and go to state 36
-    list                           shift and go to state 37
-    boolean                        shift and go to state 38
+    print                          shift and go to state 106
+    assignment                     shift and go to state 107
+    function                       shift and go to state 108
+    if_statement                   shift and go to state 104
+    modifier                       shift and go to state 11
 
 state 141
 
-    (23) if_statement -> IF LPAREN logic RPAREN LBRACE lines . RBRACE
+    (18) if_statement -> IF LPAREN logic RPAREN LBRACE lines . RBRACE
 
     RBRACE          shift and go to state 144
 
 
 state 142
 
-    (13) assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON .
+    (8) assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON .
 
-    $end            reduce using rule 13 (assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
-    LINE_BREAK      reduce using rule 13 (assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
-    RBRACE          reduce using rule 13 (assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 8 (assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
+    LINE_BREAK      reduce using rule 8 (assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
+    RBRACE          reduce using rule 8 (assignment -> modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON .)
 
 
 state 143
 
-    (77) function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE statement . RBRACE
+    (72) function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE lines . RBRACE
 
     RBRACE          shift and go to state 145
 
 
 state 144
 
-    (23) if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .
+    (18) if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .
 
-    ELSE            reduce using rule 23 (if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .)
-    $end            reduce using rule 23 (if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .)
-    LINE_BREAK      reduce using rule 23 (if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .)
-    RBRACE          reduce using rule 23 (if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .)
+    ELSE            reduce using rule 18 (if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .)
+    $end            reduce using rule 18 (if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .)
+    LINE_BREAK      reduce using rule 18 (if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .)
+    RBRACE          reduce using rule 18 (if_statement -> IF LPAREN logic RPAREN LBRACE lines RBRACE .)
 
 
 state 145
 
-    (77) function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE .
+    (72) function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE .
 
-    $end            reduce using rule 77 (function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE .)
-    LINE_BREAK      reduce using rule 77 (function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE .)
-    RBRACE          reduce using rule 77 (function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE statement RBRACE .)
+    $end            reduce using rule 72 (function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE .)
+    LINE_BREAK      reduce using rule 72 (function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE .)
+    RBRACE          reduce using rule 72 (function -> type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE .)
 
 WARNING: 
 WARNING: Conflicts:
@@ -3082,5 +3027,15 @@ WARNING: shift/reduce conflict for LESS in state 121 resolved as shift
 WARNING: shift/reduce conflict for LESS_EQUAL in state 121 resolved as shift
 WARNING: shift/reduce conflict for GREATER in state 121 resolved as shift
 WARNING: shift/reduce conflict for GREATER_EQUAL in state 121 resolved as shift
+WARNING: reduce/reduce conflict in state 0 resolved using rule (statement -> <empty>)
+WARNING: rejected rule (lines -> <empty>) in state 0
+WARNING: reduce/reduce conflict in state 3 resolved using rule (statement -> assignment)
+WARNING: rejected rule (line -> assignment) in state 3
+WARNING: reduce/reduce conflict in state 4 resolved using rule (statement -> print)
+WARNING: rejected rule (line -> print) in state 4
+WARNING: reduce/reduce conflict in state 5 resolved using rule (statement -> function)
+WARNING: rejected rule (line -> function) in state 5
+WARNING: reduce/reduce conflict in state 6 resolved using rule (statement -> if_statement)
+WARNING: rejected rule (line -> if_statement) in state 6
 WARNING: reduce/reduce conflict in state 18 resolved using rule (arithmetic -> value)
 WARNING: rejected rule (comparison -> value) in state 18
