@@ -138,7 +138,7 @@ t_LOGICAL_AND = r'\&\&'
 t_LOGICAL_OR = r'\|\|'
 t_LOGICAL_NOT = r'\!'
 t_QUESTION_MARK = r'\?'
-t_LINE_BREAK = r'\n'
+t_LINE_BREAK = r'(\\n)+'
 
 #Aporte de Juan Pablo Plúas
 def t_DOUBLE(t):

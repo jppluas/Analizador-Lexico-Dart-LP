@@ -148,7 +148,8 @@ def p_function(p):
     '''
 
 def p_lines(p):
-    ''' lines : line LINE_BREAK
+    ''' lines : line LINE_BREAK lines
+            | line lines
             | line
             | 
 
@@ -179,7 +180,7 @@ parser = sint.yacc()
 
 while True:
   try:
-      s = input('Ingrese código: ')
+      s = input('Codigo: ')
   except EOFError:
       break
   if not s: continue
