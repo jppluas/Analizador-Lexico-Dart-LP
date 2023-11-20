@@ -2,16 +2,18 @@ import ply.yacc as sint
 from lexico import tokens
 
 def p_statement(p):
- '''
- statement : expression
-           | assignment
-           | print
-           | function
-           | if_statement
-           | lines
-           |
- '''
-
+    '''
+    statement : expression
+              | assignment
+              | print
+              | function
+              | if_statement
+              | while_statement
+              | for_statement
+              | lines
+              | LBRACE lines RBRACE
+              | 
+    '''
 def p_assignment(p):
     '''  assignment : modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
                     | type nullable IDENTIFIER ASSIGN expression SEMICOLON
@@ -44,7 +46,7 @@ def p_if_statement(p):
 
 def p_function_call(p):
     '''
-    function_call : IDENTIFIER LPAREN parameters RPAREN
+    function_call : IDENTIFIER LPAREN parameters RPAREN SEMICOLON
     '''
 
 def p_type(p):
@@ -59,6 +61,8 @@ def p_type(p):
             | MAP_TYPE
             | SET_TYPE
             | DYNAMIC_TYPE
+            | VOID
+
     '''
 
 def p_expression(p):
@@ -173,11 +177,69 @@ def p_parameters(p):
 def p_parameter(p):
   '''
   parameter : type IDENTIFIER
+            | IDENTIFIER 
   '''
+def p_map(p):
+    '''
+    map : MAP_TYPE LESS type COMMA type GREATER
+        | MAP_TYPE LESS type COMMA type GREATER LSQUARE values RSQUARE
+        | MAP_TYPE LESS type COMMA type GREATER LSQUARE RSQUARE
+    '''
+
+def p_set(p):
+    '''
+    set : SET_TYPE LESS type GREATER
+        | SET_TYPE LESS type GREATER LSQUARE values RSQUARE
+        | SET_TYPE LESS type GREATER LSQUARE RSQUARE
+    '''
+def p_queue(p):
+    '''
+    queue : QUEUE_TYPE LESS type GREATER
+          | QUEUE_TYPE LESS type GREATER LSQUARE values RSQUARE
+          | QUEUE_TYPE LESS type GREATER LSQUARE RSQUARE
+    '''
+def p_while_statement(p):
+    '''
+    while_statement : WHILE LPAREN logic RPAREN LBRACE lines RBRACE
+    '''
+
+
+def p_for_statement(p):
+    '''
+    for_statement : FOR LPAREN assignment SEMICOLON logic SEMICOLON assignment RPAREN LBRACE lines RBRACE
+    '''
+
 
 # Build the parser
 parser = sint.yacc()
+# ejemplo codigo Juan
+ejemplo1= """
+void main() {
+  var x = 5;
+  var y = 10;
 
+  if (x > 0) {
+    print('x es positivo');
+  } else {
+    print('x no es positivo');
+  }
+
+  while (y > 0) {
+    print('y es $y');
+    y = y - 1;
+  }
+
+  customFunction(x, y);
+}
+
+void customFunction(int a, int b) {
+  var result = a + b;
+  print('El resultado de la función es $result');
+}
+"""
+result = parser.parse(ejemplo1)
+print(result)
+'''
 while True:
   try:
       s = input('Codigo: ')
@@ -187,3 +249,4 @@ while True:
   result = parser.parse(s)
   if result != None :
      print(result)
+'''

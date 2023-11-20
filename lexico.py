@@ -36,6 +36,7 @@ tokens = (
   'LOGICAL_NOT',
   'QUESTION_MARK',
   'LINE_BREAK',
+
   
   )
 
@@ -156,6 +157,13 @@ def t_STRING(t):
   t.value = t.value[1:-1]  # Eliminar comillas
   return t
 
+def t_VOID(t):
+    r'void'
+    return t
+    
+def t_WHILE(t):
+    r'while'
+    return t
 def t_COMMENT(t):
   r'//.*'
   pass
