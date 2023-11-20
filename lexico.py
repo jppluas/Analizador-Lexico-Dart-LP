@@ -36,8 +36,7 @@ tokens = (
   'LOGICAL_NOT',
   'QUESTION_MARK',
   'LINE_BREAK',
-
-  
+  'INLINE_ARITH'
   )
 
 keywords = {
@@ -142,6 +141,11 @@ t_QUESTION_MARK = r'\?'
 t_LINE_BREAK = r'(\\n)+'
 
 #Aporte de Juan Pablo Plúas
+
+def t_INLINE_ARITH(t):
+    r'(([\+\-\*\/]\=)|(\+\+|\-\-))'
+    return t
+
 def t_DOUBLE(t):
     r'\d+\.\d+'
     return t

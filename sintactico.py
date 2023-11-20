@@ -12,6 +12,7 @@ def p_statement(p):
               | for_statement
               | lines
               | LBRACE lines RBRACE
+              | reassignment
               | 
     '''
 def p_assignment(p):
@@ -19,6 +20,15 @@ def p_assignment(p):
                     | type nullable IDENTIFIER ASSIGN expression SEMICOLON
                     | modifier type IDENTIFIER ASSIGN expression SEMICOLON
                     | type IDENTIFIER ASSIGN expression SEMICOLON
+    '''
+
+def p_reassignment(p):
+    '''
+        reassignment : IDENTIFIER ASSIGN expression SEMICOLON
+                     | IDENTIFIER INLINE_ARITH number SEMICOLON
+                     | IDENTIFIER INLINE_ARITH SEMICOLON
+                     | IDENTIFIER INLINE_ARITH number
+                     | IDENTIFIER INLINE_ARITH
     '''
 
 def p_nullable(p):
@@ -46,7 +56,8 @@ def p_if_statement(p):
 
 def p_function_call(p):
     '''
-    function_call : IDENTIFIER LPAREN parameters RPAREN SEMICOLON
+    function_call : IDENTIFIER LPAREN values RPAREN SEMICOLON
+                    | IDENTIFIER LPAREN values RPAREN
     '''
 
 def p_type(p):
@@ -155,7 +166,8 @@ def p_lines(p):
     ''' lines : line LINE_BREAK lines
             | line lines
             | line
-            | 
+            | LINE_BREAK
+            |
 
     '''
 
@@ -164,6 +176,11 @@ def p_line(p):
             | assignment
             | function
             | if_statement
+            | while_statement
+            | for_statement
+            | function_call
+            | reassignment
+            
     '''
 
 def p_parameters(p):
@@ -206,16 +223,71 @@ def p_while_statement(p):
 
 def p_for_statement(p):
     '''
-    for_statement : FOR LPAREN assignment SEMICOLON logic SEMICOLON assignment RPAREN LBRACE lines RBRACE
+    for_statement : FOR LPAREN assignment SEMICOLON logic SEMICOLON reassignment RPAREN LBRACE lines RBRACE
     '''
 
 
 # Build the parser
 parser = sint.yacc()
 # ejemplo codigo Juan
-ejemplo1= "void main() {\n  var x = 5;\n  var y = 10;\n\n  if (x > 0) {\n    print('x es positivo');\n  } else {\n    print('x no es positivo');\n  }\n\n  while (y > 0) {\n    print('y es $y');\n    y = y - 1;\n  }\n\n  customFunction(x, y);\n}\n\nvoid customFunction(int a, int b) {\n  var result = a + b;\n  print('El resultado de la función es $result');\n}"
-result = parser.parse(ejemplo1)
+ejemplo1= '''void main() {\n  
+var x = 5;\n  
+var y = 10;\n\n  
+
+if (x > 0) {\n    
+print('x es positivo');\n  
+} else {\n    
+print('x no es positivo');\n  
+}\n\n  
+
+while (y > 0) {\n    
+print('y es $y');\n    
+y = y - 1;\n  
+}\n\n 
+
+customFunction(x, y); \n }
+
+void customFunction(int a, int b) {\n 
+var result = a + b;\n  
+print('El resultado de la función es $result');\n
+}'''
+
+ejemplo2 = '''
+void main() { \n
+  int a = 10; \n
+  String b = "Hola mundo"; \n\n
+
+  print("a = $a\n"); \n
+  print("b = $b\n"); \n
+
+  int c = a + 1; \n
+  print("c = $c\n"); \n
+  a++;
+
+  if (a > c) { print("a es mayor que c\n"); \n
+  } else { print("a es menor o igual que c\n"); }
+
+  while (a < 100) { print("a = $a\n"); }
+
+  for (int i = 0; i < 10; i++) { \n
+    print("i = $i\n"); \n
+  }
+\n
+saludar(); \n
+
+}
+\n
+void saludar() { \n
+  print("Hola mundo\n"); \n
+}
+\n
+
+'''
+
+ejemplo3= "i++"
+result = parser.parse(ejemplo2)
 print(result)
+
 '''
 while True:
   try:
