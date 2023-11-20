@@ -20,6 +20,7 @@ def p_assignment(p):
                     | type nullable IDENTIFIER ASSIGN expression SEMICOLON
                     | modifier type IDENTIFIER ASSIGN expression SEMICOLON
                     | type IDENTIFIER ASSIGN expression SEMICOLON
+                    | type IDENTIFIER ASSIGN expression
     '''
 
 def p_reassignment(p):
@@ -58,6 +59,8 @@ def p_function_call(p):
     '''
     function_call : IDENTIFIER LPAREN values RPAREN SEMICOLON
                     | IDENTIFIER LPAREN values RPAREN
+                    | IDENTIFIER LPAREN RPAREN SEMICOLON
+                    | IDENTIFIER LPAREN RPAREN
     '''
 
 def p_type(p):
@@ -223,7 +226,7 @@ def p_while_statement(p):
 
 def p_for_statement(p):
     '''
-    for_statement : FOR LPAREN assignment SEMICOLON logic SEMICOLON reassignment RPAREN LBRACE lines RBRACE
+    for_statement : FOR LPAREN assignment logic SEMICOLON reassignment RPAREN LBRACE lines RBRACE
     '''
 
 
@@ -269,13 +272,13 @@ void main() { \n
 
   while (a < 100) { print("a = $a\n"); }
 
-  for (int i = 0; i < 10; i++) { \n
-    print("i = $i\n"); \n
+  for (int i = 0; i < 10; i++) { print("i = $i\n"); \n
   }
 \n
 saludar(); \n
 
 }
+
 \n
 void saludar() { \n
   print("Hola mundo\n"); \n
@@ -284,8 +287,8 @@ void saludar() { \n
 
 '''
 
-ejemplo3= "i++"
-result = parser.parse(ejemplo2)
+ejemplo3= 'for(int i = 0; i < 10; i++) { } '
+result = parser.parse(ejemplo3)
 print(result)
 
 '''
