@@ -222,7 +222,7 @@ def p_while_statement(p):
 
 
 def p_for_statement(p):
-    '''
+   '''
     for_statement : FOR LPAREN assignment SEMICOLON logic SEMICOLON reassignment RPAREN LBRACE lines RBRACE
     '''
 
@@ -269,7 +269,7 @@ void main() { \n
 
   while (a < 100) { print("a = $a\n"); }
 
-  for (int i = 0; i < 10; i++) { \n
+  for (int i = 0;; i < 10; i++) { \n
     print("i = $i\n"); \n
   }
 \n
@@ -284,7 +284,11 @@ void saludar() { \n
 
 '''
 
-ejemplo3= "i++"
+ejemplo3= '''
+for (int i = 0;; i < 10; i++) { \n
+    print("i = $i\n"); \n
+  }
+'''
 result = parser.parse(ejemplo2)
 print(result)
 
