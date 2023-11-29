@@ -81,14 +81,29 @@ def p_type(p):
 
 def p_expression(p):
     '''  expression : arithmetic
+                    | concate
                     | logic
                     | function_call
+                    | division
     '''
 
 def p_arithmetic(p):
-    ''' arithmetic : value
+    ''' arithmetic : number
         |   arithmetic arith_op arithmetic
         |   LPAREN arithmetic arith_op arithmetic RPAREN
+    '''
+
+def p_division(p):
+    '''
+    division : number DIVIDE number
+    '''
+    if p[3] == 0:
+        print("Error: Division by zero.")
+
+def p_concate(p):
+    ''' concate : string
+        |   concate PLUS concate
+        |   LPAREN concate PLUS concate RPAREN
     '''
 
 def p_comparison(p):
@@ -114,7 +129,6 @@ def p_arith_op(p):
     ''' arith_op : PLUS
         |   MINUS
         |   TIMES
-        |   DIVIDE
     '''
 
 def p_comp_op(p):
@@ -230,8 +244,11 @@ def p_for_statement(p):
     '''
 
 
+
+
 # Build the parser
 parser = sint.yacc()
+
 # ejemplo codigo Juan
 ejemplo1= '''void main() {\n  
 var x = 5;\n  
@@ -288,8 +305,8 @@ void saludar() { \n
 
 '''
 
-ejemplo3= "i++"
-result = parser.parse(ejemplo2)
+ejemplo3= "'hola'+ 'mundo'"
+result = parser.parse(ejemplo3)
 print(result)
 
 '''

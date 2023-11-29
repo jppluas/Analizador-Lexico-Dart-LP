@@ -15,9 +15,9 @@ tokens = (
   'RBRACE',
   'SEMICOLON',
   'STRING',
-  'KEYWORD',
   'COMMENT',
   'BLOCKCOMMENT',
+  'ZERO',
   #Aporte de Juan Pablo Plúas
   'ASSIGN',
   'EQUAL',
@@ -36,7 +36,7 @@ tokens = (
   'LOGICAL_NOT',
   'QUESTION_MARK',
   'LINE_BREAK',
-  'INLINE_ARITH'
+  'INLINE_ARITH',
   )
 
 keywords = {
@@ -59,6 +59,7 @@ keywords = {
   'else': 'ELSE',
   'while': 'WHILE',
   'for': 'FOR',
+   #Aporte de Juan Pablo Plúas
   'return': 'RETURN',
   'switch': 'SWITCH',
   'case': 'CASE',
@@ -70,42 +71,18 @@ keywords = {
   'throw': 'THROW',
   'abstract': 'ABSTRACT',
   'implements': 'IMPLEMENTS',
-  'show': 'SHOW',
-  'as': 'AS',
   'print' : 'PRINT',
-  #Aporte de Juan Pablo Plúas
   'final' : 'FINAL',
   'const' : 'CONST',
-  'import': 'IMPORT',
-  'static': 'STATIC',
-  'assert': 'ASSERT',
   'enum': 'ENUM',
   'in': 'IN',
-  'super': 'SUPER',
-  'async': 'ASYNC',
-  'export': 'EXPORT',
-  'interface': 'INTERFACE',
-  'await': 'AWAIT',
   'extends': 'EXTENDS',
-  'is': 'IS',
-  'sync': 'SYNC',
-  'external': 'EXTERNAL',
-  'library': 'LIBRARY',
-  'on': 'ON',
   'typedef': 'TYPEDEF',
   'default': 'DEFAULT',
   'get': 'GET',
-  'rethrow': 'RETHROW',
-  'deferred': 'DEFERRED',
-  'hide': 'HIDE',
   'do': 'DO',
   'set': 'SET',
-  'yield': 'YIELD',
-  'extension': 'EXTENSION',
   'late': 'LATE',
-  'operator': 'OPERATOR',
-  'part': 'PART',
-  'with': 'WITH',
   'void': 'VOID'
 }
 
@@ -115,7 +92,7 @@ tokens += tuple(keywords.values())
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
-t_DIVIDE = r'/'
+t_DIVIDE = r'\/'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_LBRACE = r'\{'
@@ -155,19 +132,15 @@ def t_INTEGER(t):
     t.value = int(t.value)    
     return t
 
-#Aporte de Juan Gallo
 def t_STRING(t):
-  r'[\"\'](\\.|[^\"\'])*[\"\']' #Acepta comillas simples o dobles
-  t.value = t.value[1:-1]  # Eliminar comillas
+  r'\'\'\'(?:[^\\]|\\.)*?\'\'\'|\"\"\"(?:[^\\]|\\.)*?\"\"\"|\'(?:[^\\\n]|\\.)*?\'|\"(?:[^\\\n]|\\.)*?\"'
+  if t.value.startswith(("'''", '"""')):
+    t.value = t.value[3:-3]  # Eliminar comillas triples
+  else:
+    t.value = t.value[1:-1]  # Eliminar comillas simples o dobles
   return t
 
-def t_VOID(t):
-    r'void'
-    return t
-    
-def t_WHILE(t):
-    r'while'
-    return t
+#Aporte de Juan Gallo
 def t_COMMENT(t):
   r'//.*'
   pass
