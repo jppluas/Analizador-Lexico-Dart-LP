@@ -21,6 +21,41 @@ def p_assignment(p):
                     | modifier type IDENTIFIER ASSIGN expression SEMICOLON
                     | type IDENTIFIER ASSIGN expression SEMICOLON
                     | type IDENTIFIER ASSIGN expression
+                    | int_assignment
+                    | string_assignment
+    '''
+
+#Regla semantica para la asignacion de valores enteros y double a variables
+def p_int_assignment(p):
+    '''  int_assignment : modifier number_type nullable IDENTIFIER ASSIGN NULL SEMICOLON
+                    | number_type nullable IDENTIFIER ASSIGN NULL SEMICOLON
+                    | modifier number_type nullable IDENTIFIER ASSIGN arithmetic SEMICOLON
+                    | number_type nullable IDENTIFIER ASSIGN arithmetic SEMICOLON
+                    | modifier number_type IDENTIFIER ASSIGN arithmetic SEMICOLON
+                    | number_type IDENTIFIER ASSIGN arithmetic SEMICOLON
+                    | number_type IDENTIFIER ASSIGN arithmetic
+    '''
+
+#Regla semantica para la asignacion de strings a variables
+def p_string_assignment(p):
+    '''  string_assignment : modifier string_type nullable IDENTIFIER ASSIGN NULL SEMICOLON
+                    | string_type nullable IDENTIFIER ASSIGN NULL SEMICOLON
+                    | modifier string_type nullable IDENTIFIER ASSIGN concate SEMICOLON
+                    | string_type nullable IDENTIFIER ASSIGN concate SEMICOLON
+                    | modifier string_type IDENTIFIER ASSIGN concate SEMICOLON
+                    | string_type IDENTIFIER ASSIGN concate SEMICOLON
+                    | string_type IDENTIFIER ASSIGN concate
+    '''
+
+def p_number_type(p):
+    ''' number_type : INTEGER_TYPE
+                        | VAR
+                        | DOUBLE_TYPE
+    '''
+
+def p_string_type(p):
+    ''' string_type : STRING_TYPE
+                        | VAR
     '''
 
 def p_reassignment(p):
@@ -37,8 +72,7 @@ def p_nullable(p):
     '''
     
 def p_modifier(p):
-    ''' modifier : LATE
-                | FINAL
+    ''' modifier : FINAL
                 | CONST
     '''
 
@@ -87,18 +121,18 @@ def p_expression(p):
                     | division
     '''
 
+#Regla semantica para la operacion aritmetica de numeros enteros y double
 def p_arithmetic(p):
     ''' arithmetic : number
         |   arithmetic arith_op arithmetic
         |   LPAREN arithmetic arith_op arithmetic RPAREN
     '''
 
+#Regla semantica para la operacion de division de numeros enteros y double
 def p_division(p):
     '''
     division : number DIVIDE number
     '''
-    if p[3] == 0:
-        print("Error: Division by zero.")
 
 def p_concate(p):
     ''' concate : string
@@ -107,10 +141,10 @@ def p_concate(p):
     '''
 
 def p_comparison(p):
-    ''' comparison : value
+    ''' comparison : values
         |   boolean
         |   comparison comp_op comparison
-        |   LPAREN comparison comp_op comparison RPAREN
+        |   LPAREN comparison comp_op number comparison
     '''
     
 def p_logic(p):
@@ -256,6 +290,8 @@ def analizar(input_string):
     parser.parse(input_string)
     return errores
 
+
+
 # Build the parser
 parser = sint.yacc()
 
@@ -290,7 +326,7 @@ void main() { \n
   print("a = $a\n"); \n
   print("b = $b\n"); \n
 
-  int c = a + 1; \n
+  int c = 2 + 1; \n
   print("c = $c\n"); \n
   a++;
 
@@ -315,8 +351,12 @@ void saludar() { \n
 
 '''
 
-ejemplo3= "'hola'+ 'mundo'"
-#result = parser.parse(ejemplo1)
+
+ejemplo3= "7/0"
+result = parser.parse(ejemplo3)
+if result == None :
+     print('PASS')
+
 
 '''
 while True:
