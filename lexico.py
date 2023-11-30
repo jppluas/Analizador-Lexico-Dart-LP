@@ -81,8 +81,6 @@ keywords = {
   'default': 'DEFAULT',
   'get': 'GET',
   'do': 'DO',
-  'set': 'SET',
-  'late': 'LATE',
   'void': 'VOID'
 }
 
@@ -133,11 +131,8 @@ def t_INTEGER(t):
     return t
 
 def t_STRING(t):
-  r'\'\'\'(?:[^\\]|\\.)*?\'\'\'|\"\"\"(?:[^\\]|\\.)*?\"\"\"|\'(?:[^\\\n]|\\.)*?\'|\"(?:[^\\\n]|\\.)*?\"'
-  if t.value.startswith(("'''", '"""')):
-    t.value = t.value[3:-3]  # Eliminar comillas triples
-  else:
-    t.value = t.value[1:-1]  # Eliminar comillas simples o dobles
+  r'[\"\'](\\.|[^\"\'])*[\"\']' #Acepta comillas simples o dobles
+  t.value = t.value[1:-1]  # Eliminar comillas
   return t
 
 #Aporte de Juan Gallo
