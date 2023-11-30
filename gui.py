@@ -15,13 +15,12 @@ class IDE_GUI:
         
         # Menú Archivo
         file_menu = tk.Menu(menu_bar, tearoff=0)
-        menu_bar.add_cascade(label="Archivo", menu=file_menu)
-        file_menu.add_command(label="Nuevo Documento", command=self.nuevo_documento)
-        file_menu.add_command(label="Abrir", command=self.abrir_archivo)
-        file_menu.add_command(label="Guardar", command=self.guardar_archivo)
-        file_menu.add_command(label="Guardar Como", command=self.guardar_como)
-        file_menu.add_separator()
-        file_menu.add_command(label="Salir", command=root.destroy)
+        menu_bar.add_command(label="Nuevo Documento", command=self.nuevo_documento)
+        menu_bar.add_command(label="Abrir", command=self.abrir_archivo)
+        menu_bar.add_command(label="Guardar", command=self.guardar_archivo)
+        menu_bar.add_command(label="Guardar Como", command=self.guardar_como)
+        menu_bar.add_separator()
+        menu_bar.add_command(label="Salir", command=root.destroy)
 
         # principal
         main_frame = tk.Frame(root, bg="#282c34")  
@@ -102,39 +101,18 @@ class IDE_GUI:
     def ejecutar_codigo(self):
         # Limpiar el área de resultados antes de mostrar la nueva salida
         self.limpiar_resultados()
-        
         # Obtener el código
         codigo = self.code_text.get(1.0, tk.END)
-        # Crear una instancia del parser
-        parser = sint.yacc()
-        original_stdout = sys.stdout
-        #print(original_stdout)
-        '''
-        try:
-            # Redirigir la salida estándar a una variable
-            original_stdout = sys.stdout
-            sys.stdout = StringIO()
-            # Parsear el código
-            result = parser.parse(codigo)
-            # Capturar la salida estándar
-            output_captured = sys.stdout.getvalue()
-            # Restaurar la salida estándar original
-            sys.stdout = original_stdout
-            # Mostrar el resultado y la salida
-            self.resultados_text.config(state=tk.NORMAL)
-            self.resultados_text.insert(tk.END, f"Resultado del análisis sintáctico:\n{result}\n\nSalida de la terminal:\n{output_captured}")
+        result = parser.parse(codigo)
+        mensajes_de_error = analizar(codigo)
         
-            # Deshabilitar la edición en el área de resultados
-            self.resultados_text.config(state=tk.DISABLED)
-
-        except Exception as e:
-            # Mostrar el error en el área de resultados
-            self.resultados_text.config(state=tk.NORMAL)
-            self.resultados_text.insert(tk.END, f"Error de análisis sintáctico:\n{e}")
-
-            # Deshabilitar la edición en el área de resultados
-            self.resultados_text.config(state=tk.DISABLED)
-            '''
+        self.resultados_text.config(state=tk.NORMAL)
+        if (len(mensajes_de_error)==0):
+            self.resultados_text.insert(tk.END, f"Sin errores")
+        else:
+            self.resultados_text.insert(tk.END, f"{mensajes_de_error}")
+       
+        self.resultados_text.config(state=tk.DISABLED)
 
     def limpiar_resultados(self):
         # Limpiar el contenido del área de resultados

@@ -1,6 +1,6 @@
 import ply.yacc as sint
 from lexico import tokens
-
+errores = ""
 def p_statement(p):
     '''
     statement : expression
@@ -243,8 +243,18 @@ def p_for_statement(p):
     for_statement : FOR LPAREN assignment SEMICOLON logic SEMICOLON reassignment RPAREN LBRACE lines RBRACE
     '''
 
-
-
+def p_error(p):
+    global errores
+    error_message = "Error de sintaxis en la entrada en el token '{}'\n".format(p.value)
+    error_message += "Tipo del token: {}\n".format(p.type)
+    error_message += "Ubicacion del error - Linea {}, Posicion {}\n".format(p.lineno, p.lexpos)
+    errores += error_message
+   
+def analizar(input_string):
+    global errores
+    errores = ""  # Reinicia la cadena de errores antes de cada análisis
+    parser.parse(input_string)
+    return errores
 
 # Build the parser
 parser = sint.yacc()
@@ -306,8 +316,7 @@ void saludar() { \n
 '''
 
 ejemplo3= "'hola'+ 'mundo'"
-result = parser.parse(ejemplo3)
-
+#result = parser.parse(ejemplo1)
 
 '''
 while True:
