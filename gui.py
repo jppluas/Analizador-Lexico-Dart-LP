@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog
-
+from sintactico import *
+import sys
+from io import StringIO
 class IDE_GUI:
     def __init__(self, root):
         self.root = root
@@ -10,7 +12,7 @@ class IDE_GUI:
         #  menú
         menu_bar = tk.Menu(root)
         root.config(menu=menu_bar)
-
+        
         # Menú Archivo
         file_menu = tk.Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="Archivo", menu=file_menu)
@@ -24,42 +26,41 @@ class IDE_GUI:
         # principal
         main_frame = tk.Frame(root, bg="#282c34")  
         main_frame.pack(fill=tk.BOTH, expand=True)
-
-        # para abrir archivos
-        left_frame = tk.Frame(main_frame, padx=10, pady=10, bg="#282c34")  
-        left_frame.pack(side=tk.LEFT, fill=tk.Y)
-
-        open_button = tk.Button(left_frame, text="Abrir archivo", command=self.abrir_archivo, bg="#61dafb")  
-        open_button.pack(pady=10)
-
+        
         # Botón Ejecutar
-        execute_button = tk.Button(left_frame, text="Ejecutar", command=self.ejecutar_codigo, bg="#61dafb")  
+        execute_button = tk.Button(main_frame, text="Ejecutar", command=self.ejecutar_codigo, bg="#61dafb")  
         execute_button.pack(pady=10)
-
-        # Marco derecho (para escribir código)
-        right_frame = tk.Frame(main_frame, padx=10, pady=10, bg="#282c34") 
-        right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+    
+       # Subframe para alinear y apilar horizontalmente
+        a_frame = tk.Frame(main_frame, bg="#282c34", width=300, height=300)
+        a_frame.pack(side=tk.TOP)
 
         # Área de texto para números de línea
-        self.linenumbers = tk.Text(right_frame, width=4, padx=5, bg="#282c34", fg="#61dafb", bd=0, wrap=tk.NONE)
-        self.linenumbers.pack(side=tk.LEFT, fill=tk.Y)
+        self.linenumbers = tk.Text(a_frame, width=2, bg="#282c34", fg="#61dafb", bd=0, wrap=tk.NONE)
+        self.linenumbers.grid(row=0, column=0, sticky=tk.NS)
 
-        # Área de texto 
-        self.code_text = tk.Text(right_frame, wrap=tk.WORD, bg="#1e1e1e", fg="white", insertbackground="white")
-        self.code_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        # Área de texto
+        self.code_text = tk.Text(a_frame, wrap=tk.WORD, bg="#1e1e1e", fg="white", insertbackground="white")
+        self.code_text.grid(row=0, column=1, sticky=tk.NSEW)
 
-        # Barra de desplazamiento 
-        y_scroll_bar = tk.Scrollbar(right_frame, command=self.on_scroll)
-        y_scroll_bar.pack(side=tk.RIGHT, fill=tk.Y)
+        # Barra de desplazamiento
+        y_scroll_bar = tk.Scrollbar(a_frame, command=self.on_scroll)
+        y_scroll_bar.grid(row=0, column=2, sticky=tk.NS)
         self.code_text.config(yscrollcommand=y_scroll_bar.set)
 
+        # subframe2
+        subframe2=tk.Frame(main_frame, bg="#282c34")
+        subframe2.pack(side=tk.BOTTOM, fill=tk.BOTH)
+        # Área de resultados
+        self.resultados_text = tk.Text(main_frame, wrap=tk.WORD, bg="#1e1e1e", fg="white", insertbackground="white")
+        self.resultados_text.pack(side=tk.BOTTOM, expand=True)
+        self.resultados_text.config(state=tk.DISABLED)
         # Ruta del archivo actual
         self.file_path = None
 
-       
+        # Configurar la actualización de los números de línea
         self.actualizar_numeros_de_linea()
 
-     
         self.code_text.bind('<Configure>', self.actualizar_numeros_de_linea)
         self.code_text.bind('<KeyRelease>', self.actualizar_numeros_de_linea)
 
@@ -99,11 +100,47 @@ class IDE_GUI:
         self.actualizar_numeros_de_linea()
 
     def ejecutar_codigo(self):
-        # Obtener el código 
-        codigo = self.code_text.get(1.0, tk.END)
+        # Limpiar el área de resultados antes de mostrar la nueva salida
+        self.limpiar_resultados()
         
-        print("Código a ejecutar:")
-        print(codigo)
+        # Obtener el código
+        codigo = self.code_text.get(1.0, tk.END)
+        # Crear una instancia del parser
+        parser = sint.yacc()
+        original_stdout = sys.stdout
+        #print(original_stdout)
+        '''
+        try:
+            # Redirigir la salida estándar a una variable
+            original_stdout = sys.stdout
+            sys.stdout = StringIO()
+            # Parsear el código
+            result = parser.parse(codigo)
+            # Capturar la salida estándar
+            output_captured = sys.stdout.getvalue()
+            # Restaurar la salida estándar original
+            sys.stdout = original_stdout
+            # Mostrar el resultado y la salida
+            self.resultados_text.config(state=tk.NORMAL)
+            self.resultados_text.insert(tk.END, f"Resultado del análisis sintáctico:\n{result}\n\nSalida de la terminal:\n{output_captured}")
+        
+            # Deshabilitar la edición en el área de resultados
+            self.resultados_text.config(state=tk.DISABLED)
+
+        except Exception as e:
+            # Mostrar el error en el área de resultados
+            self.resultados_text.config(state=tk.NORMAL)
+            self.resultados_text.insert(tk.END, f"Error de análisis sintáctico:\n{e}")
+
+            # Deshabilitar la edición en el área de resultados
+            self.resultados_text.config(state=tk.DISABLED)
+            '''
+
+    def limpiar_resultados(self):
+        # Limpiar el contenido del área de resultados
+        self.resultados_text.config(state=tk.NORMAL)
+        self.resultados_text.delete(1.0, tk.END)
+        self.resultados_text.config(state=tk.DISABLED)
 
     def on_scroll(self, *args):
         self.code_text.yview_moveto(args[0])

@@ -1,28 +1,21 @@
-void main() { \n
-  int a = 10; \n
-  String b = "Hola mundo"; \n\n
+void main() {\n  
+var x = 5;\n  
+var y = 10;\n\n  
 
-  print("a = $a\n"); \n
-  print("b = $b\n"); \n
+if (x > 0) {\n    
+print('x es positivo');\n  
+} else {\n    
+print('x no es positivo');\n  
+}\n\n  
 
-  int c = a + 1; \n
-  print("c = $c\n"); \n
-  a++;
+while (y > 0) {\n    
+print('y es $y');\n    
+y = y - 1;\n  
+}\n\n 
 
-  if (a > c) { print("a es mayor que c\n"); \n
-  } else { print("a es menor o igual que c\n"); }
+customFunction(x, y); \n }
 
-  while (a < 100) { print("a = $a\n"); }
-
-  for (int i = 0;; i < 10; i++) { \n
-    print("i = $i\n"); \n
-  }
-\n
-saludar(); \n
-
+void customFunction(int a, int b) {\n 
+var result = a + b;\n  
+print('El resultado de la función es $result');\n
 }
-\n
-void saludar() { \n
-  print("Hola mundo\n"); \n
-}
-\n
