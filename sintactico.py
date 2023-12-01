@@ -15,13 +15,13 @@ def p_statement(p):
               | reassignment
               | 
     '''
+
 def p_assignment(p):
     '''  assignment : modifier type nullable IDENTIFIER ASSIGN expression SEMICOLON
                     | type nullable IDENTIFIER ASSIGN expression SEMICOLON
                     | modifier type IDENTIFIER ASSIGN expression SEMICOLON
                     | type IDENTIFIER ASSIGN expression SEMICOLON
                     | type IDENTIFIER ASSIGN expression
-                    | int_assignment
                     | string_assignment
                     | list_assigment
                     | map_assigment
@@ -144,18 +144,21 @@ def p_concate(p):
         |   concate PLUS concate
         |   LPAREN concate PLUS concate RPAREN
     '''
-"""
+
 def p_comparison(p):
     ''' comparison : values
         |   boolean
         |   comparison comp_op comparison
         |   LPAREN comparison comp_op number comparison
-    '''
-"""
-def p_comparison(p):
-    ''' comparison : int_comparison
+        | int_comparison
         |   string_comparison
     '''
+
+#def p_comparison(p):
+#    ''' comparison : int_comparison
+#        |   string_comparison
+#    '''
+
 #Regla semantica para la comparacion de numeros enteros y double
 def p_int_comparison(p):
     ''' int_comparison : boolean
@@ -309,8 +312,9 @@ def p_while_statement(p):
 
 def p_for_statement(p):
     '''
-    for_statement : FOR LPAREN assignment SEMICOLON logic SEMICOLON reassignment RPAREN LBRACE lines RBRACE
+    for_statement : FOR LPAREN assignment logic SEMICOLON reassignment RPAREN LBRACE lines RBRACE
     '''
+
 
 def p_error(p):
     global errores
@@ -388,7 +392,7 @@ void saludar() { \n
 
 
 ejemplo3= "7/0"
-result = parser.parse(ejemplo3)
+result = parser.parse(ejemplo1)
 if result == None :
      print('PASS')
 
