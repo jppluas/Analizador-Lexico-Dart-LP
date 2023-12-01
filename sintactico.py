@@ -232,7 +232,8 @@ def p_list(p):
                 | LSQUARE values RSQUARE
     '''
 def p_list_assigment(p):
-    ''' list_assigment :   LIST_TYPE IDENTIFIER ASSIGN list SEMICOLON    
+    ''' list_assigment :   LIST_TYPE IDENTIFIER ASSIGN list SEMICOLON
+                      |    LIST_TYPE LESS type GREATER IDENTIFIER ASSIGN list SEMICOLON
 
     '''
 def p_function(p):

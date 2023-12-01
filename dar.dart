@@ -17,8 +17,10 @@ for (int i = 0; i < 10; i++) {
 List numeros = [1,2,3,4,5];
 print(numeros); 
 List lista1= [];
+List<List> lista1= [1,2,3,[1,2,3]];
 Map<int,int> numeros = {};
 Map<String, int> miMapa = {"clave1": 1, "clave2": 2, "clave3": 3};
 }
+
 
 
