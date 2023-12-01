@@ -23,28 +23,32 @@ def p_assignment(p):
                     | type IDENTIFIER ASSIGN expression
                     | int_assignment
                     | string_assignment
+                    | 
+                    | map_assigment
     '''
 
 #Regla semantica para la asignacion de valores enteros y double a variables
 def p_int_assignment(p):
-    '''  int_assignment : modifier number_type nullable IDENTIFIER ASSIGN NULL SEMICOLON
+    '''  int_assignment :  number_type IDENTIFIER ASSIGN arithmetic SEMICOLON
+                    | number_type IDENTIFIER ASSIGN arithmetic
+                    | modifier number_type nullable IDENTIFIER ASSIGN NULL SEMICOLON
                     | number_type nullable IDENTIFIER ASSIGN NULL SEMICOLON
                     | modifier number_type nullable IDENTIFIER ASSIGN arithmetic SEMICOLON
                     | number_type nullable IDENTIFIER ASSIGN arithmetic SEMICOLON
                     | modifier number_type IDENTIFIER ASSIGN arithmetic SEMICOLON
-                    | number_type IDENTIFIER ASSIGN arithmetic SEMICOLON
-                    | number_type IDENTIFIER ASSIGN arithmetic
+                    
     '''
 
 #Regla semantica para la asignacion de strings a variables
 def p_string_assignment(p):
-    '''  string_assignment : modifier string_type nullable IDENTIFIER ASSIGN NULL SEMICOLON
-                    | string_type nullable IDENTIFIER ASSIGN NULL SEMICOLON
-                    | modifier string_type nullable IDENTIFIER ASSIGN concate SEMICOLON
-                    | string_type nullable IDENTIFIER ASSIGN concate SEMICOLON
-                    | modifier string_type IDENTIFIER ASSIGN concate SEMICOLON
-                    | string_type IDENTIFIER ASSIGN concate SEMICOLON
-                    | string_type IDENTIFIER ASSIGN concate
+    '''  string_assignment : type_string IDENTIFIER ASSIGN concate SEMICOLON
+                    | type_string IDENTIFIER ASSIGN concate
+                    | modifier type_string nullable IDENTIFIER ASSIGN NULL SEMICOLON
+                    | type_string nullable IDENTIFIER ASSIGN NULL SEMICOLON
+                    | modifier type_string nullable IDENTIFIER ASSIGN concate SEMICOLON
+                    | type_string nullable IDENTIFIER ASSIGN concate SEMICOLON
+                    | modifier type_string IDENTIFIER ASSIGN concate SEMICOLON
+                  
     '''
 
 def p_number_type(p):
@@ -53,9 +57,9 @@ def p_number_type(p):
                         | DOUBLE_TYPE
     '''
 
-def p_string_type(p):
-    ''' string_type : STRING_TYPE
-                        | VAR
+def p_type_string(p):
+    ''' type_string : STRING_TYPE
+                    | VAR
     '''
 
 def p_reassignment(p):
@@ -126,6 +130,7 @@ def p_arithmetic(p):
     ''' arithmetic : number
         |   arithmetic arith_op arithmetic
         |   LPAREN arithmetic arith_op arithmetic RPAREN
+        
     '''
 
 #Regla semantica para la operacion de division de numeros enteros y double
@@ -139,14 +144,31 @@ def p_concate(p):
         |   concate PLUS concate
         |   LPAREN concate PLUS concate RPAREN
     '''
-
+"""
 def p_comparison(p):
     ''' comparison : values
         |   boolean
         |   comparison comp_op comparison
         |   LPAREN comparison comp_op number comparison
     '''
-    
+"""
+def p_comparison(p):
+    ''' comparison : int_comparison
+        |   string_comparison
+    '''
+#Regla semantica para la comparacion de numeros enteros y double
+def p_int_comparison(p):
+    ''' int_comparison : boolean
+        |   number comp_op number
+        |   LPAREN number comp_op number RPAREN
+    '''
+
+#Regla semantica para la comparacion de strings
+def p_string_comparison(p):
+    ''' string_comparison : boolean
+        |   string comp_op string
+        |   LPAREN string comp_op string RPAREN
+    '''   
 def p_logic(p):
     ''' logic : comparison
         |   logic logic_op logic
@@ -250,10 +272,19 @@ def p_parameter(p):
 def p_map(p):
     '''
     map : MAP_TYPE LESS type COMMA type GREATER
-        | MAP_TYPE LESS type COMMA type GREATER LSQUARE values RSQUARE
-        | MAP_TYPE LESS type COMMA type GREATER LSQUARE RSQUARE
+        | MAP_TYPE
     '''
-
+def p_map_assignment(p):
+    '''
+    map_assigment : map IDENTIFIER ASSIGN LBRACE RBRACE SEMICOLON
+                |   map IDENTIFIER ASSIGN LBRACE map_values RBRACE SEMICOLON
+                |   IDENTIFIER IDENTIFIER ASSIGN LBRACE map_values RBRACE SEMICOLON
+                |   IDENTIFIER ASSIGN LBRACE RBRACE SEMICOLON
+    '''
+def p_values_map(p):
+    '''map_values : type COLON type
+                 |  type COLON type COMMA map_values
+    '''
 def p_set(p):
     '''
     set : SET_TYPE LESS type GREATER
