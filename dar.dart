@@ -1,21 +1,21 @@
-void main() {\n  
-var x = 5;\n  
-var y = 10;\n\n  
-
-if (x > 0) {\n    
-print('x es positivo');\n  
-} else {\n    
-print('x no es positivo');\n  
-}\n\n  
-
-while (y > 0) {\n    
-print('y es $y');\n    
-y = y - 1;\n  
-}\n\n 
-
-customFunction(x, y); \n }
-
-void customFunction(int a, int b) {\n 
-var result = a + b;\n  
-print('El resultado de la función es $result');\n
+void main() {  
+int x = 5; 
+int y = 10; 
+if (1 > 0) {   
+	print('x es positivo'); 
+} else {   
+	print('x no es positivo');  
+} 
+while (2 > 0) {   
+	print('y es $y');    
+	y = 2- 1; 
 }
+for (int i = 0; i < 10; i++) {
+    print("i = $i\n"); 
+  }
+List numeros = [1,2,3,4,5];
+print(numeros); 
+List lista1= [];
+Map<String,int> persona = {};
+}
+

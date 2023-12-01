@@ -24,7 +24,7 @@ def p_assignment(p):
                     | type IDENTIFIER ASSIGN expression
                     | string_assignment
                     | list_assigment
-                    | map_assigment
+                    | map_assignment
     '''
 
 #Regla semantica para la asignacion de valores enteros y double a variables
@@ -53,8 +53,8 @@ def p_string_assignment(p):
 
 def p_number_type(p):
     ''' number_type : INTEGER_TYPE
-                        | VAR
                         | DOUBLE_TYPE
+                        | VAR
     '''
 
 def p_type_string(p):
@@ -150,7 +150,7 @@ def p_comparison(p):
         |   boolean
         |   comparison comp_op comparison
         |   LPAREN comparison comp_op number comparison
-        | int_comparison
+        |   int_comparison
         |   string_comparison
     '''
 
@@ -229,12 +229,10 @@ def p_boolean(p):
 
 def p_list(p):
     ''' list : LSQUARE RSQUARE
-            | LSQUARE values RSQUARE
+                | LSQUARE values RSQUARE
     '''
 def p_list_assigment(p):
-    ''' list_assigment : IDENTIFIER ASSIGN list SEMICOLON
-                | type ASSIGN list SEMICOLON
-
+    ''' list_assigment :   LIST_TYPE IDENTIFIER ASSIGN list SEMICOLON    
 
     '''
 def p_function(p):
@@ -278,16 +276,16 @@ def p_parameter(p):
   '''
 def p_map(p):
     '''
-    map : MAP_TYPE LESS type COMMA type GREATER
-        | MAP_TYPE
+    map : MAP_TYPE
+        | MAP_TYPE LESS type COMMA type GREATER
     '''
 def p_map_assignment(p):
     '''
-    map_assigment : map IDENTIFIER ASSIGN LBRACE RBRACE SEMICOLON
-                |   map IDENTIFIER ASSIGN LBRACE map_values RBRACE SEMICOLON
-                |   IDENTIFIER IDENTIFIER ASSIGN LBRACE map_values RBRACE SEMICOLON
-                |   IDENTIFIER ASSIGN LBRACE RBRACE SEMICOLON
+    map_assignment : MAP_TYPE IDENTIFIER ASSIGN LBRACE RBRACE SEMICOLON
+                   | MAP_TYPE LESS type COMMA type GREATER IDENTIFIER ASSIGN LBRACE map_values RBRACE SEMICOLON
+                   | MAP_TYPE LESS type COMMA type GREATER IDENTIFIER ASSIGN LBRACE RBRACE SEMICOLON
     '''
+
 def p_values_map(p):
     '''map_values : type COLON type
                  |  type COLON type COMMA map_values
