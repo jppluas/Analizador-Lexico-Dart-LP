@@ -23,7 +23,7 @@ def p_assignment(p):
                     | type IDENTIFIER ASSIGN expression
                     | int_assignment
                     | string_assignment
-                    | 
+                    | list_assigment
                     | map_assigment
     '''
 
@@ -227,9 +227,13 @@ def p_boolean(p):
 def p_list(p):
     ''' list : LSQUARE RSQUARE
             | LSQUARE values RSQUARE
-    
     '''
+def p_list_assigment(p):
+    ''' list_assigment : IDENTIFIER ASSIGN list SEMICOLON
+                | type ASSIGN list SEMICOLON
 
+
+    '''
 def p_function(p):
     '''
     function : type IDENTIFIER LPAREN parameters RPAREN LBRACE lines RBRACE
